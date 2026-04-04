@@ -1,0 +1,9 @@
+.codex
+.env
+__pycache__/
+*.py[cod]
+env/
+venv/
+server_log.txt
+*.log
+player_stats.json

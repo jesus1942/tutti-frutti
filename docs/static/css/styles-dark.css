@@ -1,0 +1,64 @@
+/* Estilos para modo oscuro (esta es una versión mínima) */
+.dark-mode {
+  --color-primary: #4ecdc4;
+  --color-secondary: #ff6b6b;
+  --color-background: #222222;
+  --color-text: #f5f5f5;
+  --color-light: #333333;
+  --color-border: #444444;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-danger: #dc3545;
+}
+
+.dark-mode body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.dark-mode .room-info,
+.dark-mode .player-list-container,
+.dark-mode .ready-control,
+.dark-mode .admin-panel,
+.dark-mode .chat-container,
+.dark-mode .game-info,
+.dark-mode .game-board,
+.dark-mode .answers-review,
+.dark-mode .scoreboard,
+.dark-mode .speed-stats-summary,
+.dark-mode .winner-display,
+.dark-mode .modal-content,
+.dark-mode #welcome-screen form {
+  background-color: #333333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .player-speed-card,
+.dark-mode .speed-stats-player,
+.dark-mode .chat-messages,
+.dark-mode table th {
+  background-color: #444444;
+}
+
+.dark-mode .player-speed-card.player-speed-fastest {
+  background-color: rgba(40, 167, 69, 0.2);
+}
+
+.dark-mode .answer-item {
+  background-color: #3a3a3a;
+}
+
+.dark-mode .disconnected-label {
+  color: #aaa;
+}
+
+.dark-mode .footer {
+  color: #aaa;
+}
+
+.dark-mode input,
+.dark-mode select {
+  background-color: #444444;
+  color: var(--color-text);
+  border-color: #555555;
+}

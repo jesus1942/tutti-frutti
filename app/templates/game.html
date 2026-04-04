@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="neu">
+  <h2>Sala {{ room.name }}</h2>
+  <p>Letra actual: <strong>{{ room.current_letter }}</strong></p>
+  <h4>Jugadores</h4>
+  <ul>{% for p in room.players %}<li>{{ p }}</li>{% endfor %}</ul>
+
+  {% if room.host == "host" %}
+  <label>
+    <input type="checkbox" id="shareToggle" onchange="toggleShare()" {% if room.share_allowed %}checked{% endif %}>
+    Permitir compartir link
+  </label>
+  {% endif %}
+
+  <a href="/lobby">Volver al lobby</a>
+</div>
+
+<script>
+async function toggleShare(){
+  const allow = document.getElementById('shareToggle').checked;
+  await fetch(`/api/share/{{ room.id }}`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({allow})
+  });
+}
+</script>
+{% endblock %}

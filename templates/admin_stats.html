@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutti Frutti - Panel de Administración</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles-inference.css">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .stats-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .server-status {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .status-running {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-stopped {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container admin-container">
+        <header>
+            <h1>TUTTI FRUTTI</h1>
+            <h2>Panel de Estadísticas</h2>
+        </header>
+        
+        <!-- Tarjeta de estado del servidor -->
+        <div class="stats-card">
+            <div class="stats-header">
+                <h3>Estado del servidor</h3>
+                <div>
+                    <span id="server-status" class="server-status">Cargando...</span>
+                    <button id="refresh-btn" class="btn primary-btn">Actualizar</button>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="active-rooms">-</div>
+                    <div class="stat-label">Salas activas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="total-players">-</div>
+                    <div class="stat-label">Jugadores registrados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="total-games">-</div>
+                    <div class="stat-label">Partidas jugadas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="uptime">-</div>
+                    <div class="stat-label">Tiempo de actividad</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabla de jugadores -->
+        <div class="stats-card">
+            <h3>Estadísticas de jugadores</h3>
+            <p>Los datos de jugadores se cargarán cuando el servidor esté disponible.</p>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>Desarrollado por Jesús Olguín &copy; 2025</p>
+        <p><a href="/" class="admin-link" target="_blank">Volver al juego</a></p>
+    </footer>
+    
+    <script>
+        // Verificar estado del servidor
+        document.getElementById('refresh-btn').addEventListener('click', function() {
+            document.getElementById('server-status').textContent = 'Verificando...';
+            
+            setTimeout(function() {
+                document.getElementById('server-status').textContent = 'En ejecución';
+                document.getElementById('server-status').className = 'server-status status-running';
+                
+                // Actualizar estadísticas simuladas
+                document.getElementById('active-rooms').textContent = '2';
+                document.getElementById('total-players').textContent = '10';
+                document.getElementById('total-games').textContent = '5';
+                document.getElementById('uptime').textContent = '30m';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

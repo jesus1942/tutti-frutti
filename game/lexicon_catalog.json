@@ -1,0 +1,58 @@
+{
+  "category_metadata": {
+    "nombre": {
+      "label": "Nombre",
+      "generic_usage_template": "\"{display}\" se usa como nombre propio de persona en español."
+    },
+    "animal": {
+      "label": "Animal",
+      "generic_usage_template": "\"{display}\" se usa para nombrar un animal en español."
+    },
+    "fruta/verdura": {
+      "label": "Fruta/Verdura",
+      "generic_usage_template": "\"{display}\" se usa para nombrar una fruta, verdura o alimento vegetal en español."
+    },
+    "pais/ciudad": {
+      "label": "País/Ciudad",
+      "generic_usage_template": "\"{display}\" se usa como nombre geográfico de país o ciudad."
+    },
+    "objeto": {
+      "label": "Objeto",
+      "generic_usage_template": "\"{display}\" se usa para nombrar un objeto físico o de uso cotidiano."
+    }
+  },
+  "entry_overrides": {
+    "tobias": {
+      "display": "Tobias",
+      "usage": "\"Tobias\" es un nombre propio masculino usado para identificar personas."
+    },
+    "thiago": {
+      "display": "Thiago",
+      "usage": "\"Thiago\" es un nombre propio masculino frecuente en español rioplatense."
+    },
+    "toronto": {
+      "display": "Toronto",
+      "usage": "\"Toronto\" se usa para nombrar la ciudad canadiense de Toronto."
+    },
+    "tomate": {
+      "display": "Tomate",
+      "usage": "\"Tomate\" se usa para nombrar el fruto comestible empleado en ensaladas, salsas y otras preparaciones."
+    },
+    "toronja": {
+      "display": "Toronja",
+      "usage": "\"Toronja\" se usa para nombrar un cítrico grande y de sabor amargo o agridulce."
+    },
+    "tigre": {
+      "display": "Tigre",
+      "usage": "\"Tigre\" se usa para nombrar al felino salvaje rayado de gran tamaño."
+    },
+    "tijera": {
+      "display": "Tijera",
+      "usage": "\"Tijera\" se usa para cortar papel, tela u otros materiales con dos hojas articuladas."
+    },
+    "trompeta": {
+      "display": "Trompeta",
+      "usage": "\"Trompeta\" se usa para nombrar el instrumento musical de viento-metal."
+    }
+  }
+}

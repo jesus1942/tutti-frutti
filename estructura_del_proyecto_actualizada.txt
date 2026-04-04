@@ -1,0 +1,38 @@
+tutti-frutti/
+├── app.py                    # Script principal para iniciar todos los servidores
+├── simple_app.py             # Servidor principal del juego (versión simplificada)
+├── admin_panel.py            # Panel de administración
+├── config.py                 # Configuración central
+├── game/                     # Directorio con componentes del juego
+│   ├── __init__.py           # Archivo init para que "game" sea un módulo
+│   ├── stats_manager.py      # Gestor de estadísticas
+│   ├── connection_manager.py # Base del gestor de conexiones
+│   ├── message_handler.py    # Manejador de mensajes del juego
+│   ├── game_state.py         # Gestión del estado del juego
+│   ├── game_validator.py     # Lógica de validación de respuestas
+│   └── game_util.py          # Utilidades para el juego
+├── routes/                   # Rutas API
+│   ├── __init__.py
+│   ├── api_routes.py         # Rutas API para el juego
+│   ├── admin_routes.py       # Rutas para el panel de administración
+│   └── main_routes.py        # Rutas principales de la aplicación web
+├── models/                   # Modelos de datos
+│   ├── __init__.py
+│   ├── game_config.py        # Modelos para la configuración del juego
+│   └── game_message.py       # Modelos para los mensajes del juego
+├── utils/                    # Utilidades
+│   ├── __init__.py
+│   ├── config_manager.py     # Utilidades para gestionar configuración
+│   └── network.py            # Utilidades para la gestión de red
+├── setup.sh                  # Script para configurar el entorno
+├── requirements.txt          # Dependencias del proyecto
+├── static/                   # Archivos estáticos
+│   ├── css/                  # Estilos CSS
+│   ├── js/                   # Scripts JavaScript
+│   └── img/                  # Imágenes
+└── templates/                # Plantillas HTML
+    ├── index.html            # Página principal del juego
+    ├── login.html            # Página de inicio de sesión
+    ├── register.html         # Página de registro
+    ├── admin_stats.html      # Página de estadísticas de administración
+    └── debug.html            # Página de diagnóstico

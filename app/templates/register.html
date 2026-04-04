@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="neu">
+  <h2>Registro</h2>
+  <form action="/auth/register" method="post">
+    <input name="username" placeholder="Usuario" required>
+    <input name="email" type="email" placeholder="Email" required>
+    <input name="password" type="password" placeholder="Contraseña" required>
+    <button>Crear</button>
+  </form>
+  <p style="text-align:center;margin-top:20px"><a href="/">Ya tengo cuenta</a></p>
+</div>
+{% endblock %}

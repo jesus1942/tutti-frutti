@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="neu">
+  <h2>Lobby</h2>
+  <button onclick="crear()">Crear sala</button>
+  <ul id="salas"></ul>
+</div>
+<script>
+async function listar(){
+  const r=await fetch("/lobby/list"); const s=await r.json();
+  const ul=document.getElementById("salas"); ul.innerHTML="";
+  s.forEach(room=>{
+    const li=document.createElement("li");
+    li.innerHTML=`<a href="/game/${room.id}">${room.name}</a>`;
+    ul.appendChild(li);
+  });
+}
+async function crear(){
+  const name=prompt("Nombre de sala:");
+  if(!name) return;
+  await fetch("/lobby/create",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name})});
+  listar();
+}
+listar();
+</script>
+{% endblock %}

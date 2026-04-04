@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="neu">
+  <h2>Ingresar</h2>
+  <form action="/auth/login" method="post">
+    <input name="username" placeholder="Usuario" required>
+    <input name="password" type="password" placeholder="Contraseña" required>
+    <button>Ingresar</button>
+  </form>
+  <p style="text-align:center;margin-top:20px"><a href="/register">Crear cuenta</a></p>
+</div>
+{% endblock %}
