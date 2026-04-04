@@ -53,39 +53,55 @@ Si quieres iniciar también el panel administrativo:
 ./venv/bin/python app.py
 ```
 
-## Compartir En GitHub Pages
+## Deploy En GitHub Pages
 
-GitHub Pages solo puede servir el frontend estático. El backend del juego
-debe desplegarse aparte porque esta app usa FastAPI y WebSockets.
+GitHub Pages publica solo el frontend estático. El backend del juego va por
+separado en Railway porque la app usa FastAPI y WebSockets.
 
-Se incluye una versión estática del frontend en `docs/`.
+Este repo ya incluye:
+- frontend estático listo en `docs/`
+- workflow en `.github/workflows/deploy-pages.yml`
+- archivo `docs/.nojekyll`
 
-1. Despliega el backend en un proveedor que soporte Python, por ejemplo Render.
-2. Publica `docs/` en GitHub Pages.
-3. Abre la URL de Pages con el parámetro `backend` apuntando al backend:
+Pasos:
+
+1. En GitHub abre `Settings > Pages`.
+2. En `Source` elige `GitHub Actions`.
+3. Haz push a `main`.
+4. GitHub publicará `docs/` automáticamente.
+
+La URL esperada será:
 
 ```text
-https://tu-usuario.github.io/tutti-frutti/?backend=https://tu-backend.onrender.com
+https://jesus1942.github.io/tutti-frutti/
 ```
-
-El frontend también guarda ese backend en `localStorage` para reutilizarlo
-en visitas posteriores.
 
 ## Deploy Del Backend En Railway
 
-El backend ya incluye `Procfile` para Railway.
+El backend ya incluye:
+- `Procfile`
+- `railway.toml`
+- arranque por `uvicorn simple_app:app`
 
-Comando de arranque:
+Pasos:
+
+1. Entra a Railway y crea un proyecto nuevo desde GitHub.
+2. Selecciona este repo `jesus1942/tutti-frutti`.
+3. Railway detectará Python e instalará `requirements.txt`.
+4. El servicio arrancará con:
 
 ```text
-uvicorn simple_app:app --host 0.0.0.0 --port $PORT
+uvicorn simple_app:app --host 0.0.0.0 --port ${PORT:-8082}
 ```
 
-Una vez desplegado, puedes compartir:
+Cuando Railway te dé la URL pública, úsala como backend del frontend estático:
 
 ```text
 https://jesus1942.github.io/tutti-frutti/?backend=https://tu-app.railway.app
 ```
+
+El frontend guarda ese backend en `localStorage`, así que normalmente solo
+necesitas abrir esa URL una vez.
 
 ## Nota sobre `app/main.py`
 
