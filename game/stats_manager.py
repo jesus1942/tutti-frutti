@@ -17,7 +17,7 @@ class StatsManager:
     def __init__(self, stats_file=STATS_FILE):
         self.stats_file = stats_file
         self.stats = self.load_stats()
-        self.lock = threading.Lock()
+        self.lock = threading.RLock()
         self.auto_save_thread = None
         self.running = True
         self.start_auto_save()
