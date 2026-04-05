@@ -5,6 +5,7 @@ Combina reglas generales con validación semántica local por categoría.
 """
 
 from difflib import get_close_matches
+import re
 import unicodedata
 
 from game.lexicon_store import get_lexicon_store
@@ -56,6 +57,27 @@ class GameValidator:
             return ""
         return " ".join(chunk.capitalize() for chunk in normalized_value.split())
 
+    def is_plausible_name(self, value):
+        """Acepta nombres razonables aunque aún no estén en el léxico local."""
+        normalized_value = self.normalize_text(value)
+        if not normalized_value:
+            return False
+
+        if not re.fullmatch(r"[a-z][a-z' -]*", normalized_value):
+            return False
+
+        tokens = [token for token in re.split(r"[ -]+", normalized_value) if token]
+        if not tokens or len(tokens) > 4:
+            return False
+
+        for token in tokens:
+            if len(token) < 2 or len(token) > 20:
+                return False
+            if len(set(token.replace("'", ""))) < 2:
+                return False
+
+        return True
+
     def validate_category_answer(self, category, raw_answer, current_letter, game_data, player):
         """Valida una respuesta individual."""
         clean_answer = self.normalize_text(raw_answer)
@@ -96,6 +118,18 @@ class GameValidator:
                         0,
                         reason,
                         suggestion=canonical,
+                        canonical=canonical,
+                        usage=usage,
+                    )
+                if normalized_category == "nombre" and self.is_plausible_name(raw_answer):
+                    canonical = self.format_display_text(raw_answer)
+                    usage = f'"{canonical}" fue aceptado como nombre propio plausible aunque todavia no figure en el lexico local.'
+                    reason = "valida como nombre plausible"
+                    return 10, reason, self.build_validation_detail(
+                        category,
+                        raw_answer,
+                        10,
+                        reason,
                         canonical=canonical,
                         usage=usage,
                     )
