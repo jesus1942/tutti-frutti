@@ -629,11 +629,33 @@ textarea:focus {
 .letter-display {
   display: inline-block;
   position: relative;
-  padding: 10px 15px;
-  background: linear-gradient(180deg, #edf3f8 0%, #cad8e2 100%);
+  min-width: 150px;
+  padding: 12px 18px;
+  background: linear-gradient(180deg, #f7fbfe 0%, #d7e4ec 100%);
   color: #08111a;
-  border-radius: var(--border-radius);
-  font-weight: bold;
+  border: 1px solid rgba(123, 155, 176, 0.34);
+  border-radius: 16px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255,255,255,0.62);
+  font-weight: 700;
+}
+
+.letter-display h3,
+.letter-display span {
+  color: #071018;
+}
+
+.letter-display h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+}
+
+#current-letter,
+#review-letter {
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 
 .letter-display::after {
