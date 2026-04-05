@@ -84,6 +84,8 @@ class LexiconStore:
             category_bucket = entries_by_category.setdefault(normalized_category, {})
 
             for term, entry in entries.items():
+                if not entry.get("verified", False):
+                    continue
                 normalized_term = self.normalize_text(term)
                 category_bucket[normalized_term] = {
                     "term": normalized_term,

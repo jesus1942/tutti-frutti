@@ -1,0 +1,2104 @@
+{
+  "entries_by_category": {
+    "animal": {
+      "abeja": {
+        "display": "Abeja",
+        "source": "rae",
+        "usage": "1. f. Insecto himenóptero, de unos quince milímetros de largo, de color pardo negruzco y vello rojizo, que vive en colonias y produce cera y miel.",
+        "verified": true
+      },
+      "abubilla": {
+        "display": "Abubilla",
+        "source": "rae",
+        "usage": "1. f. Pájaro insectívoro, del tamaño de la tórtola, con el pico largo y algo arqueado, un penacho de plumas eréctiles en la cabeza, el cuerpo rojizo y las alas y la cola negras con listas blancas, como el penacho, y de olor fétido y canto monótono.",
+        "verified": true
+      },
+      "alce": {
+        "display": "Alce",
+        "source": "rae",
+        "usage": "alce 1 Definición Del lat. alce. 1. m. Mamífero rumiante , parecido al ciervo y tan corpulento como el caballo , de cuello corto , cabeza grande , pelo oscuro y astas en forma de pala con recortaduras profundas en los bordes . Sin.: anta 1 , ante 1 , dante . Sinónimos o afines de «alce 1 » anta 1 , ante 1 , dante .",
+        "verified": true
+      },
+      "alpaca": {
+        "display": "Alpaca",
+        "source": "rae",
+        "usage": "alpaca 1 Definición Del aim. all-paka. 1. f. Mamífero camélido , de la misma familia que la llama , propio de América del Sur y muy apreciado por su pelo , que se emplea en la industria textil . 2. f. Pelo de alpaca, que es más largo , más brillante y flexible que el de las bestias lanares . 3. f. Paño hecho con pelo d",
+        "verified": true
+      },
+      "anaconda": {
+        "display": "Anaconda",
+        "source": "rae",
+        "usage": "1. f. Ofidio americano de la misma familia de las boas y de costumbres acuáticas, que pertenece a las especies estranguladoras, mide entre 4,5 y 10 m de longitud, es de color pardo grisáceo con manchas negras redondeadas sobre el dorso y tiene cabeza de color oscuro con una banda anaranjada detrás de los ojos.",
+        "verified": true
+      },
+      "anguila": {
+        "display": "Anguila",
+        "source": "rae",
+        "usage": "1. f. Pez teleósteo, fisóstomo, comestible, sin aletas abdominales, de cuerpo largo y cilíndrico de hasta un metro de longitud y piel resbaladiza, que vive en los ríos, pero desciende hasta el océano para reproducirse, cuando sus órganos sexuales llegan a la plenitud de su desarrollo.",
+        "verified": true
+      },
+      "arana": {
+        "display": "Arana",
+        "source": "rae",
+        "usage": "Definición RAE de «arana» según el Diccionario de la lengua española: 1. f. Embuste, trampa, estafa.",
+        "verified": true
+      },
+      "ardilla": {
+        "display": "Ardilla",
+        "source": "rae",
+        "usage": "1. f. Mamífero roedor, de unos 20 cm de largo, de color negro rojizo por el lomo, blanco por el vientre y con cola muy poblada, que dobla hasta sobresalir de la cabeza. Se cría en los bosques, y es muy inquieto, vivo y ligero.",
+        "verified": true
+      },
+      "armadillo": {
+        "display": "Armadillo",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero americano del orden de los desdentados, con algunos dientes laterales, con un cuerpo de 30 a 50 cm de longitud protegido por un caparazón formado de placas óseas cubiertas por escamas córneas movibles, de modo que el animal puede enrollarse sobre sí mismo. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "asno": {
+        "display": "Asno",
+        "source": "rae",
+        "usage": "1. m. y f. Animal solípedo, como de metro y medio de altura, de color, por lo común, ceniciento, con las orejas largas y la extremidad de la cola poblada de cerdas, que es muy sufrido y se emplea como caballería y como bestia de carga y a veces también de tiro. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "avestruz": {
+        "display": "Avestruz",
+        "source": "rae",
+        "usage": "1. m. Ave del orden de las estrucioniformes, de gran tamaño, que llega a los dos metros de altura, alas cortas no aptas para el vuelo, cuello largo y desnudo, largas patas que le permiten correr a gran velocidad, y que habita en África.",
+        "verified": true
+      },
+      "avispa": {
+        "display": "Avispa",
+        "source": "rae",
+        "usage": "1. f. Insecto himenóptero, de un centímetro a centímetro y medio de largo, de color amarillo con fajas negras, el cual tiene en la extremidad posterior del cuerpo un aguijón con que pica, introduciendo una sustancia tóxica que causa escozor e inflamación, y que vive en sociedad y fabrica panales con sus compañeras.",
+        "verified": true
+      },
+      "babuino": {
+        "display": "Babuino",
+        "source": "rae",
+        "usage": "Definición RAE de «babuino» según el Diccionario de la lengua española: 1. m. Mono cinocéfalo africano que puede alcanzar unos 75 cm de altura y cuyo pelaje es de color marrón oliváceo.",
+        "verified": true
+      },
+      "bacalao": {
+        "display": "Bacalao",
+        "source": "rae",
+        "usage": "1. m. Pez teleósteo, anacanto, de cuerpo simétrico, con tres aletas dorsales y dos anales, y una barbilla en la sínfisis de la mandíbula inferior.",
+        "verified": true
+      },
+      "ballena": {
+        "display": "Ballena",
+        "source": "rae",
+        "usage": "1. f. Cetáceo, el mayor de todos los animales conocidos, que llega a crecer hasta más de 30 m de longitud. Su color es, en general, oscuro por encima y blanquecino por debajo. Vive en todos los mares, preferentemente en los polares.",
+        "verified": true
+      },
+      "basilisco": {
+        "display": "Basilisco",
+        "source": "rae",
+        "usage": "1. m. Animal fabuloso alado, con cabeza, pecho y garras de gallo, y cuerpo de serpiente, que mata con la mirada. 2. m. Persona furiosa o dañina.",
+        "verified": true
+      },
+      "beluga": {
+        "display": "Beluga",
+        "source": "rae",
+        "usage": "1. m. Esturión de gran tamaño que habita en los mares Negro y Caspio. U. t. en apos. El esturión beluga está en peligro de extinción. 2. m. Caviar muy apreciado que se obtiene del esturión beluga. U. t. en apos. Una lata de caviar beluga.",
+        "verified": true
+      },
+      "bisonte": {
+        "display": "Bisonte",
+        "source": "rae",
+        "usage": "1. m. Bóvido salvaje, parecido al toro, con la parte anterior del cuerpo, hasta la cruz, muy abultada, cubierto de pelo áspero y con cuernos poco desarrollados.",
+        "verified": true
+      },
+      "boa": {
+        "display": "Boa",
+        "source": "rae",
+        "usage": "1. f. Serpiente americana de hasta diez metros de longitud, con la piel pintada de vistosos dibujos. No es venenosa, sino que mata a sus presas comprimiéndolas con los anillos de su cuerpo. Hay varias especies, unas arborícolas y otras de costumbres acuáticas. Todas son vivíparas. Era u. t. c. m.",
+        "verified": true
+      },
+      "buitre": {
+        "display": "Buitre",
+        "source": "rae",
+        "usage": "1. m. Ave rapaz de cerca de dos metros de envergadura, con el cuello desnudo, rodeado de un collar de plumas largas, estrechas y flexibles, cuerpo leonado, remeras oscuras y una faja blanca a través de cada ala, que se alimenta de carne muerta y vive en bandadas.",
+        "verified": true
+      },
+      "burro": {
+        "display": "Burro",
+        "source": "rae",
+        "usage": "1. m. y f. asno (‖ animal). U. en m. ref. a la especie. 2. m. y f. coloq. Persona bruta e incivil. 3. m. y f. coloq. asno (‖ persona ruda). U. t. c. adj.",
+        "verified": true
+      },
+      "caballo": {
+        "display": "Caballo",
+        "source": "rae",
+        "usage": "1. m. Mamífero solípedo del orden de los perisodáctilos, de tamaño grande y extremidades largas, cuello y cola poblados de cerdas largas y abundantes, que se domestica fácilmente y suele utilizarse como montura o animal de tiro.",
+        "verified": true
+      },
+      "cabra": {
+        "display": "Cabra",
+        "source": "rae",
+        "usage": "1. f. Mamífero rumiante doméstico, como de un metro de altura, muy ágil para saltar y subir por lugares escarpados, con pelo corto, áspero y a menudo rojizo, cuernos vueltos hacia atrás, un mechón de pelos largos colgante de la mandíbula inferior y cola muy corta.",
+        "verified": true
+      },
+      "canario": {
+        "display": "Canario",
+        "source": "rae",
+        "usage": "1. adj. Natural de Canarias, archipiélago o comunidad autónoma de España. U. t. c. s. 2. adj. Perteneciente o relativo a Canarias o a los canarios.",
+        "verified": true
+      },
+      "cangrejo": {
+        "display": "Cangrejo",
+        "source": "rae",
+        "usage": "1. m. Cada uno de los artrópodos crustáceos del orden de los decápodos. 2. m. En las armaduras antiguas, conjunto de láminas articuladas para facilitar el movimiento en las corvas y en la sangría del brazo.",
+        "verified": true
+      },
+      "canguro": {
+        "display": "Canguro",
+        "source": "rae",
+        "usage": "1. m. Mamífero marsupial, herbívoro, propio de Australia e islas adyacentes, con las extremidades posteriores muy desarrolladas, mediante las cuales se traslada a saltos, y de cola muy robusta, en la que se apoya cuando está parado.",
+        "verified": true
+      },
+      "capibara": {
+        "display": "Capibara",
+        "source": "rae",
+        "usage": "Definición RAE de «capibara» según el Diccionario de la lengua española: 1. f. Arg. y Perú. carpincho.",
+        "verified": true
+      },
+      "caracol": {
+        "display": "Caracol",
+        "source": "rae",
+        "usage": "1. m. Cada uno de los moluscos testáceos de la clase de los gasterópodos. De sus muchas especies, algunas de las cuales son comestibles, unas viven en el mar, otras en las aguas dulces y otras son terrestres.",
+        "verified": true
+      },
+      "carpincho": {
+        "display": "Carpincho",
+        "source": "rae",
+        "usage": "1. m. Arg., Bol., Cuba, Ec., Par., Perú y Ur. Roedor americano de hábitos acuáticos, que alcanza el metro y medio de longitud y llega a pesar más de 80 kg. Tiene la cabeza cuadrada, el hocico romo y las orejas y los ojos pequeños. Su piel se utiliza en peletería.",
+        "verified": true
+      },
+      "castor": {
+        "display": "Castor",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero roedor de hasta 65 cm de largo, pelo castaño muy fino, patas cortas, pies con cinco dedos palmeados, cola aplastada, oval y escamosa, que habita en Asia, América septentrional y norte de Europa, y construye sus viviendas formando diques de gran extensión en ríos y lagos. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "cebra": {
+        "display": "Cebra",
+        "source": "rae",
+        "usage": "1. f. Animal solípedo del África austral, parecido al asno, de pelo blanco amarillento, con listas transversales pardas o negras. Hay varias especies, y alguna del tamaño del caballo.",
+        "verified": true
+      },
+      "cerdo": {
+        "display": "Cerdo",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero artiodáctilo del grupo de los suidos, de cuerpo grueso, cabeza y orejas grandes, hocico estrecho y patas cortas, que se cría especialmente para aprovechar su cuerpo en la alimentación humana. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "ciervo": {
+        "display": "Ciervo",
+        "source": "rae",
+        "usage": "1. m. y f. Animal mamífero rumiante, de 1,30 m de altura más o menos, esbelto, de pelo áspero, corto y pardo rojizo en verano y gris en invierno. Es más claro por el vientre que por el lomo, y tiene patas largas y cola muy corta. El macho está armado de astas o cuernas estriadas y ramosas que pierde y renueva todos los",
+        "verified": true
+      },
+      "cisne": {
+        "display": "Cisne",
+        "source": "rae",
+        "usage": "1. m. Ave palmípeda, de plumaje blanco, cabeza pequeña, pico de igual ancho en toda su extensión y de color anaranjado, y en los bordes y el tubérculo de la base negro, y de cuello muy largo y flexible, patas cortas y alas grandes.",
+        "verified": true
+      },
+      "cobra": {
+        "display": "Cobra",
+        "source": "rae",
+        "usage": "cobra 1 Definición Del lat. copŭla. 1. f. Coyunda para uncir bueyes . 2. f. Cierto número de yeguas enlazadas y amaestradas para la trilla .",
+        "verified": true
+      },
+      "codorniz": {
+        "display": "Codorniz",
+        "source": "rae",
+        "usage": "1. f. Ave gallinácea migratoria, de unos 20 cm de largo, con alas puntiagudas, la cola muy corta, los pies sin espolón, el pico oscuro, las cejas blancas, la cabeza, el lomo y las alas de color pardo con rayas más oscuras, y la parte inferior gris amarillenta. Es común en España, de donde emigra a África en otoño.",
+        "verified": true
+      },
+      "conejo": {
+        "display": "Conejo",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero del orden de los lagomorfos, de unos 40 cm de largo, comprendida la cola, de pelaje espeso de color ordinariamente gris, orejas muy largas, patas posteriores más largas que las anteriores, cola muy corta, que vive en madrigueras, se domestica fácilmente y es apreciado por su carne y su pelo. U. en m",
+        "verified": true
+      },
+      "cotorra": {
+        "display": "Cotorra",
+        "source": "rae",
+        "usage": "1. f. Papagayo pequeño. 2. f. urraca. 3. f. Ave prensora americana, parecida al papagayo, con las mejillas cubiertas de pluma, alas y cola largas y puntiagudas, y colores varios, en que domina el verde.",
+        "verified": true
+      },
+      "coyote": {
+        "display": "Coyote",
+        "source": "rae",
+        "usage": "1. m. Mamífero carnívoro de Norteamérica, semejante al lobo pero más pequeño y de pelaje gris amarillento. 2. f. El Salv. y Méx. Hembra del coyote.",
+        "verified": true
+      },
+      "cuervo": {
+        "display": "Cuervo",
+        "source": "rae",
+        "usage": "1. m. Pájaro carnívoro, mayor que la paloma, de plumaje negro con visos pavonados, pico cónico, grueso y más largo que la cabeza, tarsos fuertes, alas de un metro de envergadura, con las mayores remeras en medio, y cola de contorno redondeado.",
+        "verified": true
+      },
+      "dingo": {
+        "display": "Dingo",
+        "source": "rae",
+        "usage": "1. m. Mamífero cánido parecido al lobo, pero de menor tamaño, de pelaje amarillento o rojizo, que habita en Australia y en el sudeste asiático.",
+        "verified": true
+      },
+      "elefante": {
+        "display": "Elefante",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero del orden de los proboscidios, el mayor de los animales terrestres, con cabeza y ojos pequeños, orejas grandes y colgantes, nariz y labio superior unidos y muy prolongados en forma de trompa prensil, y dos dientes incisivos, macizos y muy grandes, vulgarmente llamados colmillos, que vive en Asia y Á",
+        "verified": true
+      },
+      "escarabajo": {
+        "display": "Escarabajo",
+        "source": "rae",
+        "usage": "1. m. Insecto coleóptero, de antenas con nueve articulaciones terminadas en maza, élitros lisos, cuerpo deprimido, con cabeza rombal y dentada por delante, y patas anteriores desprovistas de tarsos, que busca el estiércol para alimentarse y hacer bolas, dentro de las cuales deposita los huevos.",
+        "verified": true
+      },
+      "estornino": {
+        "display": "Estornino",
+        "source": "rae",
+        "usage": "1. m. Pájaro de cabeza pequeña, pico cónico amarillo, cuerpo esbelto con plumaje negro de reflejos verdes y morados y pintas blancas, alas y cola largas, y pies rojizos. Mide unos 22 cm desde el pico a la extremidad de la cola, y 35 de envergadura, y es bastante común en España. Se domestica y aprende fácilmente a repr",
+        "verified": true
+      },
+      "flamenco": {
+        "display": "Flamenco",
+        "source": "rae",
+        "usage": "1. adj. Natural de Flandes, región histórica de Europa. U. t. c. s. 2. adj. Perteneciente o relativo a Flandes o a los flamencos. 3. adj. Dicho de un estilo pictórico: Que se desarrolló en Flandes en los siglos XV al XVII.",
+        "verified": true
+      },
+      "foca": {
+        "display": "Foca",
+        "source": "rae",
+        "usage": "1. f. Nombre común de varios mamíferos pinnípedos, propios de mares fríos y de peso y talla variables según las especies. Son de costumbres acuáticas, por lo que sus extremidades tienen forma de aleta, y se acercan a la costa para criar.",
+        "verified": true
+      },
+      "gacela": {
+        "display": "Gacela",
+        "source": "rae",
+        "usage": "1. f. Antílope de los de talla mediana que habita en zonas semidesérticas o de sabana de África y el Oriente Próximo, que se caracteriza por su agilidad y gracia corporal y por tener cuernos tanto los machos como las hembras.",
+        "verified": true
+      },
+      "gallina": {
+        "display": "Gallina",
+        "source": "rae",
+        "usage": "gallina 1 Definición De gallina 2 . 1. m. y f. coloq. Persona cobarde , pusilánime y tímida . Esteban es un gallina . U. t. c. adj. Sin.: cobarde , miedoso , medroso , acobardado , pusilánime , cobardica , cagueta , cagado , miedica . Ant.: valiente . Sinónimos o afines de «gallina 1 » cobarde , miedoso , medroso , aco",
+        "verified": true
+      },
+      "gallo": {
+        "display": "Gallo",
+        "source": "rae",
+        "usage": "1. m. y f. Ave doméstica del orden de las galliformes, con cresta roja y carnosa, pico corto, grueso y arqueado, de plumaje abundante, lustroso y a menudo con visos irisados, cuyo macho tiene tarsos fuertes armados de espolones, y cuya hembra es de menor tamaño y tiene la cresta más pequeña. U. en f. ref. a la especie.",
+        "verified": true
+      },
+      "ganso": {
+        "display": "Ganso",
+        "source": "rae",
+        "usage": "1. m. y f. Ave palmípeda migratoria del orden de las anseriformes, semejante al pato pero de mayor tamaño, con plumaje básicamente gris, y pico y patas de color naranja, rosa o amarillo, según la especie, que vive en herbazales cercanos al agua en Europa, Asia y Norteamérica, y de la cual existen varias especies, algun",
+        "verified": true
+      },
+      "gato": {
+        "display": "Gato",
+        "source": "rae",
+        "usage": "gato 1 , ta Definición Del lat. tardío cattus. 1. m. y f. Mamífero de la familia de los félidos , digitígrado , doméstico , de unos 50 cm de largo desde la cabeza hasta el arranque de la cola , que por sí sola mide unos 20 cm, de cabeza redonda , lengua muy áspera , patas cortas y generalmente pelaje suave y espeso , d",
+        "verified": true
+      },
+      "golondrina": {
+        "display": "Golondrina",
+        "source": "rae",
+        "usage": "1. f. Pájaro insectívoro muy común en España desde principio de la primavera hasta fines de verano, que emigra en busca de países templados. Tiene unos quince centímetros desde la cabeza a la extremidad de la cola, pico negro, corto y aleznado, frente y barba rojizas, cuerpo negro azulado por encima y blanco por debajo",
+        "verified": true
+      },
+      "gorila": {
+        "display": "Gorila",
+        "source": "rae",
+        "usage": "1. m. Primate antropoide de África ecuatorial, de pelaje oscuro y brazos más largos que las piernas, que puede alcanzar dos metros de alto.",
+        "verified": true
+      },
+      "grillo": {
+        "display": "Grillo",
+        "source": "rae",
+        "usage": "grillo 1 , lla Definición Del lat. grillus. 1. m. y f. Insecto ortóptero saltador , de unos tres centímetros de largo , color negro rojizo , con una mancha amarilla en el arranque de las alas , cabeza redonda y ojos muy prominentes , cuyo macho sacude y roza con tal fuerza los élitros , que produce un sonido agudo y mo",
+        "verified": true
+      },
+      "guacamayo": {
+        "display": "Guacamayo",
+        "source": "rae",
+        "usage": "1. m. Ave de América, especie de papagayo, del tamaño de la gallina, con el pico blanco por encima, negro por debajo, las sienes blancas, el cuerpo rojo sanguíneo, el pecho variado de azul y verde, las plumas grandes exteriores de las alas muy azules, los encuentros amarillos, y la cola muy larga y roja, con las plumas",
+        "verified": true
+      },
+      "guanaco": {
+        "display": "Guanaco",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero camélido, propio de los Andes, muy parecido a la llama, de la cual se diferencia en ser algo mayor. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "guepardo": {
+        "display": "Guepardo",
+        "source": "rae",
+        "usage": "1. m. Mamífero carnívoro félido, semejante al leopardo pero algo más pequeño y con una franja negra que va desde el ojo a la boca, muy veloz, y que vive en los desiertos de las regiones meridionales de Asia y en África.",
+        "verified": true
+      },
+      "hiena": {
+        "display": "Hiena",
+        "source": "rae",
+        "usage": "1. f. Mamífero carnívoro de África y Asia, de pelaje áspero, gris amarillento, con listas o manchas en el lomo y en los flancos, que llega a los 70 cm de altura en la cruz y algo menos en la grupa, nocturno y principalmente carroñero.",
+        "verified": true
+      },
+      "hormiga": {
+        "display": "Hormiga",
+        "source": "rae",
+        "usage": "1. f. Insecto himenóptero, de color negro por lo común, cuyo cuerpo tiene dos estrechamientos, uno en la unión de la cabeza con el tórax y otro en la de este con el abdomen, antenas acodadas y patas largas, que vive en sociedad, en hormigueros donde pasa recluido el invierno.",
+        "verified": true
+      },
+      "iguana": {
+        "display": "Iguana",
+        "source": "rae",
+        "usage": "1. f. Nombre genérico de unos reptiles parecidos a los lagartos, pero con la lengua simplemente escotada en el extremo y no protráctil, y los dientes aplicados a la superficie interna de las mandíbulas. Están generalmente provistos de gran papada y de una cresta espinosa a lo largo del dorso. Alguna de las especies alc",
+        "verified": true
+      },
+      "jaguar": {
+        "display": "Jaguar",
+        "source": "rae",
+        "usage": "1. m. Felino americano de hasta dos metros de longitud y unos 80 cm de alzada, pelaje de color amarillo dorado con manchas en forma de anillos negros, garganta y vientre blanquecinos, que vive en zonas pantanosas de América, desde California hasta la Patagonia.",
+        "verified": true
+      },
+      "jirafa": {
+        "display": "Jirafa",
+        "source": "rae",
+        "usage": "1. f. Mamífero artiodáctilo rumiante, originario de África, de hasta cinco metros de altura de los que la mitad corresponden al cuello, largo, esbelto y rígido, de pelaje leonado con grandes manchas poligonales oscuras y la cabeza con dos pequeños cuernos cubiertos de piel.",
+        "verified": true
+      },
+      "jurel": {
+        "display": "Jurel",
+        "source": "rae",
+        "usage": "1. m. Pez teleósteo marino, del suborden de los acantopterigios, de medio metro de largo aproximadamente, cuerpo rollizo, carnoso, de color azul por el lomo y blanco rojizo por el vientre, cabeza corta, escamas pequeñas y muy unidas a la piel, excepto a lo largo de los costados, donde son fuertes y agudas; dos aletas d",
+        "verified": true
+      },
+      "koala": {
+        "display": "Koala",
+        "source": "rae",
+        "usage": "Definición RAE de «koala» según el Diccionario de la lengua española: 1. m. Mamífero marsupial arborícola parecido a un oso pequeño, propio de los eucaliptales australianos.",
+        "verified": true
+      },
+      "labrador": {
+        "display": "Labrador",
+        "source": "rae",
+        "usage": "labrador 1 , ra Definición Del lat. tardío laborātor, -ōris 'el que trabaja'. 1. adj. Que labra la tierra . U. t. c. s. Sin.: labriego , agricultor , horticultor , campesino , rústico , gañán . 2. adj. Que trabaja o es a propósito para trabajar . 3. m. y f. Persona que posee hacienda de campo y la cultiva por su cuenta",
+        "verified": true
+      },
+      "lagarto": {
+        "display": "Lagarto",
+        "source": "rae",
+        "usage": "1. m. y f. Reptil terrestre del orden de los saurios, de 50 a 80 cm de largo, de color verdoso, cabeza ovalada, boca grande con muchos y agudos dientes, cuerpo alargado y casi cilíndrico, cola larga y cónica, y cuatro patas cortas, cada una con cinco dedos armados de afiladas uñas, y con la piel cubierta de laminillas ",
+        "verified": true
+      },
+      "langosta": {
+        "display": "Langosta",
+        "source": "rae",
+        "usage": "1. f. Insecto ortóptero de la familia de los acrídidos, parecido al saltamontes pero de mayor tamaño, de color gris amarillento, que en ciertas circunstancias se multiplica extraordinariamente, formando espesas nubes que arrasan los campos.",
+        "verified": true
+      },
+      "lechuza": {
+        "display": "Lechuza",
+        "source": "rae",
+        "usage": "1. f. Ave rapaz nocturna, de unos 35 cm de longitud, con plumaje muy suave, blanco en el pecho y vientre, y pardo en el dorso, cabeza redonda, pico corto y encorvado en la punta, ojos grandes, brillantes y de iris amarillo, y cara blanca en forma de corazón.",
+        "verified": true
+      },
+      "leopardo": {
+        "display": "Leopardo",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero carnívoro félido, parecido al gato pero de tamaño mucho mayor, que generalmente tiene el pelaje amarillo rojizo con manchas negras redondeadas y vive en los bosques de Asia y África. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "liebre": {
+        "display": "Liebre",
+        "source": "rae",
+        "usage": "1. f. Mamífero del orden de los lagomorfos, de pelaje suave y espeso, que mide unos 70 cm desde la cabeza hasta la cola, y de 20 a 24 cm de altura, parecido al conejo, pero con orejas y patas más largas, de carrera muy veloz, que vive preferentemente en las llanuras y cuya carne es apreciada.",
+        "verified": true
+      },
+      "lince": {
+        "display": "Lince",
+        "source": "rae",
+        "usage": "1. m. Mamífero félido de pelaje rojizo con manchas oscuras, cola corta y orejas puntiagudas terminadas en un pincel de pelos negros. 2. m. Persona que tiene una vista aguda. Era u. t. c. adj.",
+        "verified": true
+      },
+      "llama": {
+        "display": "Llama",
+        "source": "rae",
+        "usage": "llama 1 Definición Del lat. flamma. 1. f. Masa gaseosa en combustión , que se eleva de los cuerpos que arden y despide luz de vario color . Sin.: fuego , llamarada , flama , fogonazo , lumbre . 2. f. Eficacia y fuerza de una pasión o deseo vehemente . Sin.: pasión , apasionamiento , vehemencia , ardor 1 . Sinónimos o a",
+        "verified": true
+      },
+      "lobo": {
+        "display": "Lobo",
+        "source": "rae",
+        "usage": "lobo 1 , ba Definición Del lat. lupus; la forma f. , del lat. lupa. 1. m. y f. Mamífero carnívoro , semejante a un perro grande , con pelaje de color gris oscuro , hocico puntiagudo , orejas tiesas y cola larga y muy poblada , que vive salvaje , es gregario y puede atacar al ganado . U. en m. ref. a la especie. 2. m. y",
+        "verified": true
+      },
+      "loro": {
+        "display": "Loro",
+        "source": "rae",
+        "usage": "loro 1 Definición Del caribe roro. 1. m. Papagayo , ave , y más particularmente el que tiene el plumaje con fondo rojo . Sin.: papagayo , perico 1 , cotorra , lora , tricahue , cata 3 . 2. m. coloq. Persona muy fea , ataviada de forma estridente y chillona . Sin.: adefesio , esperpento , callo . 3. m. coloq. Persona qu",
+        "verified": true
+      },
+      "mantis": {
+        "display": "Mantis",
+        "source": "rae",
+        "usage": "1. f. Insecto dictióptero alargado de color verde o pardo, con grandes ojos y patas anteriores largas y robustas, que mantiene recogidas ante la cabeza como en actitud orante y están provistas de fuertes espinas para sujetar las presas de las que se alimenta.",
+        "verified": true
+      },
+      "mapache": {
+        "display": "Mapache",
+        "source": "rae",
+        "usage": "1. m. Mamífero carnívoro de América del Norte, con pelaje generalmente gris oscuro, mancha negra alrededor de los ojos, hocico blanco y cola muy poblada y con rayas transversales.",
+        "verified": true
+      },
+      "mariposa": {
+        "display": "Mariposa",
+        "source": "rae",
+        "usage": "1. f. Insecto de boca chupadora, con dos pares de alas cubiertas de escamas y generalmente de colores brillantes, que constituye la fase adulta de los lepidópteros.",
+        "verified": true
+      },
+      "marmota": {
+        "display": "Marmota",
+        "source": "rae",
+        "usage": "1. f. Mamífero roedor, de unos 50 cm de los que casi 20 corresponden a la cola, muy peluda y terminada por un mechón negro, de cuerpo recio, cabeza gruesa y aplastada por encima, orejas pequeñas, que pasa varios meses hibernando en su madriguera.",
+        "verified": true
+      },
+      "medusa": {
+        "display": "Medusa",
+        "source": "rae",
+        "usage": "1. f. Celentéreo marino, transparente y gelatinoso, que, en una fase de su vida, tiene forma de campana o de sombrilla provista de tentáculos.",
+        "verified": true
+      },
+      "mero": {
+        "display": "Mero",
+        "source": "rae",
+        "usage": "mero 1 Definición Quizá del cat. nero, y este del lat. Nero 'Nerón', por la crueldad y fiereza que se atribuye a este pez; cf. prov. ant. mero[n]. 1. m. Pez teleósteo marino , del suborden de los acantopterigios , muy apreciado por su carne , que llega a tener un metro de largo , con cuerpo casi oval , achatado , de co",
+        "verified": true
+      },
+      "mirlo": {
+        "display": "Mirlo",
+        "source": "rae",
+        "usage": "1. m. Pájaro de unos 25 cm de largo, que se alimenta de frutos, semillas e insectos, con gran capacidad para imitar sonidos, cuyo macho es enteramente negro, con el pico amarillo, y cuya hembra es de color pardo oscuro, con la pechuga algo rojiza, manchada de negro, y el pico igualmente pardo oscuro.",
+        "verified": true
+      },
+      "mofeta": {
+        "display": "Mofeta",
+        "source": "rae",
+        "usage": "mofeta 1 Definición Del it. moffetta, y este de mofeta 'mofeta 2 ', por alus. al olor pestilente que emite. 1. f. Mamífero carnívoro americano de pelaje oscuro con partes blancas y que , cuando está en peligro , lanza un líquido fétido que segregan sus glándulas anales . Sin.: zorro , zorrillo , yaguané , añás , mapuro",
+        "verified": true
+      },
+      "mono": {
+        "display": "Mono",
+        "source": "rae",
+        "usage": "mono 1 , na Definición De mona 1 , y este quizá acort. de maimona, f. de maimón 1 'mico'. 1. adj. coloq. Dicho de una persona : De aspecto agradable por cierto atractivo físico , por su gracia o por su arreglo y cuidado . De niño era bastante mono . Así van muy monas . Sin.: bello , bonito 2 , lindo , gracioso , chulo ",
+        "verified": true
+      },
+      "morena": {
+        "display": "Morena",
+        "source": "rae",
+        "usage": "morena 1 Definición Del lat. muraena, y este del gr. μύραινα mýraina. 1. f. Pez teleósteo marino , del suborden de los fisóstomos , comestible , parecido a la anguila , de un metro aproximadamente de longitud , casi cilíndrico , de hocico prolongado , con dientes fuertes y puntiagudos , cuerpo viscoso y sin escamas , y",
+        "verified": true
+      },
+      "morsa": {
+        "display": "Morsa",
+        "source": "rae",
+        "usage": "morsa 1 Definición Del fr. morse, y este del finés mursu o del lapón morssa. 1. f. Mamífero carnívoro marino de gran tamaño , que habita especialmente en zonas polares , caracterizado principalmente por dos largos colmillos que se prolongan por fuera de la mandíbula superior . Sin.: rosmaro . Sinónimos o afines de «mor",
+        "verified": true
+      },
+      "mosca": {
+        "display": "Mosca",
+        "source": "rae",
+        "usage": "1. f. Insecto díptero muy común, de unos seis milímetros de largo, de cuerpo negro, cabeza elíptica, más ancha que larga, ojos salientes, alas transparentes cruzadas de nervios, patas largas con uñas y ventosas, y boca en forma de trompa, con la cual chupa las sustancias de que se alimenta.",
+        "verified": true
+      },
+      "mosquito": {
+        "display": "Mosquito",
+        "source": "rae",
+        "usage": "1. m. Insecto díptero de pequeño tamaño, con patas largas y finas, y dos alas transparentes que producen un zumbido agudo parecido al sonido de una trompetilla, cuya hembra chupa la sangre de las personas y de los animales de piel fina, produciendo con la picadura inflamación rápida acompañada de picor.",
+        "verified": true
+      },
+      "mula": {
+        "display": "Mula",
+        "source": "rae",
+        "usage": "mula 1 Definición V. mulo.",
+        "verified": true
+      },
+      "nutria": {
+        "display": "Nutria",
+        "source": "rae",
+        "usage": "1. f. Mamífero carnívoro de cuerpo alargado, patas cortas, con los dedos de los pies unidos por una membrana, de piel muy apreciada, que vive a orillas de los ríos y arroyos, y se alimenta de peces.",
+        "verified": true
+      },
+      "oca": {
+        "display": "Oca",
+        "source": "rae",
+        "usage": "oca 1 Definición Del lat. vulg. auca. 1. f. Ganso doméstico , por lo general de color completamente blanco . Sin.: ánsar , ganso . 2. f. Juego de mesa que se practica en un tablero con casillas numeradas por las que la ficha de cada jugador avanza o retrocede , según determinan el dado y las normas del juego , y gana e",
+        "verified": true
+      },
+      "orca": {
+        "display": "Orca",
+        "source": "rae",
+        "usage": "1. f. Cetáceo que llega a unos diez metros de largo, con cabeza redondeada, cuerpo robusto, boca rasgada, con 20 o 25 dientes rectos en cada mandíbula, con aletas pectorales muy largas, alta, grande y triangular la dorsal, y cola de más de un metro de anchura; color azul oscuro por el lomo y blanco por el vientre. Vive",
+        "verified": true
+      },
+      "oruga": {
+        "display": "Oruga",
+        "source": "rae",
+        "usage": "1. f. Planta herbácea anual de la familia de las crucíferas, con tallos vellosos de 40 a 50 cm de altura, hojas lanceoladas y partidas en varios gajos puntiagudos, flores axilares y terminales de pétalos blancos con venas moradas, y fruto en vainilla cilíndrica, con semillas globosas, amarillentas y menudas. Es común e",
+        "verified": true
+      },
+      "oso": {
+        "display": "Oso",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero carnívoro plantígrado, de gran tamaño, de pelaje pardo, largo y espeso, cabeza grande, ojos pequeños, extremidades fuertes y gruesas, con garras, y cola muy corta, que vive en los montes boscosos. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "oveja": {
+        "display": "Oveja",
+        "source": "rae",
+        "usage": "1. f. Mamífero rumiante de tamaño mediano, que posee lana y carne muy apreciadas, cuyo macho presenta cuernos arrollados en espiral y de cuya hembra se obtiene leche con la que se elaboran quesos. Un rebaño de ovejas.",
+        "verified": true
+      },
+      "panda": {
+        "display": "Panda",
+        "source": "rae",
+        "usage": "panda 1 Definición V. pando.",
+        "verified": true
+      },
+      "pantera": {
+        "display": "Pantera",
+        "source": "rae",
+        "usage": "1. f. Leopardo, especialmente el de pelaje negro. 2. f. Ágata amarilla, mosqueada de pardo o rojo, que imita la piel de la pantera. 3. f. Cuba y Méx. Persona atrevida, audaz. U. t. c. adj.",
+        "verified": true
+      },
+      "pato": {
+        "display": "Pato",
+        "source": "rae",
+        "usage": "pato 1 , ta Definición Del ár. hisp. páṭṭ, este del ár. clás. baṭṭ, y este del persa bat. 1. m. y f. Ave palmípeda acuática , con el pico aplanado y patas cortas , con dedos unidos entre sí por una membrana , de la cual existen varias especies , algunas de ellas domésticas . U. en m. ref. a la especie. Sin.: ánade , pa",
+        "verified": true
+      },
+      "pavo": {
+        "display": "Pavo",
+        "source": "rae",
+        "usage": "1. m. y f. Ave del orden de las galliformes, oriunda de América, más grande que la gallina, cuello largo y sin plumas, del que cuelgan, al igual que de la cabeza, unas carnosidades rojas. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "pelicano": {
+        "display": "Pelicano",
+        "source": "rae",
+        "usage": "pelicano 1 , na Definición 1. adj. Que tiene cano el pelo .",
+        "verified": true
+      },
+      "perro": {
+        "display": "Perro",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero doméstico de la familia de los cánidos, de tamaño, forma y pelaje muy diversos, según las razas, que tiene olfato muy fino y es inteligente y muy leal a su dueño. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "piojo": {
+        "display": "Piojo",
+        "source": "rae",
+        "usage": "1. m. Insecto anopluro, de dos a tres milímetros de largo, que vive parásito en el hombre y en otros animales alimentándose de su sangre. 2. m. piojillo.",
+        "verified": true
+      },
+      "pollo": {
+        "display": "Pollo",
+        "source": "rae",
+        "usage": "1. m. Cría que nace del huevo de un ave y en especial la de la gallina. 2. m. Gallo o gallina joven. 3. m. Carne de pollo. Prefiero comer pollo.",
+        "verified": true
+      },
+      "poni": {
+        "display": "Poni",
+        "source": "rae",
+        "usage": "Definición RAE de «poni» según el Diccionario de la lengua española: 1. m. Caballo de cierta raza de poca alzada.",
+        "verified": true
+      },
+      "pulga": {
+        "display": "Pulga",
+        "source": "rae",
+        "usage": "1. f. Insecto afaníptero, sin alas, de unos dos milímetros de longitud, color negro rojizo, cabeza pequeña, antenas cortas, patas fuertes, largas y adaptadas al salto, y parásito del ser humano y algunos animales.",
+        "verified": true
+      },
+      "pulpo": {
+        "display": "Pulpo",
+        "source": "rae",
+        "usage": "1. m. Molusco marino cefalópodo, dibranquial, octópodo, muy voraz, con cuerpo en forma de saco y tentáculos provistos de ventosas, y cuya carne es apreciada.",
+        "verified": true
+      },
+      "puma": {
+        "display": "Puma",
+        "source": "rae",
+        "usage": "Definición RAE de «puma» según el Diccionario de la lengua española: 1. m. Felino americano de unos 180 cm de longitud, de color rojizo o leonado uniforme, que vive en serranías y llanuras.",
+        "verified": true
+      },
+      "quetzal": {
+        "display": "Quetzal",
+        "source": "rae",
+        "usage": "1. m. Ave trepadora, propia de la América tropical, de unos 25 cm desde lo alto de la cabeza hasta la rabadilla, 54 de envergadura y 60 en las cobijas de la cola; plumaje suave, de color verde tornasolado y muy brillante en las partes superiores del cuerpo y rojo en el pecho y abdomen, cabeza gruesa, con un moño sedoso",
+        "verified": true
+      },
+      "rana": {
+        "display": "Rana",
+        "source": "rae",
+        "usage": "1. f. Batracio del orden de los anuros, de unos ocho a quince centímetros de largo, con el dorso de color verdoso manchado de oscuro, verde, pardo, etc., y el abdomen blanco, boca con dientes y pupila redonda o en forma de rendija vertical. Se conocen diversas especies, algunas muy comunes en España, y todas ellas, muy",
+        "verified": true
+      },
+      "reno": {
+        "display": "Reno",
+        "source": "rae",
+        "usage": "1. m. y f. Ciervo de los países septentrionales, con astas muy ramosas, tanto el macho como la hembra, y pelaje espeso, rojo parduzco en verano y rubio blanquecino en invierno. Se domestica con facilidad, sirve como animal de tiro para los trineos y se aprovechan su carne, su piel y sus huesos. U. en m. ref. a la espec",
+        "verified": true
+      },
+      "rinoceronte": {
+        "display": "Rinoceronte",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero del orden de los perisodáctilos, propio de Asia y África, de gran tamaño y piel gruesa, patas cortas y terminadas en pies anchos y provistos de tres pesuños, cabeza estrecha, hocico puntiagudo, que tiene uno o dos cuernos curvados en la zona de la nariz. U. en m. ref. a la especie.",
+        "verified": true
+      },
+      "salamandra": {
+        "display": "Salamandra",
+        "source": "rae",
+        "usage": "1. f. Anfibio urodelo de unos 20 cm de largo, la mitad aproximadamente para la cola, y piel lisa de color negro con manchas amarillas. 2. f. Según los cabalistas, ser fantástico, espíritu elemental del fuego.",
+        "verified": true
+      },
+      "sapo": {
+        "display": "Sapo",
+        "source": "rae",
+        "usage": "1. m. Anfibio anuro de cuerpo rechoncho y robusto, ojos saltones, extremidades cortas y piel de aspecto verrugoso. 2. m. coloq. Bicho cuyo nombre se ignora.",
+        "verified": true
+      },
+      "sardina": {
+        "display": "Sardina",
+        "source": "rae",
+        "usage": "1. f. Pez teleósteo marino fisóstomo, comestible, de doce a quince centímetros de largo, parecido al arenque, pero de carne más delicada, cabeza relativamente menor, la aleta dorsal muy delantera y el cuerpo más fusiforme y de color negro azulado por encima, dorado en la cabeza y plateado en los costados y vientre.",
+        "verified": true
+      },
+      "serpiente": {
+        "display": "Serpiente",
+        "source": "rae",
+        "usage": "1. f. Reptil ofidio sin pies, de cuerpo aproximadamente cilíndrico y muy largo respecto de su grueso, cabeza aplanada, boca grande y piel pintada simétricamente con colores diversos, escamosa, y cuya parte externa o epidermis muda por completo el animal de tiempo en tiempo.",
+        "verified": true
+      },
+      "suricata": {
+        "display": "Suricata",
+        "source": "rae",
+        "usage": "Definición RAE de «suricata» según el Diccionario de la lengua española: 1. m. o f. Mamífero del sur de África, similar a la mangosta, con pelaje de color negro alrededor de los ojos.",
+        "verified": true
+      },
+      "tapir": {
+        "display": "Tapir",
+        "source": "rae",
+        "usage": "1. m. Mamífero de Asia y América del Sur, del orden de los perisodáctilos, del tamaño de un jabalí, con cuatro dedos en las patas anteriores y tres en las posteriores, y la nariz prolongada en forma de pequeña trompa.",
+        "verified": true
+      },
+      "tigre": {
+        "display": "Tigre",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero carnívoro félido asiático, muy feroz y de gran tamaño, de pelaje blanco en el vientre, amarillento y con listas oscuras en el lomo y la cola, donde las tiene en forma de anillos. U. en m. ref. a la especie",
+        "verified": true
+      },
+      "topo": {
+        "display": "Topo",
+        "source": "rae",
+        "usage": "topo 1 , pa Definición Del lat. vulg. *talpus, y este del lat. talpa. 1. m. y f. Mamífero insectívoro del tamaño de un ratón , de cuerpo rechoncho , cola corta y pelaje negruzco suave y tupido , que tiene hocico afilado , ojos diminutos y casi ocultos por el pelo , y cinco dedos armados de fuertes uñas que le sirven pa",
+        "verified": true
+      },
+      "tortuga": {
+        "display": "Tortuga",
+        "source": "rae",
+        "usage": "1. f. Reptil marino del orden de los quelonios, que llega a tener hasta dos metros y medio de largo y uno de ancho, con las extremidades torácicas más desarrolladas que las abdominales, unas y otras en forma de paletas, que no pueden ocultarse, y coraza, cuyas láminas, más fuertes en el espaldar que en el peto, tienen ",
+        "verified": true
+      },
+      "trucha": {
+        "display": "Trucha",
+        "source": "rae",
+        "usage": "trucha 1 Definición Del lat. tardío tructa, y este del gr. τρώκτης trṓktēs; literalmente 'tragona'. 1. f. Pez teleósteo de agua dulce , de la familia de los salmónidos , que mide hasta 80 cm de longitud , con cuerpo de color pardo y lleno de pintas rojizas o negras , según los casos , cabeza pequeña , cola con un peque",
+        "verified": true
+      },
+      "urraca": {
+        "display": "Urraca",
+        "source": "rae",
+        "usage": "1. f. Ave similar al cuervo, pero más pequeña, de plumaje negro y blanco, y con una cola más larga, que remeda palabras y suele llevarse al nido objetos pequeños, sobre todo si son brillantes.",
+        "verified": true
+      },
+      "vaca": {
+        "display": "Vaca",
+        "source": "rae",
+        "usage": "1. f. Hembra del toro, de la que se obtiene principalmente carne y leche. 2. f. Carne de vaca o de buey, que se emplea como alimento. 3. f. Cuero de la vaca después de curtido.",
+        "verified": true
+      },
+      "venado": {
+        "display": "Venado",
+        "source": "rae",
+        "usage": "venado 1 , da Definición Del lat. venātus 'caza 1 '. 1. m. y f. ciervo. Sin.: ciervo , cérvido . 2. m. desus. Res de caza mayor , particularmente oso , jabalí o ciervo . que no lo brinca un venado 1. expr. coloq. Ven. que no se lo salta un gitano. Sinónimos o afines de «venado 1 , da» ciervo , cérvido .",
+        "verified": true
+      },
+      "vizcacha": {
+        "display": "Vizcacha",
+        "source": "rae",
+        "usage": "1. f. Roedor de hábitos nocturnos propio de las grandes llanuras, donde construye complejas colonias de cuevas. Su cuerpo es rollizo, la cabeza grande y ancha, mide aproximadamente 80 cm y su coloración es gris oscura, con el vientre blanco. Vive en el Perú, Bolivia, Chile y la Argentina.",
+        "verified": true
+      },
+      "yak": {
+        "display": "Yak",
+        "source": "rae",
+        "usage": "1. m. Bóvido que habita en las altas montañas del Tíbet, notable por las largas lanas que le cubren las patas y la parte inferior del cuerpo. En estado salvaje es de color oscuro, pero entre los domésticos abundan los blancos.",
+        "verified": true
+      },
+      "yegua": {
+        "display": "Yegua",
+        "source": "rae",
+        "usage": "1. f. Hembra del caballo. 2. f. Por contraposición a potra, yegua que tiene ya cinco o más hierbas. 3. f. despect. coloq. Cuba y Ur. Mujer grosera. U. t. c. adj.",
+        "verified": true
+      },
+      "zorro": {
+        "display": "Zorro",
+        "source": "rae",
+        "usage": "1. m. y f. Mamífero cánido de menos de un metro de longitud, incluida la cola, de hocico alargado y orejas empinadas, pelaje de color pardo rojizo y muy espeso, especialmente en la cola, de punta blanca. Es de costumbres crepusculares y nocturnas; abunda en España y caza con gran astucia toda clase de animales, incluso",
+        "verified": true
+      }
+    },
+    "fruta/verdura": {
+      "acelga": {
+        "display": "Acelga",
+        "source": "rae",
+        "usage": "1. f. Planta hortense de la familia de las quenopodiáceas, comestible, de hojas grandes, anchas, lisas y jugosas, y cuyo pecíolo es grueso y acanalado por el interior.",
+        "verified": true
+      },
+      "achicoria": {
+        "display": "Achicoria",
+        "source": "rae",
+        "usage": "1. f. Planta de la familia de las compuestas, de hojas recortadas, ásperas y comestibles, así crudas como cocidas. La infusión de la amarga o silvestre se usa como remedio tónico aperitivo.",
+        "verified": true
+      },
+      "ajo": {
+        "display": "Ajo",
+        "source": "rae",
+        "usage": "ajo 1 Definición Del lat. alium. 1. m. Planta de la familia de las liliáceas , de 30 a 40 cm de altura , con hojas ensiformes muy estrechas y bohordo con flores pequeñas y blancas . El bulbo es también blanco , redondo y de olor fuerte y se usa mucho como condimento . 2. m. Cada una de las partes o dientes en que está ",
+        "verified": true
+      },
+      "alcachofa": {
+        "display": "Alcachofa",
+        "source": "rae",
+        "usage": "1. f. Planta hortense, de la familia de las compuestas, de raíz fusiforme, tallo estriado, ramoso y de más de medio metro de altura, y hojas algo espinosas, con cabezuelas comestibles.",
+        "verified": true
+      },
+      "alcaucil": {
+        "display": "Alcaucil",
+        "source": "rae",
+        "usage": "Definición RAE de «alcaucil» según el Diccionario de la lengua española: 1. m. Alcachofa silvestre. 2. m. alcachofa (‖ planta). 3. m. alcachofa (‖ cabezuela de la alcachofa). 4. m. vulg. Arg. Soplón, delator.",
+        "verified": true
+      },
+      "apio": {
+        "display": "Apio",
+        "source": "rae",
+        "usage": "1. m. Planta comestible de la familia de las umbelíferas, de 50 a 60 cm de altura, con tallo jugoso, grueso, lampiño, hueco, asurcado y ramoso, hojas largas y hendidas, y flores muy pequeñas y blancas.",
+        "verified": true
+      },
+      "arveja": {
+        "display": "Arveja",
+        "source": "rae",
+        "usage": "Definición RAE de «arveja» según el Diccionario de la lengua española: 1. f. algarroba (‖ planta). 2. f. algarroba (‖ semilla). 3. f. Am. guisante. 1. f. áfaca.",
+        "verified": true
+      },
+      "avellana": {
+        "display": "Avellana",
+        "source": "rae",
+        "usage": "1. f. Fruto del avellano. Es casi esférico, de unos dos centímetros de diámetro, con corteza dura, delgada y de color de canela, dentro de la cual, y cubierta con una película rojiza, hay una carne blanca, aceitosa y de gusto agradable.",
+        "verified": true
+      },
+      "avena": {
+        "display": "Avena",
+        "source": "rae",
+        "usage": "1. f. Planta anual de la familia de las gramíneas, con cañas delgadas, guarnecidas de algunas hojas estrechas, y flores en panoja radiada, con una arista torcida, más larga que la flor, inserta en el dorso del cascabillo, y que se cultiva para alimento.",
+        "verified": true
+      },
+      "banana": {
+        "display": "Banana",
+        "source": "rae",
+        "usage": "1. f. Arg., Col., Ec., Par. y Ur. plátano (‖ planta musácea). 2. f. Arg., Bol., Ec., Par. y Ur. plátano (‖ fruto). 3. f. Col. Producto comestible menudo, que principalmente los niños consumen como golosina. Compró una bolsa de bananas de café.",
+        "verified": true
+      },
+      "batata": {
+        "display": "Batata",
+        "source": "rae",
+        "usage": "1. f. Planta vivaz de la familia de las convolvuláceas, de tallo rastrero y ramoso, hojas alternas, acorazonadas y profundamente lobuladas, flores grandes, acampanadas, rojas por dentro, blancas por fuera, y raíces como las de la patata.",
+        "verified": true
+      },
+      "berenjena": {
+        "display": "Berenjena",
+        "source": "rae",
+        "usage": "1. f. Planta anual de la familia de las solanáceas, de 40 a 60 cm de altura, ramosa, con hojas grandes, aovadas, de color verde, casi cubiertas de un polvillo blanco y llenas de aguijones, flores grandes y de color morado, y fruto aovado, de diez a doce centímetros de largo, cubierto por una película morada y lleno de ",
+        "verified": true
+      },
+      "bergamota": {
+        "display": "Bergamota",
+        "source": "rae",
+        "usage": "Definición RAE de «bergamota» según el Diccionario de la lengua española: 1. f. Variedad de pera muy jugosa y aromática. 2. f. Variedad de lima muy aromática, de la cual se extrae una esencia usada en perfumería.",
+        "verified": true
+      },
+      "berro": {
+        "display": "Berro",
+        "source": "rae",
+        "usage": "1. m. Planta de la familia de las crucíferas, que crece en lugares aguanosos, con varios tallos de unos 30 cm de largo, hojas compuestas de hojuelas lanceoladas, y flores pequeñas y blancas. Toda la planta tiene un gusto picante y las hojas se comen en ensalada.",
+        "verified": true
+      },
+      "cacahuate": {
+        "display": "Cacahuate",
+        "source": "rae",
+        "usage": "Definición RAE de «cacahuate» según el Diccionario de la lengua española: 1. m. Hond. y Méx. cacahuete. 2. m. Hond. y Méx. Persona o cosa insignificante o de poco valor.",
+        "verified": true
+      },
+      "cacao": {
+        "display": "Cacao",
+        "source": "rae",
+        "usage": "cacao 1 Definición Del náhuatl cacáhua. 1. m. Árbol de América, de la familia de las esterculiáceas , de tronco liso de cinco a ocho metros de altura , hojas alternas , lustrosas , lisas , duras y aovadas , flores pequeñas , amarillas y encarnadas , cuyo fruto se emplea como principal ingrediente del chocolate . Sin.: ",
+        "verified": true
+      },
+      "caqui": {
+        "display": "Caqui",
+        "source": "rae",
+        "usage": "caqui 1 Definición Tb. kaki, p. us. Del jap. kaki. 1. m. Árbol de la familia de las ebenáceas , originario del Japón y de China, del que se cultivan numerosas variedades en Europa y América del Sur. Su fruto , dulce y carnoso , del tamaño de una manzana aproximadamente , es comestible . 2. m. Fruto del caqui.",
+        "verified": true
+      },
+      "carambola": {
+        "display": "Carambola",
+        "source": "rae",
+        "usage": "1. f. Fruto del carambolo, del tamaño de un huevo de gallina, amarillo y de sabor agrio, que contiene pepitas en cuatro celdillas. 2. f. Lance del juego de trucos o billar en el que la bola arrojada toca a otras dos.",
+        "verified": true
+      },
+      "cebolla": {
+        "display": "Cebolla",
+        "source": "rae",
+        "usage": "1. f. Planta hortense, de la familia de las liliáceas, con tallo de 60 a 80 cm de altura, hueco, fusiforme e hinchado hacia la base, hojas fistulosas y cilíndricas, flores de color blanco verdoso en umbela redonda, y raíz fibrosa que nace de un bulbo esferoidal, blanco o rojizo, formado de capas tiernas y jugosas, de o",
+        "verified": true
+      },
+      "cereza": {
+        "display": "Cereza",
+        "source": "rae",
+        "usage": "1. f. Fruto del cerezo. Es una drupa con cabillo largo, casi redonda, de unos dos centímetros de diámetro, con surco lateral, piel lisa de color encarnado más o menos oscuro, y pulpa muy jugosa, dulce y comestible.",
+        "verified": true
+      },
+      "chaucha": {
+        "display": "Chaucha",
+        "source": "rae",
+        "usage": "1. f. Arg., Par. y Ur. Judía verde. 2. f. Arg. y Ur. vaina (‖ cáscara de algunas semillas). 3. f. Bol. y Chile. Moneda chica de plata o níquel.",
+        "verified": true
+      },
+      "chirimoya": {
+        "display": "Chirimoya",
+        "source": "rae",
+        "usage": "1. f. Fruto del chirimoyo. Es una baya verdosa con pepitas negras y pulpa blanca de sabor muy agradable. Su tamaño varía desde el de una manzana al de un melón.",
+        "verified": true
+      },
+      "choclo": {
+        "display": "Choclo",
+        "source": "rae",
+        "usage": "choclo 1 Definición Del lat. soccŭlus. 1. m. chanclo (‖ sandalia de madera o suela gruesa ). Sin.: chanclo . Sinónimos o afines de «choclo 1 » chanclo .",
+        "verified": true
+      },
+      "ciruela": {
+        "display": "Ciruela",
+        "source": "rae",
+        "usage": "1. f. Fruto del ciruelo. Es una drupa, muy variable en forma, color y tamaño según la variedad del árbol que la produce. El epicarpio suele separarse fácilmente del mesocarpio, que es más o menos dulce y jugoso y a veces está adherido al endocarpio.",
+        "verified": true
+      },
+      "coco": {
+        "display": "Coco",
+        "source": "rae",
+        "usage": "coco 1 Definición Voz expr. , que designaba primero fruto esférico, después el fantasma, por ser un fruto esférico la cabeza con que se le representaba, y, de ahí y posteriormente, el fruto del cocotero, por su similitud con la cabeza del fantasma. 1. m. Planta de la familia de las palmas , que suele alcanzar de 20 a 2",
+        "verified": true
+      },
+      "coliflor": {
+        "display": "Coliflor",
+        "source": "rae",
+        "usage": "1. f. Variedad de col que al entallecerse echa una pella compuesta de diversas cabezuelas o grumos blancos. En algunos lugares de Am., u. t. c. m.",
+        "verified": true
+      },
+      "damasco": {
+        "display": "Damasco",
+        "source": "rae",
+        "usage": "Definición RAE de «damasco» según el Diccionario de la lengua española: 1. m. Tela fuerte de seda o lana y con dibujos formados por el tejido. 2. m. albaricoquero. 3. m. Fruto del damasco.",
+        "verified": true
+      },
+      "durazno": {
+        "display": "Durazno",
+        "source": "rae",
+        "usage": "1. m. duraznero (‖ variedad de melocotonero). 2. m. Fruto del duraznero (‖ variedad de melocotonero). 3. m. Am. Nombre genérico de varias especies de árboles, como el melocotonero, el pérsico y el duraznero.",
+        "verified": true
+      },
+      "escarola": {
+        "display": "Escarola",
+        "source": "rae",
+        "usage": "1. f. Planta de la familia de las compuestas, de hojas rizadas y amargas al gusto, que se dulcifican privándolas de la luz hasta que adquieren un color amarillo pálido.",
+        "verified": true
+      },
+      "espinaca": {
+        "display": "Espinaca",
+        "source": "rae",
+        "usage": "1. f. Planta hortense, comestible, anual, de la familia de las quenopodiáceas, con tallo ramoso, hojas radicales, estrechas, agudas y suaves, con pecíolos rojizos, flores dioicas, sin corola, y semillas redondas o con cuernecillos, según las variedades.",
+        "verified": true
+      },
+      "frambuesa": {
+        "display": "Frambuesa",
+        "source": "rae",
+        "usage": "Definición RAE de «frambuesa» según el Diccionario de la lengua española: 1. f. Fruto del frambueso, semejante a la zarzamora, algo velloso, de olor fragante y suave, y sabor agridulce muy agradable.",
+        "verified": true
+      },
+      "frijol": {
+        "display": "Frijol",
+        "source": "rae",
+        "usage": "1. m. Am. judía (‖ planta). 2. m. Am. judía (‖ fruto). 3. m. Am. judía (‖ semilla). 4. m. pl. Méx. alimento (‖ conjunto de sustancias que se comen o beben para subsistir).",
+        "verified": true
+      },
+      "frutilla": {
+        "display": "Frutilla",
+        "source": "rae",
+        "usage": "1. f. Cuentecilla de las Indias para hacer rosarios. 2. f. Arg., Bol., Chile, Ec., Par. y Perú. Especie de fresón. 3. f. C. Rica. triquina.",
+        "verified": true
+      },
+      "garbanzo": {
+        "display": "Garbanzo",
+        "source": "rae",
+        "usage": "1. m. Planta herbácea de la familia de las papilionáceas, de 40 o 50 cm de altura, tallo duro y ramoso, hojas compuestas de hojuelas elípticas y aserradas por el margen, flores blancas, axilares y pedunculadas, y fruto en vaina inflada, pelosa, con una o dos semillas amarillentas, de un centímetro aproximadamente de di",
+        "verified": true
+      },
+      "granada": {
+        "display": "Granada",
+        "source": "rae",
+        "usage": "1. f. Fruto del granado, de forma globosa, con diámetro de unos diez centímetros, y coronado por un tubo corto y con dientecitos, resto de los sépalos del cáliz; corteza de color amarillento rojizo, delgada y correosa, que cubre multitud de granos encarnados, jugosos, dulces unas veces, agridulces otras, separados en v",
+        "verified": true
+      },
+      "grelo": {
+        "display": "Grelo",
+        "source": "rae",
+        "usage": "Definición RAE de «grelo» según el Diccionario de la lengua española: 1. m. Gal. Hoja tierna y comestible de los tallos del nabo. U. m. en pl.",
+        "verified": true
+      },
+      "guayaba": {
+        "display": "Guayaba",
+        "source": "rae",
+        "usage": "1. f. Fruto del guayabo, que es de forma aovada, del tamaño de una pera mediana, de varios colores, y más o menos dulce, con la carne llena de unos granillos o semillas pequeñas.",
+        "verified": true
+      },
+      "guisante": {
+        "display": "Guisante",
+        "source": "rae",
+        "usage": "1. m. Planta hortense de la familia de las papilionáceas, con tallos volubles de uno a dos metros de longitud, hojas pecioladas, compuestas de tres pares de hojuelas elípticas, enteras y ondeadas por el margen, estípulas a menudo convertidas en zarcillos, flores axilares en racimos colgantes de color blanco, rojo y azu",
+        "verified": true
+      },
+      "haba": {
+        "display": "Haba",
+        "source": "rae",
+        "usage": "1. f. Planta herbácea, anual, de la familia de las papilionáceas, con tallo ramoso de un metro aproximadamente, con hojas compuestas de hojuelas elípticas de color verde azulado, flores blancas o rosáceas, y fruto en vaina de unos doce centímetros de largo, que contiene cinco o seis semillas oblongas y aplastadas.",
+        "verified": true
+      },
+      "higo": {
+        "display": "Higo",
+        "source": "rae",
+        "usage": "1. m. Segundo fruto, o el más tardío, de la higuera, blando, de gusto dulce, por dentro de color más o menos encarnado o blanco, y lleno de semillas sumamente menudas; exteriormente está cubierto de una piel fina y verdosa, negra o morada, según las diversas castas de ellos.",
+        "verified": true
+      },
+      "hinojo": {
+        "display": "Hinojo",
+        "source": "rae",
+        "usage": "hinojo 1 Definición Del lat. tardío fenucŭlum, dim. de fenum 'heno', infl. en su forma por hinojo 2 . 1. m. Planta herbácea de la familia de las umbelíferas , con tallos de 120 a 140 cm, erguidos , ramosos y algo estriados , hojas partidas en muchas lacinias largas y filiformes , flores pequeñas y amarillas , en umbela",
+        "verified": true
+      },
+      "jengibre": {
+        "display": "Jengibre",
+        "source": "rae",
+        "usage": "1. m. Planta de la India, de la familia de las cingiberáceas, con hojas radicales, lanceoladas, casi lineales, flores en espiga, de corola purpúrea, sobre un escapo central de 40 a 60 cm de alto, fruto capsular bastante pulposo y con varias semillas, y rizoma del grueso de un dedo, algo aplastado, nudoso y ceniciento p",
+        "verified": true
+      },
+      "kiwi": {
+        "display": "Kiwi",
+        "source": "rae",
+        "usage": "1. m. Ave apterigiforme, del tamaño de una gallina, que habita en Nueva Zelanda. 2. m. Arbusto trepador originario de China, de hojas alternas y redondeadas y flores blancas o amarillas, con cinco pétalos.",
+        "verified": true
+      },
+      "lechuga": {
+        "display": "Lechuga",
+        "source": "rae",
+        "usage": "1. f. Planta herbácea de la familia de las compuestas, con tallo ramoso de 40 a 60 cm de altura, hojas grandes, radicales, blandas, nerviosas, trasovadas, enteras o serradas, flores en muchas cabezuelas y de pétalos amarillentos, y fruto seco, gris, comprimido, con una sola semilla. Es originaria de la India, se cultiv",
+        "verified": true
+      },
+      "lima": {
+        "display": "Lima",
+        "source": "rae",
+        "usage": "lima 1 Definición Del ár. hisp. lima, y este del ár. līmah. 1. f. Fruto del limero , de forma esferoidal aplanada y de unos cinco centímetros de diámetro , pezón bien saliente de la base , corteza lisa y amarilla , y pulpa verdosa , dividida en gajos , comestible , jugosa y de sabor algo dulce . 2. f. Bebida que se obt",
+        "verified": true
+      },
+      "mango": {
+        "display": "Mango",
+        "source": "rae",
+        "usage": "mango 1 Definición Del lat. vulg. *manĭcus, der. del lat. manus 'mano 1 '. 1. m. Parte alargada o estrecha con un extremo libre , por el cual se puede agarrar un instrumento o utensilio . Sin.: asidero , agarradero , empuñadura , manilla , cabo 1 , astil , puño , manija . mango de cuchillo 1. m. navaja (‖ molusco ). Si",
+        "verified": true
+      },
+      "manzana": {
+        "display": "Manzana",
+        "source": "rae",
+        "usage": "1. f. Fruto del manzano, de forma globosa algo hundida por los extremos del eje, de epicarpio delgado, liso y de color verde claro, amarillo pálido o encarnado, mesocarpio con sabor acídulo o ligeramente azucarado, y semillas pequeñas, de color de caoba, encerradas en un endocarpio coriáceo.",
+        "verified": true
+      },
+      "membrillo": {
+        "display": "Membrillo",
+        "source": "rae",
+        "usage": "1. m. Arbusto de la familia de las rosáceas, de tres a cuatro metros de altura, muy ramoso, con hojas pecioladas, enteras, aovadas o casi redondas, verdes por el haz y lanuginosas por el envés, flores róseas, solitarias, casi sentadas y de cáliz persistente, y fruto en pomo, de diez a doce centímetros de diámetro, amar",
+        "verified": true
+      },
+      "menta": {
+        "display": "Menta",
+        "source": "rae",
+        "usage": "menta 1 Definición Del lat. menta, y este del gr. μίνθα míntha. 1. f. hierbabuena. Sin.: hierbabuena . menta poleo 1. f. poleo (‖ planta , o infusión ). U. t. c. m. poleo menta Sinónimos o afines de «menta 1 » hierbabuena .",
+        "verified": true
+      },
+      "mora": {
+        "display": "Mora",
+        "source": "rae",
+        "usage": "mora 1 Definición Del lat. mora. 1. f. Der. Dilación o tardanza en cumplir una obligación , por lo común la de pagar cantidad líquida y vencida . Sin.: tardanza , dilación , aplazamiento . 2. f. Fon. y Métr. Unidad de medida de la cantidad silábica , equivalente a una sílaba breve . Sinónimos o afines de «mora 1 » tard",
+        "verified": true
+      },
+      "nabo": {
+        "display": "Nabo",
+        "source": "rae",
+        "usage": "1. m. Planta anual de la familia de las crucíferas, de 50 a 60 cm de altura, con hojas glaucas, rugosas, lampiñas, grandes, partidas en tres lóbulos oblongos las radicales, y enteras, lanceoladas y algo envainadoras las superiores, flores en espiga terminal, pequeñas y amarillas, fruto seco en vainillas cilíndricas con",
+        "verified": true
+      },
+      "naranja": {
+        "display": "Naranja",
+        "source": "rae",
+        "usage": "1. f. Fruto del naranjo, de forma globosa, de seis a ocho centímetros de diámetro, corteza rugosa, de color entre rojo y amarillo, como el de la pulpa, que está dividida en gajos, y es comestible, jugosa y de sabor agridulce.",
+        "verified": true
+      },
+      "nectarina": {
+        "display": "Nectarina",
+        "source": "rae",
+        "usage": "Definición RAE de «nectarina» según el Diccionario de la lengua española: 1. f. Variedad de melocotón de piel lisa.",
+        "verified": true
+      },
+      "nuez": {
+        "display": "Nuez",
+        "source": "rae",
+        "usage": "1. f. Fruto del nogal. Es una drupa ovoide, de tres o cuatro centímetros de diámetro, con el epicarpio fino y liso, de color verde con pintas negruzcas, el mesocarpio correoso y caedizo, y el endocarpio duro, parduzco, rugoso y dividido en dos mitades simétricas, que encierran la semilla, desprovista de albumen y con d",
+        "verified": true
+      },
+      "palmito": {
+        "display": "Palmito",
+        "source": "rae",
+        "usage": "palmito 1 Definición De palma. 1. m. Planta de la familia de las palmas , con tronco subterráneo o apenas saliente , que sin embargo se alza a dos y tres metros de altura en los individuos cultivados . Tiene hojas en forma de abanico , formadas por 15 o 20 lacinias estrechas , fuertes , correosas y de unos 30 cm, flore",
+        "verified": true
+      },
+      "palta": {
+        "display": "Palta",
+        "source": "rae",
+        "usage": "1. adj. Dicho de una persona: De un pueblo amerindio que habitaba en la región ecuatoriana de la actual provincia de Loja, y el norte del Perú. U. t. c. s.",
+        "verified": true
+      },
+      "papa": {
+        "display": "Papa",
+        "source": "rae",
+        "usage": "papa 1 Definición Del lat. tardío papa o papas, y estos del gr. πάπας pápas 'sacerdote', 'obispo', también 'papá'. 1. m. Sumo pontífice romano , vicario de Cristo , sucesor de san Pedro en el gobierno universal de la Iglesia católica , de la cual es cabeza visible , y padre espiritual de todos los fieles . Sin.: pontíf",
+        "verified": true
+      },
+      "papaya": {
+        "display": "Papaya",
+        "source": "rae",
+        "usage": "1. f. Fruto del papayo, generalmente de forma oblonga, hueco y que encierra las semillas en su concavidad. La parte mollar, semejante a la del melón, es amarilla y dulce, y de él se hace, cuando verde, una confitura muy estimada.",
+        "verified": true
+      },
+      "paraguayo": {
+        "display": "Paraguayo",
+        "source": "rae",
+        "usage": "1. adj. Natural del Paraguay, país de América. U. t. c. s. 2. adj. Perteneciente o relativo al Paraguay o a los paraguayos. 3. m. Bol. Rosquete que se hace de azúcar, clavo y almidón.",
+        "verified": true
+      },
+      "pepino": {
+        "display": "Pepino",
+        "source": "rae",
+        "usage": "1. m. Planta herbácea anual, de la familia de las cucurbitáceas, con tallos blandos, rastreros, vellosos y de dos a tres metros de longitud, hojas pecioladas, pelosas, partidas en lóbulos agudos, flores amarillas, separadas las masculinas de las femeninas, y fruto pulposo, cilíndrico, de seis a doce centímetros de larg",
+        "verified": true
+      },
+      "pera": {
+        "display": "Pera",
+        "source": "rae",
+        "usage": "1. f. Fruto del peral. 2. f. Recipiente de goma en forma de pera, que se usa para impulsar líquidos, aire, etc. 3. f. Llamador de timbre o interruptor de luz de forma parecida a una pera.",
+        "verified": true
+      },
+      "perejil": {
+        "display": "Perejil",
+        "source": "rae",
+        "usage": "1. m. Planta herbácea vivaz, de la familia de las umbelíferas, que crece hasta 70 cm de altura, con tallos angulosos y ramificados, hojas pecioladas, lustrosas, de color verde oscuro, partidas en tres gajos dentados, flores blancas o verdosas y semillas menudas, parduzcas, aovadas y con venas muy finas, que es espontán",
+        "verified": true
+      },
+      "pimiento": {
+        "display": "Pimiento",
+        "source": "rae",
+        "usage": "1. m. Planta herbácea anual, de origen americano, de la familia de las solanáceas, con fruto en baya hueca, de color verde, rojo o amarillo y forma más o menos cónica.",
+        "verified": true
+      },
+      "pina": {
+        "display": "Pina",
+        "source": "rae",
+        "usage": "1. f. Mojón terminado en punta. 2. f. Cada uno de los trozos curvos de madera que forman en círculo la rueda del coche o carro, donde encajan por la parte interior los rayos y por la exterior se asientan las llantas de hierro.",
+        "verified": true
+      },
+      "pomelo": {
+        "display": "Pomelo",
+        "source": "rae",
+        "usage": "Definición RAE de «pomelo» según el Diccionario de la lengua española: 1. m. toronja.",
+        "verified": true
+      },
+      "poroto": {
+        "display": "Poroto",
+        "source": "rae",
+        "usage": "1. m. Arg., Bol., Chile, Ec., Par., Perú y Ur. judía (‖ planta). 2. m. Arg., Bol., Chile, Ec., Par., Perú y Ur. judía (‖ semilla). 3. m. Bol., Col., Ec., Par., Perú y Ur. Guiso que se hace con porotos.",
+        "verified": true
+      },
+      "puerro": {
+        "display": "Puerro",
+        "source": "rae",
+        "usage": "1. m. Planta herbácea anual, de la familia de las liliáceas, con tallo de 60 a 80 cm, hojas planas, largas, estrechas y enteras, flores en umbela con pétalos de color blanco rojizo, y cuyo bulbo, alargado y sencillo, es comestible.",
+        "verified": true
+      },
+      "quinoa": {
+        "display": "Quinoa",
+        "source": "rae",
+        "usage": "1. f. Planta anual de la familia de las quenopodiáceas, de la que hay varias especies, que tiene flores pequeñas dispuestas en racimos, hojas rómbicas, comestibles cuando están tiernas, y semillas muy abundantes y menudas, también comestibles.",
+        "verified": true
+      },
+      "quinoto": {
+        "display": "Quinoto",
+        "source": "rae",
+        "usage": "1. m. Arg. y Ur. Árbol de no más de dos metros de altura, de copa redondeada y hojas lanceoladas de color verde brillante y flores blancas. Los frutos ovoides, de unos cuatro centímetros de longitud, de cáscara y color similares a la naranja, se emplean para hacer dulces y jaleas.",
+        "verified": true
+      },
+      "remolacha": {
+        "display": "Remolacha",
+        "source": "rae",
+        "usage": "1. f. Planta herbácea anual, de la familia de las quenopodiáceas, con tallo derecho, grueso, ramoso, de uno a dos metros de altura, hojas grandes, enteras, ovales, con nervio central rojizo, flores pequeñas y verdosas en espiga terminal, fruto seco con una semilla lenticular, y raíz grande, carnosa, fusiforme, generalm",
+        "verified": true
+      },
+      "repollo": {
+        "display": "Repollo",
+        "source": "rae",
+        "usage": "1. m. Col cuyas hojas, de color verde claro, anchas y apretadas entre sí, forman como una cabeza redondeada. 2. m. p. us. Cabeza redondeada que forman las hojas de algunas plantas como el repollo o la lombarda.",
+        "verified": true
+      },
+      "romero": {
+        "display": "Romero",
+        "source": "rae",
+        "usage": "romero 1 Definición Del lat. ros maris. 1. m. Arbusto de la familia de las labiadas , con tallos ramosos de un metro aproximadamente de altura , hojas opuestas , lineales , gruesas , coriáceas , sentadas , enteras , lampiñas , lustrosas , verdes por el haz y blanquecinas por el envés , de olor muy aromático y sabor acr",
+        "verified": true
+      },
+      "tomate": {
+        "display": "Tomate",
+        "source": "rae",
+        "usage": "1. m. Baya roja, fruto de la tomatera, de superficie lisa y brillante, en cuya pulpa hay numerosas semillas algo aplastadas y amarillas. 2. m. tomatera (‖ planta).",
+        "verified": true
+      },
+      "tomillo": {
+        "display": "Tomillo",
+        "source": "rae",
+        "usage": "1. m. Planta perenne de la familia de las labiadas, muy olorosa, con tallos leñosos, derechos, blanquecinos, ramosos, de 20 a 30 cm de altura, hojas pequeñas, lanceoladas, con los bordes revueltos y algo pecioladas, y flores blancas o róseas en cabezuelas laxas axilares. Es muy común en España, y el cocimiento de sus f",
+        "verified": true
+      },
+      "toronja": {
+        "display": "Toronja",
+        "source": "rae",
+        "usage": "Definición RAE de «toronja» según el Diccionario de la lengua española: 1. f. Cidra de forma globosa como la naranja. 2. f. irón. coloq. Ur. Nariz grande y deforme.",
+        "verified": true
+      },
+      "uva": {
+        "display": "Uva",
+        "source": "rae",
+        "usage": "uva 1 Definición Del lat. uva. 1. f. Baya o grano más o menos redondo y jugoso , fruto de la vid , que forma racimos . 2. f. Baya de ciertos arbustos . 3. f. Enfermedad de la campanilla , que consiste en un tumor pequeño de la forma de una uva. 4. f. Especie de verrugas pequeñas que suelen formarse en el párpado , junt",
+        "verified": true
+      },
+      "vainilla": {
+        "display": "Vainilla",
+        "source": "rae",
+        "usage": "1. f. Planta americana, de la familia de las orquidáceas, con tallos muy largos, verdes, sarmentosos y trepadores, hojas enteras, ovales u oblongas, flores grandes, verdosas, y fruto capsular en forma de judía, de unos 20 cm de largo por uno de ancho, que contiene muchas simientes menudas.",
+        "verified": true
+      },
+      "yuca": {
+        "display": "Yuca",
+        "source": "rae",
+        "usage": "1. f. Planta de América tropical, de la familia de las liliáceas, con tallo arborescente, cilíndrico, lleno de cicatrices, de hasta dos metros de altura, coronado por un penacho de hojas largas, gruesas, rígidas y ensiformes, que tiene flores blancas, casi globosas, colgantes de un escapo largo y central, y raíz gruesa",
+        "verified": true
+      },
+      "zanahoria": {
+        "display": "Zanahoria",
+        "source": "rae",
+        "usage": "1. f. Planta herbácea umbelífera, con flores blancas y purpúrea la central de la umbela, con fruto seco y comprimido y raíz fusiforme, de unos 20 cm de largo, amarilla o rojiza, jugosa y comestible.",
+        "verified": true
+      },
+      "zapallito": {
+        "display": "Zapallito",
+        "source": "rae",
+        "usage": "Definición RAE de «zapallito» según el Diccionario de la lengua española: 1. m. Arg. Variedad de calabacita redondeada de unos diez centímetros de diámetro y corteza verde. 1. m. Arg. calabacín.",
+        "verified": true
+      },
+      "zapallo": {
+        "display": "Zapallo",
+        "source": "rae",
+        "usage": "1. adj. coloq. Arg., Bol. y Ur. tonto (‖ falto de entendimiento o de razón). 2. m. Arg., Bol., Chile, Col., Ec., Hond., Par., Perú y Ur. Calabaza comestible.",
+        "verified": true
+      }
+    },
+    "objeto": {
+      "abanico": {
+        "display": "Abanico",
+        "source": "rae",
+        "usage": "1. m. Instrumento compuesto por un conjunto de varillas articuladas por un extremo y pegadas por el otro a una tela o un papel que se despliega con ellas en semicírculo.",
+        "verified": true
+      },
+      "agenda": {
+        "display": "Agenda",
+        "source": "rae",
+        "usage": "1. f. Libro, cuaderno o dispositivo electrónico en que se apunta, para no olvidarlo, aquello que se ha de hacer. 2. f. Relación de los temas que han de tratarse en una junta.",
+        "verified": true
+      },
+      "aguja": {
+        "display": "Aguja",
+        "source": "rae",
+        "usage": "1. f. Barra pequeña y puntiaguda, de metal, hueso o madera, con un ojo por donde se pasa el hilo, cuerda, correa, bejuco, etc., con que se cose, borda o teje.",
+        "verified": true
+      },
+      "alambre": {
+        "display": "Alambre",
+        "source": "rae",
+        "usage": "1. m. Hilo de cualquier metal, obtenido por trefilado. 2. m. Conjunto de cencerros, campanillas, etc., de una recua o hato de ganado. 3. m. En la lotería de algunos países, cada uno de los alambres en que se ensartan, una vez extraídas del bombo, las bolas de los números premiados y las de sus premios correspondientes.",
+        "verified": true
+      },
+      "alfiler": {
+        "display": "Alfiler",
+        "source": "rae",
+        "usage": "1. m. Clavo metálico muy fino, que sirve generalmente para prender o sujetar alguna parte de los vestidos, los tocados y otros adornos de la persona.",
+        "verified": true
+      },
+      "almohada": {
+        "display": "Almohada",
+        "source": "rae",
+        "usage": "1. f. Funda rellena de un material blando, que sirve para reclinar la cabeza. 2. f. almohadón (‖ colchón pequeño para sentarse o apoyar los pies).",
+        "verified": true
+      },
+      "anillo": {
+        "display": "Anillo",
+        "source": "rae",
+        "usage": "1. m. Aro pequeño. 2. m. Aro de metal u otra materia, liso o con labores, y con perlas o piedras preciosas o sin ellas, que se lleva, principalmente por adorno, en los dedos de la mano.",
+        "verified": true
+      },
+      "antena": {
+        "display": "Antena",
+        "source": "rae",
+        "usage": "1. f. Apéndice sensorial par de la cabeza de los artrópodos. 2. f. Dispositivo de los aparatos emisores o receptores que, con formas muy diversas, sirve para emitir o recibir ondas electromagnéticas.",
+        "verified": true
+      },
+      "armario": {
+        "display": "Armario",
+        "source": "rae",
+        "usage": "1. m. Mueble con puertas y estantes o perchas para guardar ropa y otros objetos. 2. m. coloq. Persona corpulenta y fornida. 1. m. Espacio construido a manera de armario en el espesor de un muro o en el hueco de una pared y cerrado con puertas.",
+        "verified": true
+      },
+      "aro": {
+        "display": "Aro",
+        "source": "rae",
+        "usage": "aro 1 Definición De or. inc. 1. m. Pieza de metal o de otra materia en forma de circunferencia . Sin.: cerco , anillo , argolla , arandela 1 . 2. m. Armadura de madera , circular o no , que sostiene el tablero de la mesa , y con la cual suelen estar ensamblados los pies . 3. m. Juguete en forma de aro que se hace rodar",
+        "verified": true
+      },
+      "auricular": {
+        "display": "Auricular",
+        "source": "rae",
+        "usage": "1. adj. Perteneciente o relativo al oído o a la oreja. 2. adj. Anat. Perteneciente o relativo a las aurículas (‖ cavidades del corazón). 3. adj. Zool. Dicho de una zona de la cabeza de un ave: Situada en un lateral, por detrás y por debajo de los ojos. U. t. c. s. pl.",
+        "verified": true
+      },
+      "balanza": {
+        "display": "Balanza",
+        "source": "rae",
+        "usage": "1. f. Aparato que sirve para pesar. 2. f. desus. Comparación o juicio que el entendimiento hace de las cosas. 1. f. Econ. Estado comparativo de la importación y exportación de artículos mercantiles en un país.",
+        "verified": true
+      },
+      "balde": {
+        "display": "Balde",
+        "source": "rae",
+        "usage": "balde 1 Definición De or. inc. 1. m. En las embarcaciones especialmente , cubo que se emplea para sacar y transportar agua . Sin.: cubo 1 , barreño , palangana . 2. m. Recipiente de forma y tamaño parecidos a los del cubo . Sin.: cubo 1 , barreño , palangana . Sinónimos o afines de «balde 1 » cubo 1 , barreño , palanga",
+        "verified": true
+      },
+      "banco": {
+        "display": "Banco",
+        "source": "rae",
+        "usage": "1. m. Asiento, con respaldo o sin él, en que pueden sentarse dos o más personas. 2. m. Madero grueso escuadrado que se coloca horizontalmente sobre cuatro pies y sirve de mesa para labores de carpinteros y otros artesanos.",
+        "verified": true
+      },
+      "bandera": {
+        "display": "Bandera",
+        "source": "rae",
+        "usage": "1. f. Tela de forma comúnmente rectangular, que se asegura por uno de sus lados a un asta o a una driza y se emplea como enseña o señal de una nación, una ciudad o una institución.",
+        "verified": true
+      },
+      "banqueta": {
+        "display": "Banqueta",
+        "source": "rae",
+        "usage": "1. f. Asiento de tres o cuatro pies y sin respaldo. 2. f. Banco corrido y sin respaldo. 3. f. escabel (‖ tarima para que descansen los pies).",
+        "verified": true
+      },
+      "barco": {
+        "display": "Barco",
+        "source": "rae",
+        "usage": "1. m. Embarcación de estructura cóncava y, generalmente, de grandes dimensiones. 2. m. Barranco poco profundo. 3. m. El Salv. y Hond. Recipiente hecho de madera o de calabaza ahuecada que se usa para contener líquidos.",
+        "verified": true
+      },
+      "bicicleta": {
+        "display": "Bicicleta",
+        "source": "rae",
+        "usage": "1. f. Vehículo de dos ruedas, normalmente de igual tamaño, cuyos pedales transmiten el movimiento a la rueda trasera por medio de un plato, un piñón y una cadena.",
+        "verified": true
+      },
+      "bolso": {
+        "display": "Bolso",
+        "source": "rae",
+        "usage": "1. m. bolsa (‖ saco para el dinero). 2. m. bolsillo (‖ bolsa de una prenda de vestir). 3. m. Bolsa de mano por lo común pequeña, hecha de cuero, tela u otra materia, provista de cierre y frecuentemente de asa, que utilizan en particular las mujeres para llevar dinero, documentos, objetos de uso personal, etc.",
+        "verified": true
+      },
+      "botella": {
+        "display": "Botella",
+        "source": "rae",
+        "usage": "1. f. Recipiente de cristal, vidrio, plástico u otro material, con el cuello estrecho, que sirve para contener líquidos. 2. f. Líquido que cabe en una botella. Se bebió una botella de vino.",
+        "verified": true
+      },
+      "bufanda": {
+        "display": "Bufanda",
+        "source": "rae",
+        "usage": "1. f. Prenda larga y estrecha, por lo común de lana o seda, con que se envuelve y abriga el cuello y la boca. 2. f. coloq. Gratificación extraordinaria que recibe de su empresa un trabajador.",
+        "verified": true
+      },
+      "butaca": {
+        "display": "Butaca",
+        "source": "rae",
+        "usage": "1. f. Asiento con brazos y respaldo, semejante a un sillón pero generalmente menos voluminoso. 2. f. En un teatro o en un cine, asiento con brazos y respaldo para una persona. Butaca de patio, de entresuelo.",
+        "verified": true
+      },
+      "cable": {
+        "display": "Cable",
+        "source": "rae",
+        "usage": "cable 1 Definición Del fr. câble, y este del lat. tardío capŭlum 'cuerda'. 1. m. Cordón formado con varios conductores aislados unos de otros y protegido generalmente por una envoltura flexible y resistente . Cable de alta tensión , eléctrico , de fibra óptica , submarino . 2. m. Cordón de alambres trenzados . 3. m. Ay",
+        "verified": true
+      },
+      "caja": {
+        "display": "Caja",
+        "source": "rae",
+        "usage": "1. f. Recipiente que, cubierto con una tapa suelta o unida a la parte principal, sirve para guardar o transportar en él algo. 2. f. caja, por lo común de hierro o acero, para guardar con seguridad dinero, alhajas y otros objetos de valor.",
+        "verified": true
+      },
+      "calendario": {
+        "display": "Calendario",
+        "source": "rae",
+        "usage": "1. m. Sistema de representación del paso de los días, agrupados en unidades superiores, como semanas, meses, años, etc. 2. m. Lámina o conjunto de láminas en que se representa gráficamente el calendario.",
+        "verified": true
+      },
+      "campana": {
+        "display": "Campana",
+        "source": "rae",
+        "usage": "1. f. Instrumento metálico, generalmente en forma de copa invertida, que suena al ser golpeado por un badajo o por un martillo exterior. 2. f. Aquello que tiene forma semejante a la campana, abierta y más ancha en la parte inferior. Campana de la chimenea. Campana de vidrio.",
+        "verified": true
+      },
+      "cana": {
+        "display": "Cana",
+        "source": "rae",
+        "usage": "cana 1 Definición V. cano.",
+        "verified": true
+      },
+      "candado": {
+        "display": "Candado",
+        "source": "rae",
+        "usage": "Definición RAE de «candado» según el Diccionario de la lengua española: 1. m. Cerradura suelta contenida en una caja de metal, que por medio de armellas asegura puertas, ventanas, tapas de cofres, maletas, etc.",
+        "verified": true
+      },
+      "carpeta": {
+        "display": "Carpeta",
+        "source": "rae",
+        "usage": "1. f. Útil de escritorio de forma rectangular, generalmente de cartón o plástico, que, doblado por la mitad y a veces cerrado por cintas o gomas, sirve para guardar papeles.",
+        "verified": true
+      },
+      "carro": {
+        "display": "Carro",
+        "source": "rae",
+        "usage": "carro 1 Definición Del lat. carrus, y este del galo carros. 1. m. Carruaje de dos ruedas , con lanza o varas para enganchar el tiro , y cuya armazón consiste en un bastidor con listones o cuerdas para sostener la carga , y varales o tablas en los costados , y a veces en los frentes , para sujetarla . Sin.: carruaje , c",
+        "verified": true
+      },
+      "casco": {
+        "display": "Casco",
+        "source": "rae",
+        "usage": "1. m. cráneo (‖ caja del encéfalo). 2. m. Fragmento que queda de un vaso o vasija al romperse, o de una bomba después de estallar. 3. m. Cáscara dura de algunos frutos.",
+        "verified": true
+      },
+      "celular": {
+        "display": "Celular",
+        "source": "rae",
+        "usage": "1. adj. Perteneciente o relativo a las células. 2. adj. Der. Dicho de un establecimiento carcelario: Donde los reclusos están sistemáticamente incomunicados en celdas independientes.",
+        "verified": true
+      },
+      "cenicero": {
+        "display": "Cenicero",
+        "source": "rae",
+        "usage": "1. m. Recipiente donde se dejan la ceniza y residuos del cigarro. 2. m. Espacio que hay debajo de la rejilla del hogar, para que en él caiga la ceniza.",
+        "verified": true
+      },
+      "cepillo": {
+        "display": "Cepillo",
+        "source": "rae",
+        "usage": "1. m. Instrumento hecho de cerdas distribuidas en una armazón, que sirve para distintos usos de limpieza. 2. m. Instrumento de carpintería formado por un prisma cuadrangular de madera dura, que lleva embutido, en una abertura transversal y sujeto por una cuña, un hierro acerado con filo, el cual sobresale un poco de la",
+        "verified": true
+      },
+      "cerradura": {
+        "display": "Cerradura",
+        "source": "rae",
+        "usage": "1. f. Mecanismo de metal que se fija en puertas, tapas de cofres, arcas, cajones, etc., y sirve para cerrarlos por medio de uno o más pestillos que se hacen jugar con la llave.",
+        "verified": true
+      },
+      "cesto": {
+        "display": "Cesto",
+        "source": "rae",
+        "usage": "cesto 1 Definición De cesta. 1. m. Cesta grande y más alta que ancha , formada a veces con mimbres , tiras de caña o varas de sauce sin pulir . Sin.: cesta , canasta , canastilla , canasto , banasto , banasta , conacho , tabaque 1 , tabanque , cunacho . 2. m. tabaque 1 . 3. m. Dep. En el baloncesto , canasta (‖ aro con",
+        "verified": true
+      },
+      "chaqueta": {
+        "display": "Chaqueta",
+        "source": "rae",
+        "usage": "1. f. Prenda exterior de vestir, con mangas y abierta por delante, que llega por debajo de la cadera. 2. f. vulg. Méx. masturbación. 3. f. Ven. cazadora (‖ chaqueta corta y ajustada a la cadera).",
+        "verified": true
+      },
+      "chimenea": {
+        "display": "Chimenea",
+        "source": "rae",
+        "usage": "Definición RAE de «chimenea» según el Diccionario de la lengua española: 1. f. Cañón o conducto para que salga el humo que resulta de la combustión. 2. f. Hogar o fogón para guisar o calentarse, con su chimenea.",
+        "verified": true
+      },
+      "cierre": {
+        "display": "Cierre",
+        "source": "rae",
+        "usage": "1. m. Acción y efecto de cerrar o cerrarse. El cierre de una carta, de un abanico, de una vocal. 2. m. Aquello que sirve para cerrar. 3. m. Clausura temporal de tiendas y otros establecimientos mercantiles, por lo regular concertada entre los dueños.",
+        "verified": true
+      },
+      "cinta": {
+        "display": "Cinta",
+        "source": "rae",
+        "usage": "1. f. Tira de tela u otro material de propiedades semejantes que sirve para atar, ceñir o adornar. 2. f. Tira de papel, celuloide, plástico u otra materia flexible.",
+        "verified": true
+      },
+      "clavo": {
+        "display": "Clavo",
+        "source": "rae",
+        "usage": "1. m. Pieza metálica, larga y delgada, con cabeza y punta, que sirve para introducirla en alguna parte, o para asegurar una cosa a otra. 2. m. Callo duro y de forma piramidal, que se forma generalmente en los pies.",
+        "verified": true
+      },
+      "clip": {
+        "display": "Clip",
+        "source": "rae",
+        "usage": "clip 1 Definición Del ingl. clip. 1. m. Utensilio hecho con un trozo de alambre , u otro material , doblado sobre sí mismo , que sirve para sujetar papeles . Sin.: sujetapapeles . 2. m. Sistema de pinza para fijar mediante presión broches , horquillas , etc. Pendientes de clip . Sin.: pinza . Sinónimos o afines de «cli",
+        "verified": true
+      },
+      "cochecito": {
+        "display": "Cochecito",
+        "source": "rae",
+        "usage": "Definición RAE de «cochecito» según el Diccionario de la lengua española: 1. m. coche de niño.",
+        "verified": true
+      },
+      "colador": {
+        "display": "Colador",
+        "source": "rae",
+        "usage": "colador 1 Definición De colar 1 . 1. m. Clérigo que confiere o da la colación de los beneficios eclesiásticos .",
+        "verified": true
+      },
+      "cometa": {
+        "display": "Cometa",
+        "source": "rae",
+        "usage": "1. m. Astron. Astro generalmente formado por un núcleo poco denso y una atmósfera luminosa que lo envuelve, precediéndolo o siguiéndolo, según su posición respecto del Sol, y que describe una órbita muy excéntrica.",
+        "verified": true
+      },
+      "consola": {
+        "display": "Consola",
+        "source": "rae",
+        "usage": "1. f. Mesa hecha para estar arrimada a la pared, comúnmente sin cajones y con un segundo tablero inmediato al suelo. 2. f. Dispositivo que, integrado o no en una máquina, contiene los instrumentos para su control y operación.",
+        "verified": true
+      },
+      "cortina": {
+        "display": "Cortina",
+        "source": "rae",
+        "usage": "1. f. Tela que por lo común cuelga de puertas y ventanas como adorno o para aislar de la luz y de miradas ajenas. 2. f. Aquello que encubre y oculta algo.",
+        "verified": true
+      },
+      "cuaderno": {
+        "display": "Cuaderno",
+        "source": "rae",
+        "usage": "1. m. Conjunto o agregado de algunos pliegos de papel, doblados y cosidos en forma de libro. 2. m. Libro pequeño o conjunto de papel en que se lleva la cuenta y razón, o en que se escriben algunas noticias, ordenanzas o instrucciones. El cuaderno de millones, de la Mesta.",
+        "verified": true
+      },
+      "cuadro": {
+        "display": "Cuadro",
+        "source": "rae",
+        "usage": "1. adj. cuadrado (‖ de figura plana cerrada por cuatro líneas rectas). U. t. c. s. m. 2. m. rectángulo. 3. m. Composición pictórica desarrollada sobre lienzo, madera, papel, etc., generalmente enmarcada.",
+        "verified": true
+      },
+      "cuchara": {
+        "display": "Cuchara",
+        "source": "rae",
+        "usage": "1. f. Utensilio que se compone de una parte cóncava prolongada en un mango, y que sirve, especialmente, para llevar a la boca cosas líquidas, blandas o menudas.",
+        "verified": true
+      },
+      "cuchillo": {
+        "display": "Cuchillo",
+        "source": "rae",
+        "usage": "1. m. Instrumento para cortar formado por una hoja de metal de un corte solo y con mango. 2. m. Cada uno de los colmillos inferiores del jabalí.",
+        "verified": true
+      },
+      "cuenco": {
+        "display": "Cuenco",
+        "source": "rae",
+        "usage": "1. m. Recipiente no muy grande de barro u otra materia, hondo y ancho, y sin borde o labio. 2. m. concavidad (‖ parte cóncava). 3. m. Ar. Cuezo para colar.",
+        "verified": true
+      },
+      "despertador": {
+        "display": "Despertador",
+        "source": "rae",
+        "usage": "1. adj. Que despierta. 2. m. y f. Persona que tiene el cuidado de despertar a otras. 3. m. Reloj que, a la hora que previamente se fija, hace sonar una campanilla, timbre o zumbido, para despertar a quien duerme o dar otro aviso.",
+        "verified": true
+      },
+      "destornillador": {
+        "display": "Destornillador",
+        "source": "rae",
+        "usage": "1. m. Instrumento de hierro u otra materia, que sirve para destornillar y atornillar. 2. m. Cóctel que se prepara con vodka y jugo o refresco de naranja.",
+        "verified": true
+      },
+      "diccionario": {
+        "display": "Diccionario",
+        "source": "rae",
+        "usage": "1. m. Repertorio en forma de libro o en soporte electrónico en el que se recogen, según un orden determinado, las palabras o expresiones de una o más lenguas, o de una materia concreta, acompañadas de su definición, equivalencia o explicación.",
+        "verified": true
+      },
+      "dron": {
+        "display": "Dron",
+        "source": "rae",
+        "usage": "Definición RAE de «dron» según el Diccionario de la lengua española: 1. m. Aeronave no tripulada.",
+        "verified": true
+      },
+      "ducha": {
+        "display": "Ducha",
+        "source": "rae",
+        "usage": "ducha 1 Definición Del fr. douche, y este del it. doccia 'caño de agua'. 1. f. Acción y efecto de duchar . Sin.: baño , duchazo , regaderazo , afusión . 2. f. Proyección de agua que , en forma de lluvia o de chorro , se hace caer en el cuerpo para limpiarlo o refrescarlo , o con propósito medicinal . Sin.: lluvia . 3. ",
+        "verified": true
+      },
+      "enchufe": {
+        "display": "Enchufe",
+        "source": "rae",
+        "usage": "1. m. Acción y efecto de enchufar. 2. m. Dispositivo en el que encaja una clavija de conexión eléctrica. 3. m. clavija (‖ pieza con varillas metálicas).",
+        "verified": true
+      },
+      "escalera": {
+        "display": "Escalera",
+        "source": "rae",
+        "usage": "1. f. Conjunto de peldaños o escalones que enlazan dos planos a distinto nivel en una construcción o terreno, y que sirven para subir y bajar. U. t. en pl. con el mismo significado que en sing.",
+        "verified": true
+      },
+      "escoba": {
+        "display": "Escoba",
+        "source": "rae",
+        "usage": "1. f. Utensilio compuesto por un haz de ramas flexibles o de filamentos de otro material sujetos normalmente al extremo de un palo o de un mango largo, que sirve para limpiar el suelo.",
+        "verified": true
+      },
+      "escritorio": {
+        "display": "Escritorio",
+        "source": "rae",
+        "usage": "1. m. Mueble cerrado, con divisiones en su parte interior para guardar papeles y, a veces, con un tablero sobre el cual se escribe. 2. m. Mesa de despacho.",
+        "verified": true
+      },
+      "escudo": {
+        "display": "Escudo",
+        "source": "rae",
+        "usage": "1. m. Arma defensiva, que se lleva embrazada, para cubrirse y resguardarse de las armas ofensivas y de otras agresiones. 2. m. Superficie o espacio generalmente en forma de escudo, en que se representan los blasones de un Estado, población, familia, corporación, etc.",
+        "verified": true
+      },
+      "espejo": {
+        "display": "Espejo",
+        "source": "rae",
+        "usage": "1. m. Tabla de cristal azogado por la parte posterior, y también de acero u otro material bruñido, para que se reflejen en él los objetos que tenga delante.",
+        "verified": true
+      },
+      "estante": {
+        "display": "Estante",
+        "source": "rae",
+        "usage": "1. adj. Dicho del ganado, en especial lanar: Que pasta constantemente dentro del término jurisdiccional en que está amillarado. 2. adj. Dicho de una persona: Que es dueña de un ganado estante.",
+        "verified": true
+      },
+      "estufa": {
+        "display": "Estufa",
+        "source": "rae",
+        "usage": "1. f. Aparato destinado a calentar un recinto por electricidad o combustión de madera, gas, etc. 2. f. Estufilla para calentar los pies. 3. f. Aparato que se usa para secar, mantener caliente o desinfectar algo.",
+        "verified": true
+      },
+      "farol": {
+        "display": "Farol",
+        "source": "rae",
+        "usage": "1. m. Caja de vidrio u otra materia transparente, dentro de la cual se pone una luz. 2. m. Cazoleta formada de aros de hierro, en que se ponen las teas para las luminarias o para alumbrarse.",
+        "verified": true
+      },
+      "felpudo": {
+        "display": "Felpudo",
+        "source": "rae",
+        "usage": "1. adj. Tejido en forma de felpa. 2. adj. Que parece de felpa. 3. m. Esterilla afelpada. 4. m. Estera gruesa y afelpada que se usa principalmente en la entrada de las casas a modo de limpiabarros, o para pasillos de mucho tránsito.",
+        "verified": true
+      },
+      "figura": {
+        "display": "Figura",
+        "source": "rae",
+        "usage": "1. f. Forma exterior de alguien o de algo. 2. f. Disposición del cuerpo de una persona, especialmente si es buena. Cuidar la figura. 3. f. Cuerpo de una persona o de un animal representado pictórica o escultóricamente.",
+        "verified": true
+      },
+      "foco": {
+        "display": "Foco",
+        "source": "rae",
+        "usage": "1. m. Lámpara eléctrica de luz muy potente concentrada en una dirección. 2. m. Lugar real o imaginario en que está reconcentrado algo con toda su fuerza y eficacia, y desde el cual se propaga o ejerce influencia. Foco de infecciones.",
+        "verified": true
+      },
+      "foto": {
+        "display": "Foto",
+        "source": "rae",
+        "usage": "foto 1 Definición Del lat. fautus 'favorecido'. 1. m. desus. confianza.",
+        "verified": true
+      },
+      "frasco": {
+        "display": "Frasco",
+        "source": "rae",
+        "usage": "1. m. Vaso de cuello recogido, hecho de vidrio u otra materia, que sirve para contener líquidos, sustancias en polvo, comprimidos, etc. 2. m. Vaso hecho regularmente de cuerno, en que se llevaba la pólvora para cargar la escopeta.",
+        "verified": true
+      },
+      "gancho": {
+        "display": "Gancho",
+        "source": "rae",
+        "usage": "1. m. Instrumento corvo y por lo común puntiagudo en uno o ambos extremos, que sirve para prender, agarrar o colgar algo. 2. m. Pedazo que queda en el árbol cuando se rompe una rama.",
+        "verified": true
+      },
+      "garrafa": {
+        "display": "Garrafa",
+        "source": "rae",
+        "usage": "1. f. Vasija esférica de vidrio para bebidas o líquidos, que remata en un cuello largo y estrecho y que suele ir protegida por una funda de mimbre, plástico u otro material.",
+        "verified": true
+      },
+      "gorra": {
+        "display": "Gorra",
+        "source": "rae",
+        "usage": "1. f. Prenda para cubrir la cabeza, especialmente la de tela, piel o punto con visera. 1. f. gorra de visera que tiene una parte cilíndrica de poca altura, y sobre ella otra más ancha y plana.",
+        "verified": true
+      },
+      "grapadora": {
+        "display": "Grapadora",
+        "source": "rae",
+        "usage": "Definición RAE de «grapadora» según el Diccionario de la lengua española: 1. f. Utensilio que sirve para grapar.",
+        "verified": true
+      },
+      "guitarra": {
+        "display": "Guitarra",
+        "source": "rae",
+        "usage": "1. f. Instrumento musical de cuerda compuesto por una caja de resonancia en forma de ocho, un mástil largo con trastes, y cuerdas, generalmente seis, que se hacen sonar con los dedos.",
+        "verified": true
+      },
+      "hamaca": {
+        "display": "Hamaca",
+        "source": "rae",
+        "usage": "1. f. Red alargada, gruesa y poco tupida, por lo común de pita, lona u otro tejido resistente, la cual, asegurada por las extremidades en dos árboles u otros soportes, queda pendiente en el aire y sirve de cama y columpio, o bien se usa como medio de transporte conducida por dos personas.",
+        "verified": true
+      },
+      "horno": {
+        "display": "Horno",
+        "source": "rae",
+        "usage": "1. m. Construcción de piedra o ladrillo para caldear, en general abovedada y provista de respiradero o chimenea y de una o varias bocas por donde se introduce lo que se trata de someter a la acción del fuego.",
+        "verified": true
+      },
+      "jarra": {
+        "display": "Jarra",
+        "source": "rae",
+        "usage": "1. f. Vasija de barro, porcelana, loza, cristal, etc., con cuello y boca anchos y una o dos asas. 2. f. Líquido contenido en una jarra. 3. f. En Jerez, recipiente de hojalata, de doce litros y medio de capacidad, que sirve para el trasiego de los vinos en la bodega.",
+        "verified": true
+      },
+      "juguete": {
+        "display": "Juguete",
+        "source": "rae",
+        "usage": "1. m. Objeto con el que los niños juegan y desarrollan determinadas capacidades. Los juguetes educativos son los más solicitados. 2. m. Objeto que sirve para entretenerse. Compró un juguete a su mascota.",
+        "verified": true
+      },
+      "lapicera": {
+        "display": "Lapicera",
+        "source": "rae",
+        "usage": "Definición RAE de «lapicera» según el Diccionario de la lengua española: 1. f. Arg., Bol. y Ur. pluma estilográfica. 2. f. Arg. y Ur. portaplumas. 3. f. Bol. y Ur. bolígrafo.",
+        "verified": true
+      },
+      "libreta": {
+        "display": "Libreta",
+        "source": "rae",
+        "usage": "libreta 1 Definición 1. f. Pan de una libra .",
+        "verified": true
+      },
+      "libro": {
+        "display": "Libro",
+        "source": "rae",
+        "usage": "1. m. Conjunto de muchas hojas de papel u otro material semejante que, encuadernadas, forman un volumen. 2. m. Obra científica, literaria o de cualquier otra índole con extensión suficiente para formar volumen, que puede aparecer impresa o en otro soporte.",
+        "verified": true
+      },
+      "linterna": {
+        "display": "Linterna",
+        "source": "rae",
+        "usage": "1. f. Farol portátil con una sola cara de vidrio y un asa en la opuesta. 2. f. Aparato eléctrico portátil, con pila y bombilla, para proyectar luz.",
+        "verified": true
+      },
+      "llave": {
+        "display": "Llave",
+        "source": "rae",
+        "usage": "1. f. Instrumento, comúnmente metálico, que, introducido en una cerradura, permite activar el mecanismo que la abre y la cierra. 2. f. Herramienta que sirve para apretar o aflojar tuercas.",
+        "verified": true
+      },
+      "maleta": {
+        "display": "Maleta",
+        "source": "rae",
+        "usage": "maleta 1 Definición Del dim. de mala 1 . 1. f. Especie de caja provista de un asa que sirve , sobre todo en los viajes , para transportar ropas y otros objetos . Sin.: valija , maletín , bulto , baúl , cofre , petaca . 2. f. manga (‖ especie de maleta abierta por los extremos ). Sin.: manga 1 , portamanteo . 3. f. Chil",
+        "verified": true
+      },
+      "manta": {
+        "display": "Manta",
+        "source": "rae",
+        "usage": "1. f. Pieza de lana, algodón u otro material, de forma rectangular, que sirve de abrigo en la cama. 2. f. manta, por lo común de lana, que sirve para abrigarse ocasionalmente las personas fuera de la cama.",
+        "verified": true
+      },
+      "mapa": {
+        "display": "Mapa",
+        "source": "rae",
+        "usage": "1. m. Representación geográfica de la Tierra o parte de ella en una superficie plana. 2. m. Representación geográfica de una parte de la superficie terrestre, en la que se da información relativa a una ciencia determinada. Mapa lingüístico, topográfico, demográfico.",
+        "verified": true
+      },
+      "martillo": {
+        "display": "Martillo",
+        "source": "rae",
+        "usage": "1. m. Herramienta de percusión compuesta de una cabeza, por lo común de hierro, y un mango, generalmente de madera. 2. m. Llave o martillo con que se templan algunos instrumentos de cuerda.",
+        "verified": true
+      },
+      "mascarilla": {
+        "display": "Mascarilla",
+        "source": "rae",
+        "usage": "1. f. Máscara que solo cubre el rostro desde la frente hasta el labio superior. 2. f. Máscara que cubre la boca y la nariz de su portador para protegerlo de la inhalación y evitar la exhalación de posibles agentes patógenos, tóxicos o nocivos. Mascarilla quirúrgica, sanitaria.",
+        "verified": true
+      },
+      "mate": {
+        "display": "Mate",
+        "source": "rae",
+        "usage": "mate 1 Definición Del fr. mat. 1. adj. Amortiguado , sin brillo . Sonido mate . Sin.: apagado , deslucido , opaco , pálido . Ant.: brillante . oro mate yeso mate Sinónimos o afines de «mate 1 » apagado , deslucido , opaco , pálido . Antónimos u opuestos de «mate 1 » brillante .",
+        "verified": true
+      },
+      "mesa": {
+        "display": "Mesa",
+        "source": "rae",
+        "usage": "1. f. Mueble compuesto de un tablero horizontal liso y sostenido a la altura conveniente, generalmente por una o varias patas, para diferentes usos, como escribir, comer, etc.",
+        "verified": true
+      },
+      "microondas": {
+        "display": "Microondas",
+        "source": "rae",
+        "usage": "Definición RAE de «microondas» según el Diccionario de la lengua española: 1. m. horno de microondas.",
+        "verified": true
+      },
+      "mochila": {
+        "display": "Mochila",
+        "source": "rae",
+        "usage": "1. f. Bolsa de lona o de otro material resistente que, provista de correas para ser cargada a la espalda, sirve para llevar provisiones o equipos en excursiones, expediciones, viajes, etc.",
+        "verified": true
+      },
+      "monitor": {
+        "display": "Monitor",
+        "source": "rae",
+        "usage": "monitor 1 , ra Definición Del lat. monĭtor, -ōris. 1. m. y f. Persona que guía el aprendizaje deportivo , cultural , etc. Sin.: educador , instructor , entrenador , animador , profesor . 2. m. y f. Persona que amonesta o avisa . 3. m. En el Ejército , ayudante de los profesores de educación física . 4. m. Subalterno qu",
+        "verified": true
+      },
+      "mopa": {
+        "display": "Mopa",
+        "source": "rae",
+        "usage": "1. f. Utensilio de limpieza compuesto por un palo largo y un conjunto de hilos o tiras en uno de sus extremos, que sirve para sacar brillo a los suelos.",
+        "verified": true
+      },
+      "moto": {
+        "display": "Moto",
+        "source": "rae",
+        "usage": "moto 1 Definición Quizá de mota. 1. m. hito (‖ mojón ). Sin.: hito , mojón 1 , borna , cipo , muñeca . Sinónimos o afines de «moto 1 » hito , mojón 1 , borna , cipo , muñeca .",
+        "verified": true
+      },
+      "mueble": {
+        "display": "Mueble",
+        "source": "rae",
+        "usage": "1. adj. Dicho del patrimonio o de la hacienda: Que se puede mover. 2. m. Cada uno de los enseres movibles que sirven para los usos necesarios o para decorar casas, oficinas y todo género de locales.",
+        "verified": true
+      },
+      "ordenador": {
+        "display": "Ordenador",
+        "source": "rae",
+        "usage": "1. adj. Que ordena. U. t. c. s. 2. m. Jefe de una ordenación de pagos u oficina de cuenta y razón. 3. m. Esp. computadora electrónica. 1. m. Esp. computadora personal.",
+        "verified": true
+      },
+      "pala": {
+        "display": "Pala",
+        "source": "rae",
+        "usage": "1. f. Instrumento compuesto de una tabla de madera o una plancha de hierro, comúnmente de forma rectangular o redondeada, y un mango grueso, cilíndrico y más o menos largo, según los usos a que se destina.",
+        "verified": true
+      },
+      "paleta": {
+        "display": "Paleta",
+        "source": "rae",
+        "usage": "1. f. Tabla pequeña con un agujero en uno de sus extremos por donde el pintor mete el dedo pulgar y sobre la que tiene ordenados los colores.",
+        "verified": true
+      },
+      "papel": {
+        "display": "Papel",
+        "source": "rae",
+        "usage": "1. m. Hoja delgada hecha con pasta de fibras vegetales obtenidas de trapos, madera, paja, etc., molidas, blanqueadas y desleídas en agua, que se hace secar y endurecer por procedimientos especiales.",
+        "verified": true
+      },
+      "paraguas": {
+        "display": "Paraguas",
+        "source": "rae",
+        "usage": "1. m. Utensilio portátil para resguardarse de la lluvia, compuesto de un eje y de un varillaje cubierto de tela u otro material, que puede extenderse y plegarse.",
+        "verified": true
+      },
+      "parlante": {
+        "display": "Parlante",
+        "source": "rae",
+        "usage": "Definición RAE de «parlante» según el Diccionario de la lengua española: 1. adj. Que parla. 2. m. Am. Mer., C. Rica, El Salv. y Nic. altavoz (‖ aparato que transforma la corriente eléctrica en sonido).",
+        "verified": true
+      },
+      "peine": {
+        "display": "Peine",
+        "source": "rae",
+        "usage": "1. m. Utensilio de madera, marfil, concha u otra materia, provisto de dientes muy juntos, con el cual se desenreda y compone el pelo. 2. m. carda (‖ cepillo con púas).",
+        "verified": true
+      },
+      "pelota": {
+        "display": "Pelota",
+        "source": "rae",
+        "usage": "pelota 1 Definición Del occit. pelota, y este der. del lat. pila. 1. f. Bola hecha de una materia que le permita botar , usada en diversos juegos y deportes . 2. f. balón (‖ pelota grande ). Sin.: balón , bola , esférico . 3. f. Juego que se hace con la pelota. 4. f. Bola de materia blanda , como la nieve , el barro , ",
+        "verified": true
+      },
+      "perchero": {
+        "display": "Perchero",
+        "source": "rae",
+        "usage": "Definición RAE de «perchero» según el Diccionario de la lengua española: 1. m. Conjunto de perchas. 2. m. Lugar en que hay perchas. 3. m. percha (‖ pieza con colgaderos para la ropa).",
+        "verified": true
+      },
+      "persiana": {
+        "display": "Persiana",
+        "source": "rae",
+        "usage": "1. f. Dispositivo formado por un conjunto de lamas que pueden subirse o bajarse y que, situado en una ventana o en una puerta, sirve para regular el paso de la luz y para el control de la privacidad.",
+        "verified": true
+      },
+      "pincel": {
+        "display": "Pincel",
+        "source": "rae",
+        "usage": "1. m. Utensilio usado principalmente para pintar, compuesto por un mango que en uno de los extremos tiene sujeto un manojo de pelos, cerdas o fibras sintéticas.",
+        "verified": true
+      },
+      "pinza": {
+        "display": "Pinza",
+        "source": "rae",
+        "usage": "1. f. Instrumento, generalmente compuesto de dos piezas, cuyos extremos se aproximan para hacer presión sobre algo y sujetarlo. Una pinza de tender la ropa.",
+        "verified": true
+      },
+      "plato": {
+        "display": "Plato",
+        "source": "rae",
+        "usage": "1. m. Recipiente bajo y generalmente redondo, con una concavidad en medio y borde comúnmente plano alrededor, empleado para servir los alimentos y comer en él y para otros usos.",
+        "verified": true
+      },
+      "puerta": {
+        "display": "Puerta",
+        "source": "rae",
+        "usage": "1. f. Hueco o abertura regular en una pared, una cerca, una verja, etc., desde el suelo hasta una altura conveniente, que se usa para entrar y salir.",
+        "verified": true
+      },
+      "radio": {
+        "display": "Radio",
+        "source": "rae",
+        "usage": "radio 1 Definición Del lat. radius. 1. m. Geom. Segmento lineal que une un punto cualquiera de la circunferencia o de la superficie de una esfera con su centro . 2. m. Rayo de la rueda . Sin.: rayo . 3. m. Hueso un poco más corto que el cúbito , con el cual forma el antebrazo . 4. m. Zool. Cada una de las piezas a modo",
+        "verified": true
+      },
+      "raqueta": {
+        "display": "Raqueta",
+        "source": "rae",
+        "usage": "1. f. Instrumento formado por un mango y una superficie oval, generalmente un bastidor con una red de cuerdas tensadas, que se emplea para golpear la pelota o el volante en juegos como el tenis, el bádminton, el pimpón, etc.",
+        "verified": true
+      },
+      "regla": {
+        "display": "Regla",
+        "source": "rae",
+        "usage": "1. f. Instrumento rígido y de forma rectangular que sirve para trazar líneas rectas, o para medir la distancia entre dos puntos. 2. f. Aquello que ha de cumplirse por estar convenido en una colectividad.",
+        "verified": true
+      },
+      "reloj": {
+        "display": "Reloj",
+        "source": "rae",
+        "usage": "1. m. Instrumento que sirve para medir el tiempo. 2. m. reloj mecánico. 3. m. pl. pico de cigüeña. 1. m. reloj que muestra datos astronómicos, como las fases de la luna.",
+        "verified": true
+      },
+      "repisa": {
+        "display": "Repisa",
+        "source": "rae",
+        "usage": "1. f. Ménsula que tiene más longitud que vuelo y sirve para sostener un objeto de utilidad o adorno. 2. f. Estante o placa de madera, cristal u otro material, colocados horizontalmente contra la pared para servir de soporte a algo.",
+        "verified": true
+      },
+      "router": {
+        "display": "Router",
+        "source": "rae",
+        "usage": "1. m. Inform. y Telec. Dispositivo que distribuye el flujo de paquetes de información entre redes de la manera más eficaz. 2. m. Inform. y Telec. Programa informático que realiza las mismas funciones que un router.",
+        "verified": true
+      },
+      "sabana": {
+        "display": "Sabana",
+        "source": "rae",
+        "usage": "1. f. Llanura muy extensa, con escasa vegetación arbórea y abundantes plantas herbáceas, propia de zonas tropicales y subtropicales. 1. loc. verb. coloq. Ven. Estar sobrado de recursos, ser feliz.",
+        "verified": true
+      },
+      "sacacorchos": {
+        "display": "Sacacorchos",
+        "source": "rae",
+        "usage": "1. m. Instrumento consistente en una espiral metálica con un mango o una palanca que sirve para quitar los tapones de corcho a los frascos y botellas.",
+        "verified": true
+      },
+      "secador": {
+        "display": "Secador",
+        "source": "rae",
+        "usage": "1. adj. Que seca. 2. m. Cada uno de los diversos aparatos y máquinas destinados a secar las manos, el cabello, la ropa, etc. 3. m. Arg. Utensilio de limpieza consistente en un brazo de goma con mango, que se desliza a ras del piso para enjugarlo.",
+        "verified": true
+      },
+      "serrucho": {
+        "display": "Serrucho",
+        "source": "rae",
+        "usage": "1. m. Sierra de hoja ancha y regularmente con un solo mango. 2. m. Cuba. Pez de la familia de los escómbridos, comestible, de cuerpo alargado y rostro en forma de sierra muy cortante.",
+        "verified": true
+      },
+      "silla": {
+        "display": "Silla",
+        "source": "rae",
+        "usage": "1. f. Asiento con respaldo, por lo general con cuatro patas, y en que solo cabe una persona. 2. f. silla de niño. 3. f. Aparejo para montar a caballo, formado por una armazón de madera, cubierta generalmente de cuero y rellena de crin o pelote.",
+        "verified": true
+      },
+      "sombrero": {
+        "display": "Sombrero",
+        "source": "rae",
+        "usage": "1. m. Prenda para cubrir la cabeza, que consta de copa y ala. 2. m. Prenda de adorno usada por las mujeres para cubrirse la cabeza. 3. m. Techo que cubre el púlpito, para recoger la voz del predicador y evitar resonancias.",
+        "verified": true
+      },
+      "taza": {
+        "display": "Taza",
+        "source": "rae",
+        "usage": "1. f. Vasija pequeña, por lo común de loza o de metal y con asa, empleada generalmente para tomar líquidos. 2. f. Cantidad que cabe en una taza. Una taza de caldo.",
+        "verified": true
+      },
+      "teclado": {
+        "display": "Teclado",
+        "source": "rae",
+        "usage": "1. m. Conjunto de las teclas de un piano u otro instrumento musical. 2. m. Conjunto de las teclas, los botones u otros dispositivos táctiles con los que se manejan diversos aparatos o máquinas.",
+        "verified": true
+      },
+      "televisor": {
+        "display": "Televisor",
+        "source": "rae",
+        "usage": "Definición RAE de «televisor» según el Diccionario de la lengua española: 1. m. Aparato receptor de televisión.",
+        "verified": true
+      },
+      "tenedor": {
+        "display": "Tenedor",
+        "source": "rae",
+        "usage": "1. m. y f. Persona que tiene o posee algo. El tenedor de un pagaré. 2. m. Instrumento de mesa con dos o más púas que sirve para pinchar alimentos sólidos y comerlos.",
+        "verified": true
+      },
+      "termo": {
+        "display": "Termo",
+        "source": "rae",
+        "usage": "termo 1 Definición De Thermos ®, marca reg. 1. m. Vasija de paredes dobles , entre las que se ha hecho el vacío , provista de cierre hermético , que sirve para que las sustancias introducidas en ella conserven su temperatura sin que influya en esta la del ambiente .",
+        "verified": true
+      },
+      "tijera": {
+        "display": "Tijera",
+        "source": "rae",
+        "usage": "1. f. Instrumento compuesto de dos hojas de acero, a manera de cuchillas de un solo filo, y por lo común con un ojo para meter los dedos al remate de cada mango, las cuales pueden girar alrededor de un eje que las traba, para cortar, al cerrarlas, lo que se pone entre ellas. U. m. en pl. con el mismo significado que en",
+        "verified": true
+      },
+      "timbre": {
+        "display": "Timbre",
+        "source": "rae",
+        "usage": "1. m. Pequeño aparato empleado para llamar o avisar mediante la emisión rápida de sonidos intermitentes. 2. m. Sello, especialmente el que se estampa en seco.",
+        "verified": true
+      },
+      "toalla": {
+        "display": "Toalla",
+        "source": "rae",
+        "usage": "1. f. Pieza de felpa, algodón u otro material, por lo general rectangular, para secarse el cuerpo. 2. f. Tela de rizo usada especialmente para hacer toallas y albornoces de baño.",
+        "verified": true
+      },
+      "tornillo": {
+        "display": "Tornillo",
+        "source": "rae",
+        "usage": "1. m. Pieza cilíndrica o cónica, por lo general metálica, con resalte en hélice y cabeza apropiada para enroscarla. 2. m. Instrumento con que se mantienen sujetas las piezas que se están trabajando, por medio de dos topes, uno fijo y otro móvil.",
+        "verified": true
+      },
+      "trompeta": {
+        "display": "Trompeta",
+        "source": "rae",
+        "usage": "1. f. Instrumento musical de viento, consistente en un tubo largo de metal que va ensanchándose desde la boquilla al pabellón y produce diversidad de sonidos según la fuerza con que la boca impele el aire.",
+        "verified": true
+      },
+      "vaso": {
+        "display": "Vaso",
+        "source": "rae",
+        "usage": "1. m. Pieza cóncava de mayor o menor tamaño, capaz de contener algo. 2. m. Recipiente de vidrio, metal u otra materia, por lo común de forma cilíndrica, que sirve para beber.",
+        "verified": true
+      },
+      "vela": {
+        "display": "Vela",
+        "source": "rae",
+        "usage": "vela 1 Definición De velar 1 . 1. f. Acción y efecto de velar 1 . Sin.: guardia , vigilia , vigilancia , centinela . Ant.: sueño . 2. f. Tiempo que se vela . 3. f. Asistencia por horas o turno delante del Santísimo Sacramento . 4. f. Tiempo que se destina por la noche a trabajar en algún arte u oficio o en cualquier ot",
+        "verified": true
+      },
+      "ventana": {
+        "display": "Ventana",
+        "source": "rae",
+        "usage": "1. f. Abertura en un muro o pared donde se coloca un elemento y que sirve generalmente para mirar y dar luz y ventilación. 2. f. Elemento de madera, hierro u otros materiales y cristal que se acopla a una ventana.",
+        "verified": true
+      },
+      "ventilador": {
+        "display": "Ventilador",
+        "source": "rae",
+        "usage": "1. m. Instrumento o aparato con aspas giratorias que impulsa o remueve el aire. 2. m. Abertura que se deja hacia el exterior en una habitación, para que se renueve el aire de esta sin necesidad de abrir las puertas o ventanas.",
+        "verified": true
+      },
+      "vitrina": {
+        "display": "Vitrina",
+        "source": "rae",
+        "usage": "Definición RAE de «vitrina» según el Diccionario de la lengua española: 1. f. Mueble acristalado y con estantes para exponer y proteger objetos o productos. 2. f. escaparate (‖ espacio exterior de las tiendas).",
+        "verified": true
+      },
+      "zapatero": {
+        "display": "Zapatero",
+        "source": "rae",
+        "usage": "1. adj. Perteneciente o relativo al zapato. 2. adj. coloq. Dicho de las legumbres o de otros alimentos: Que se encrudecen de resultas de echar agua fría en la olla cuando se están cociendo.",
+        "verified": true
+      },
+      "zapato": {
+        "display": "Zapato",
+        "source": "rae",
+        "usage": "1. m. Calzado que no pasa del tobillo, con la parte inferior de suela y lo demás de piel, fieltro, paño u otro tejido, más o menos escotado por el empeine.",
+        "verified": true
+      }
+    }
+  }
+}

@@ -108,12 +108,51 @@ def extract_usage(html: str) -> str:
     return ""
 
 
+def extract_headword(html: str) -> str:
+    normalized_html = html.replace("\n", " ")
+
+    keywords_match = re.search(r'<meta\s+name="keywords"\s+content="([^"]+)"', normalized_html, re.IGNORECASE)
+    if keywords_match:
+        first_keyword = unescape(keywords_match.group(1)).split(",", 1)[0]
+        return LexiconStore.normalize_text(first_keyword)
+
+    canonical_match = re.search(r'<link\s+rel="canonical"\s+href="https://dle\.rae\.es/([^"]+)"', normalized_html, re.IGNORECASE)
+    if canonical_match:
+        return LexiconStore.normalize_text(urllib.parse.unquote(canonical_match.group(1)))
+
+    ldjson_match = re.search(r'"@type":\s*"DefinedTerm".*?"name":\s*"([^"]+)"', normalized_html, re.IGNORECASE)
+    if ldjson_match:
+        return LexiconStore.normalize_text(unescape(ldjson_match.group(1)))
+
+    title_match = re.search(r"<title>(.*?)\s*\|", normalized_html, re.IGNORECASE)
+    if title_match:
+        return LexiconStore.normalize_text(unescape(title_match.group(1)))
+
+    return ""
+
+
+def usage_matches_term(term: str, html: str) -> bool:
+    normalized_term = LexiconStore.normalize_text(term)
+    headword = extract_headword(html)
+
+    if not normalized_term or not headword:
+        return False
+
+    return normalized_term == headword
+
+
 def load_existing_output(path: Path) -> dict:
     if not path.exists():
         return {"entries_by_category": {}}
 
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def save_output(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2, sort_keys=True)
 
 
 def main() -> int:
@@ -131,6 +170,8 @@ def main() -> int:
             continue
 
         existing_category = output_data["entries_by_category"].setdefault(category, {})
+        if args.force:
+            existing_category.clear()
         terms = sorted(BASE_DATASETS[category])
         if args.limit > 0:
             terms = terms[: args.limit]
@@ -150,10 +191,15 @@ def main() -> int:
                     print(f"  [{index}/{len(terms)}] sin texto util: {normalized_term}")
                     continue
 
+                if not usage_matches_term(normalized_term, html):
+                    print(f"  [{index}/{len(terms)}] descartada por redireccion aproximada: {normalized_term} -> {extract_headword(html)}")
+                    continue
+
                 existing_category[normalized_term] = {
                     "display": " ".join(chunk.capitalize() for chunk in normalized_term.split()),
                     "usage": usage,
                     "source": "rae",
+                    "verified": True,
                 }
                 print(f"  [{index}/{len(terms)}] ok: {normalized_term}")
             except Exception as exc:
@@ -161,9 +207,9 @@ def main() -> int:
 
             time.sleep(max(args.delay, 0.0))
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open("w", encoding="utf-8") as handle:
-        json.dump(output_data, handle, ensure_ascii=False, indent=2, sort_keys=True)
+        save_output(output_path, output_data)
+
+    save_output(output_path, output_data)
 
     print(f"[done] generado: {output_path}")
     return 0
