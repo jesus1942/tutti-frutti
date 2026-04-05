@@ -16,6 +16,18 @@ function connectToGame(gameId, playerName, options = {}) {
         return null;
     }
 
+    if (window.gameState?.websocket) {
+        const existingSocket = window.gameState.websocket;
+        if (existingSocket.readyState === WebSocket.OPEN || existingSocket.readyState === WebSocket.CONNECTING) {
+            existingSocket._intentionalClose = true;
+            existingSocket.close(1000, 'Reiniciando sesión');
+        }
+    }
+
+    if (typeof window.resetLocalSession === 'function') {
+        window.resetLocalSession({ keepPlayerName: false });
+    }
+
     // Codificar parámetros para evitar problemas con caracteres especiales
     const encodedGameId = encodeURIComponent(gameId);
     const encodedPlayerName = encodeURIComponent(playerName);
@@ -78,6 +90,14 @@ function connectToGame(gameId, playerName, options = {}) {
         // Evento: cierre de conexión
         socket.onclose = (event) => {
             console.log(`Desconectado del servidor. Código: ${event.code}`);
+            if (window.gameState.websocket === socket) {
+                window.gameState.websocket = null;
+            }
+
+            if (socket._intentionalClose) {
+                return;
+            }
+
             window.auth.showToast(`La conexión con el servidor se ha cerrado.`, 'error');
         };
         

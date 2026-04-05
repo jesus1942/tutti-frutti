@@ -1,32 +1,35 @@
-// Estado del juego
-window.gameState = {
-    gameId: '',
-    playerName: '',
-    websocket: null,
-    status: 'waiting',
-    players: {},
-    currentLetter: '',
-    rounds: 0,
-    maxRounds: 5,
-    categories: [],
-    timer: 60,
-    timeLeft: 60,
-    answers: {},
-    scores: {},
-    roundScores: {},
-    transitioningToRound: false,
-    botEnabled: false,
-    botName: 'CPU Austral',
-    admin: '',
-    stopMode: 'individual',
-    autoValidate: true,
-    isAdmin: false,
-    lastWinner: null,
-    chatMessages: [],
-    validatedAnswers: {},
-    validationReasons: {},
-    submittedThisRound: false
-};
+function createInitialGameState() {
+    return {
+        gameId: '',
+        playerName: '',
+        websocket: null,
+        status: 'waiting',
+        players: {},
+        currentLetter: '',
+        rounds: 0,
+        maxRounds: 5,
+        categories: [],
+        timer: 60,
+        timeLeft: 60,
+        answers: {},
+        scores: {},
+        roundScores: {},
+        transitioningToRound: false,
+        botEnabled: false,
+        botName: 'CPU Austral',
+        admin: '',
+        stopMode: 'individual',
+        autoValidate: true,
+        isAdmin: false,
+        lastWinner: null,
+        chatMessages: [],
+        validatedAnswers: {},
+        validationReasons: {},
+        submittedThisRound: false
+    };
+}
+
+window.gameState = createInitialGameState();
 
 let countdownInterval = null;
 let uiFrame = null;
@@ -375,6 +378,7 @@ function updateActionButtons() {
     const validateBtn = document.getElementById('validate-btn');
     const nextRoundBtn = document.getElementById('next-round-btn');
     const endGameBtn = document.getElementById('end-game-btn');
+    const backToHomeBtn = document.getElementById('back-to-home-btn');
 
     if (validateBtn) {
         validateBtn.style.display = gameState.isAdmin && gameState.status === 'reviewing' ? 'inline-block' : 'none';
@@ -388,6 +392,12 @@ function updateActionButtons() {
 
     if (endGameBtn) {
         endGameBtn.style.display = gameState.isAdmin && ['scores', 'reviewing', 'playing'].includes(gameState.status)
+            ? 'inline-block'
+            : 'none';
+    }
+
+    if (backToHomeBtn) {
+        backToHomeBtn.style.display = ['finished', 'scores', 'waiting'].includes(gameState.status)
             ? 'inline-block'
             : 'none';
     }
@@ -523,6 +533,70 @@ function handleEndGame() {
     }));
 }
 
+function resetLocalSession(options = {}) {
+    const previousPlayerName = options.keepPlayerName ? gameState.playerName : '';
+    const previousBackendWinner = gameState.lastWinner;
+    Object.assign(gameState, createInitialGameState());
+    gameState.playerName = previousPlayerName;
+    gameState.lastWinner = previousBackendWinner;
+    clearInterval(countdownInterval);
+    countdownInterval = null;
+
+    const roomIdDisplay = document.getElementById('room-id-display');
+    if (roomIdDisplay) {
+        roomIdDisplay.textContent = '';
+    }
+
+    const answersContainer = document.getElementById('categories-container');
+    if (answersContainer) {
+        answersContainer.innerHTML = '';
+    }
+
+    const reviewContainer = document.getElementById('all-answers-container');
+    if (reviewContainer) {
+        reviewContainer.innerHTML = '';
+    }
+
+    const scoresContainer = document.getElementById('scores-container');
+    if (scoresContainer) {
+        scoresContainer.innerHTML = '';
+    }
+
+    const scoreHighlight = document.getElementById('score-highlight');
+    if (scoreHighlight) {
+        scoreHighlight.innerHTML = '';
+    }
+
+    const scorePodium = document.getElementById('score-podium');
+    if (scorePodium) {
+        scorePodium.innerHTML = '';
+    }
+
+    const readyCheckbox = document.getElementById('ready-checkbox');
+    if (readyCheckbox) {
+        readyCheckbox.checked = false;
+    }
+
+    window.showScreen('welcome');
+}
+
+function leaveCurrentGame(options = {}) {
+    const socket = gameState.websocket;
+    if (socket && socket.readyState === WebSocket.OPEN) {
+        socket._intentionalClose = true;
+        socket.close(1000, 'Saliendo de la sala');
+    }
+
+    resetLocalSession({ keepPlayerName: true });
+
+    if (!options.silent) {
+        window.auth.showToast('Sesión cerrada. Ya podés crear o unirte a otra sala.', 'success');
+    }
+}
+
+window.resetLocalSession = resetLocalSession;
+window.leaveCurrentGame = leaveCurrentGame;
+
 function handleCopyRoomId() {
     const roomId = gameState.gameId;
     if (!roomId) return;
@@ -530,6 +604,10 @@ function handleCopyRoomId() {
     navigator.clipboard.writeText(roomId)
         .then(() => window.auth.showToast('ID de sala copiado.', 'success'))
         .catch(() => window.auth.showToast('No se pudo copiar el ID.', 'error'));
+}
+
+function handleBackToHome() {
+    leaveCurrentGame();
 }
 
 function socketReady() {
@@ -586,6 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const validateBtn = document.getElementById('validate-btn');
     const nextRoundBtn = document.getElementById('next-round-btn');
     const endGameBtn = document.getElementById('end-game-btn');
+    const backToHomeBtn = document.getElementById('back-to-home-btn');
     const copyRoomIdBtn = document.getElementById('copy-room-id');
 
     if (joinForm) joinForm.addEventListener('submit', handleJoinGame);
@@ -594,6 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (validateBtn) validateBtn.addEventListener('click', handleValidateContinue);
     if (nextRoundBtn) nextRoundBtn.addEventListener('click', handleValidateContinue);
     if (endGameBtn) endGameBtn.addEventListener('click', handleEndGame);
+    if (backToHomeBtn) backToHomeBtn.addEventListener('click', handleBackToHome);
     if (copyRoomIdBtn) copyRoomIdBtn.addEventListener('click', handleCopyRoomId);
 
     syncBackendLinks();
