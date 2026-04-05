@@ -82,6 +82,7 @@ El backend ya incluye:
 - `Procfile`
 - `railway.toml`
 - arranque por `uvicorn simple_app:app`
+- healthcheck en `/`
 
 Pasos:
 
@@ -91,7 +92,7 @@ Pasos:
 4. El servicio arrancará con:
 
 ```text
-uvicorn simple_app:app --host 0.0.0.0 --port ${PORT:-8082}
+uvicorn simple_app:app --host 0.0.0.0 --port $PORT
 ```
 
 Cuando Railway te dé la URL pública, úsala como backend del frontend estático:
