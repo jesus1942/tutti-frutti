@@ -797,23 +797,26 @@ table td {
 
 .scores-particles span {
   position: absolute;
-  top: -12%;
-  width: 2px;
-  height: 72px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(127, 228, 221, 0.18) 74%, transparent 100%);
-  box-shadow: 0 0 12px rgba(127, 228, 221, 0.12);
-  animation: fallingParticle 12s linear infinite;
-  opacity: 0.42;
+  top: -8%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.92) 0%, rgba(216, 243, 241, 0.78) 34%, rgba(127, 228, 221, 0.22) 66%, transparent 100%);
+  box-shadow:
+    0 0 10px rgba(199, 242, 238, 0.12),
+    0 0 22px rgba(127, 228, 221, 0.06);
+  animation: fallingParticle 17s cubic-bezier(0.32, 0.06, 0.2, 1) infinite;
+  opacity: 0.22;
   will-change: transform, opacity;
 }
 
-.scores-particles span:nth-child(1) { left: 12%; animation-delay: 0s; animation-duration: 11.5s; }
-.scores-particles span:nth-child(2) { left: 28%; animation-delay: 1.2s; animation-duration: 13.2s; }
-.scores-particles span:nth-child(3) { left: 46%; animation-delay: 2.8s; animation-duration: 12.4s; }
-.scores-particles span:nth-child(4) { left: 64%; animation-delay: 0.8s; animation-duration: 14s; }
-.scores-particles span:nth-child(5) { left: 79%; animation-delay: 3.2s; animation-duration: 11.9s; }
-.scores-particles span:nth-child(6) { left: 90%; animation-delay: 4.1s; animation-duration: 13.5s; }
+.scores-particles span:nth-child(1) { left: 11%; animation-delay: 0s; animation-duration: 18.6s; }
+.scores-particles span:nth-child(2) { left: 24%; animation-delay: 3.4s; animation-duration: 21.2s; }
+.scores-particles span:nth-child(3) { left: 43%; animation-delay: 1.8s; animation-duration: 19.4s; }
+.scores-particles span:nth-child(4) { left: 61%; animation-delay: 6.1s; animation-duration: 23.5s; }
+.scores-particles span:nth-child(5) { left: 77%; animation-delay: 4.6s; animation-duration: 20.1s; }
+.scores-particles span:nth-child(6) { left: 88%; animation-delay: 8.3s; animation-duration: 24.2s; }
 
 .scores-header {
   margin-bottom: 18px;
@@ -1300,14 +1303,26 @@ table td {
 
 @keyframes fallingParticle {
   0% {
-    transform: translate3d(0, -10%, 0) scaleY(0.72);
+    transform: translate3d(0, -6vh, 0) scale(0.72);
     opacity: 0;
   }
-  12% {
-    opacity: 0.52;
+  10% {
+    opacity: 0.18;
+  }
+  28% {
+    transform: translate3d(6px, 28vh, 0) scale(1);
+    opacity: 0.28;
+  }
+  52% {
+    transform: translate3d(-4px, 58vh, 0) scale(0.88);
+    opacity: 0.16;
+  }
+  78% {
+    transform: translate3d(5px, 88vh, 0) scale(1.06);
+    opacity: 0.24;
   }
   100% {
-    transform: translate3d(-14px, 125vh, 0) scaleY(1.02);
+    transform: translate3d(-2px, 112vh, 0) scale(0.84);
     opacity: 0;
   }
 }
