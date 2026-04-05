@@ -15,7 +15,13 @@
     
     <div class="container">
         <header>
-            <h1>TUTTI FRUTTI</h1>
+            <div class="brand-shell">
+                <div class="brand-logos" aria-label="Identidad del juego y la institución">
+                    <img src="/static/logoblack.png" alt="Logo Tutti Frutti" class="brand-logo brand-logo-game">
+                    <span class="brand-divider" aria-hidden="true"></span>
+                    <img src="/static/logo-escuela-nueva-austral.png" alt="Logo Escuela Nueva Austral" class="brand-logo brand-logo-school">
+                </div>
+            </div>
         </header>
 
         <!-- Pantalla de inicio -->
@@ -137,13 +143,14 @@
                 <div class="scores-header">
                     <div class="scores-brand">
                         <div class="scores-brand-mark">
-                            <img src="/static/logoblack.png" alt="Logo Tutti Frutti" class="scores-logo">
+                            <img src="/static/logoblack.png" alt="Logo Tutti Frutti" class="scores-logo scores-logo-game">
+                            <span class="scores-brand-separator" aria-hidden="true"></span>
+                            <img src="/static/logo-escuela-nueva-austral.png" alt="Logo Escuela Nueva Austral" class="scores-logo scores-logo-school">
                         </div>
                         <span class="scores-live-pill">En vivo</span>
                     </div>
-                    <p class="scores-kicker">Orbital Summary</p>
                     <h2 data-i18n="scores">Puntuaciones</h2>
-                    <p class="scores-subtitle">Lectura clara del cierre de partida con podio y detalle por ronda.</p>
+                    <p class="scores-subtitle">Resumen final de la partida con podio y detalle por ronda.</p>
                 </div>
 
                 <div id="score-highlight" class="score-highlight"></div>
@@ -170,6 +177,11 @@
     </div>
 
     <footer class="footer">
+        <div class="footer-brand">
+            <img src="/static/logoblack.png" alt="Logo Tutti Frutti" class="footer-logo footer-logo-game">
+            <span class="footer-divider" aria-hidden="true"></span>
+            <img src="/static/logo-escuela-nueva-austral.png" alt="Logo Escuela Nueva Austral" class="footer-logo footer-logo-school">
+        </div>
         <p>Desarrollado por Jesús Olguín &copy; 2025</p>
         <p><a id="admin-link" href="/admin" class="admin-link" target="_blank">Panel de Administración</a></p>
     </footer>
