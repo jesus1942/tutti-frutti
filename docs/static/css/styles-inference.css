@@ -791,6 +791,7 @@ table td {
   width: 120px;
   position: relative;
   text-align: center;
+  color: #eef5f9;
 }
 
 .player-speed-card.player-speed-me {
@@ -835,8 +836,8 @@ table td {
   position: absolute;
   top: -10px;
   left: -10px;
-  background-color: var(--color-primary);
-  color: white;
+  background-color: #dcecf5;
+  color: #071018;
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -873,6 +874,7 @@ table td {
   background-color: var(--color-light);
   padding: 5px 10px;
   border-radius: 4px;
+  color: #eff6fa;
 }
 
 .answer-item {
@@ -880,23 +882,28 @@ table td {
   justify-content: space-between;
   padding: 10px;
   margin-bottom: 5px;
-  border-radius: 4px;
-  background-color: #f9f9f9;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.04) 100%);
+  border: 1px solid rgba(173, 196, 210, 0.12);
+  color: #e6f0f5;
 }
 
 .answer-category {
   font-weight: 600;
   margin-right: 10px;
   width: 120px;
+  color: #f3f8fb;
 }
 
 .answer-value {
   flex: 1;
+  color: #dbe7ee;
 }
 
 .answer-validation {
   width: 100px;
   text-align: right;
+  color: #f3f8fb;
 }
 
 .validation-controls {
@@ -938,20 +945,21 @@ table td {
 .validation-score {
   font-weight: bold;
   margin-top: 5px;
+  color: #eff6fa;
 }
 
 .validity-hint {
   font-size: 0.85rem;
-  color: #888;
+  color: #9fb2bf;
   font-style: italic;
 }
 
 .validity-hint.duplicate {
-  color: #856404;
+  color: #ffd979;
 }
 
 .validity-hint.valid {
-  color: #155724;
+  color: #98e6b1;
 }
 
 /* Pantalla de puntuaciones */
@@ -1094,6 +1102,7 @@ table td {
   border-radius: 20px;
   background: rgba(255,255,255,0.92);
   box-shadow: 0 14px 34px rgba(2, 10, 15, 0.18);
+  color: #071018;
 }
 
 .scores-logo {
