@@ -1,16 +1,16 @@
 /* Estilos principales para Tutti Frutti */
 :root {
-  --color-primary: #4ecdc4;
-  --color-secondary: #ff6b6b;
-  --color-background: #f7f7f7;
-  --color-text: #333333;
-  --color-light: #f8f9fa;
-  --color-border: #dee2e6;
-  --color-success: #28a745;
-  --color-warning: #ffc107;
-  --color-danger: #dc3545;
-  --border-radius: 8px;
-  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --color-primary: #f5f7fa;
+  --color-secondary: #8db5cf;
+  --color-background: #050b10;
+  --color-text: #e7eef3;
+  --color-light: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(173, 196, 210, 0.18);
+  --color-success: #7ad6a4;
+  --color-warning: #ffd166;
+  --color-danger: #ff6b6b;
+  --border-radius: 10px;
+  --box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
 }
 
 * {
@@ -20,23 +20,51 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
   min-height: 100vh;
+  position: relative;
   background:
-    radial-gradient(circle at 18% 18%, rgba(112, 209, 201, 0.18), transparent 18%),
-    radial-gradient(circle at 84% 12%, rgba(255, 160, 122, 0.14), transparent 16%),
-    radial-gradient(circle at 50% 100%, rgba(101, 152, 175, 0.18), transparent 28%),
-    linear-gradient(180deg, #eef5f4 0%, #f7faf9 38%, #edf3f2 100%);
+    radial-gradient(circle at 18% 18%, rgba(111, 171, 204, 0.18), transparent 18%),
+    radial-gradient(circle at 84% 12%, rgba(255, 255, 255, 0.08), transparent 16%),
+    radial-gradient(circle at 50% 100%, rgba(62, 101, 124, 0.22), transparent 28%),
+    linear-gradient(180deg, #02050a 0%, #08111a 38%, #03070c 100%);
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  background-image:
+    linear-gradient(rgba(171, 193, 205, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(171, 193, 205, 0.05) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 88%);
+  opacity: 0.22;
+}
+
+body::after {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(120, 170, 203, 0.15), transparent 30%),
+    radial-gradient(circle at 10% 24%, rgba(255, 255, 255, 0.05), transparent 18%);
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
 .container {
-  max-width: 1000px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 28px 20px 20px;
+  padding: 30px 20px 20px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 header {
@@ -46,22 +74,23 @@ header {
 
 h1 {
   font-size: clamp(2.7rem, 7vw, 4.8rem);
-  color: #173736;
+  color: #f7fbff;
   margin-bottom: 8px;
-  letter-spacing: 0.12em;
-  text-shadow: 0 10px 30px rgba(47, 110, 115, 0.14);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow: 0 18px 34px rgba(0, 0, 0, 0.34);
 }
 
 h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: var(--color-secondary);
+  color: #d9e5ee;
 }
 
 h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
-  color: var(--color-text);
+  color: #f3f8fb;
 }
 
 /* Estilos de pantallas */
@@ -107,34 +136,38 @@ h3 {
 /* Botones */
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  border: none;
-  border-radius: var(--border-radius);
+  padding: 11px 20px;
+  border: 1px solid transparent;
+  border-radius: 999px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   transition: all 0.3s ease;
-  font-size: 16px;
+  font-size: 0.88rem;
 }
 
 .primary-btn {
-  background-color: var(--color-primary);
-  color: #fff;
+  background: linear-gradient(180deg, #f5f8fb 0%, #cfdbe4 100%);
+  color: #081119;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
 }
 
 .primary-btn:hover {
-  background-color: #3db8af;
+  background: linear-gradient(180deg, #ffffff 0%, #d9e5ee 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32);
 }
 
 .secondary-btn {
-  background-color: transparent;
-  color: var(--color-secondary);
-  border: 2px solid var(--color-secondary);
+  background-color: rgba(11, 18, 25, 0.64);
+  color: #dce7ef;
+  border-color: rgba(157, 183, 199, 0.34);
 }
 
 .secondary-btn:hover {
-  background-color: rgba(255, 107, 107, 0.1);
+  background-color: rgba(17, 29, 39, 0.88);
   transform: translateY(-2px);
 }
 
@@ -148,13 +181,13 @@ h3 {
   max-width: 500px;
   margin: 0 auto;
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(245, 250, 249, 0.94) 100%);
+    linear-gradient(180deg, rgba(9, 17, 24, 0.92) 0%, rgba(6, 12, 18, 0.96) 100%);
   padding: 34px;
   border-radius: 28px;
-  border: 1px solid rgba(146, 190, 188, 0.24);
+  border: 1px solid rgba(153, 181, 197, 0.18);
   box-shadow:
-    0 28px 60px rgba(36, 68, 72, 0.12),
-    inset 0 1px 0 rgba(255,255,255,0.8);
+    0 30px 70px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255,255,255,0.06);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
@@ -166,7 +199,7 @@ h3 {
   inset: 0 0 auto auto;
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle, rgba(127, 228, 221, 0.22) 0%, rgba(127, 228, 221, 0.08) 44%, transparent 72%);
+  background: radial-gradient(circle, rgba(149, 188, 210, 0.26) 0%, rgba(149, 188, 210, 0.08) 44%, transparent 72%);
   transform: translate(34%, -34%);
   pointer-events: none;
 }
@@ -174,27 +207,28 @@ h3 {
 #welcome-screen h2 {
   text-align: center;
   font-size: clamp(1.9rem, 4vw, 2.5rem);
-  color: #163c3c;
+  color: #f5f8fb;
   margin-bottom: 24px;
 }
 
 #welcome-screen .form-group label,
 #welcome-screen .form-inline-toggle label {
-  color: #315150;
+  color: #aabdc9;
 }
 
 #welcome-screen .form-group input {
   min-height: 52px;
   border-radius: 16px;
-  border-color: rgba(118, 154, 153, 0.28);
-  background: rgba(255,255,255,0.84);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.72);
+  border-color: rgba(173, 196, 210, 0.18);
+  background: rgba(255,255,255,0.04);
+  color: #f4f9fc;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
 #welcome-screen .form-group input:focus {
   outline: none;
-  border-color: rgba(78, 205, 196, 0.72);
-  box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.14);
+  border-color: rgba(162, 194, 212, 0.64);
+  box-shadow: 0 0 0 4px rgba(114, 156, 184, 0.16);
 }
 
 #welcome-screen .auth-options {
@@ -215,20 +249,51 @@ h3 {
 }
 
 .lang-btn {
-  background: rgba(255,255,255,0.56);
-  border: 1px solid rgba(108, 149, 148, 0.22);
+  background: rgba(9, 17, 24, 0.62);
+  border: 1px solid rgba(153, 181, 197, 0.18);
+  color: #dce6ed;
   border-radius: 999px;
   padding: 8px 14px;
   margin: 0 5px;
   cursor: pointer;
-  box-shadow: 0 8px 22px rgba(22, 58, 57, 0.06);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
 .lang-btn.active {
-  border-color: rgba(78, 205, 196, 0.72);
-  color: #146b65;
+  border-color: rgba(189, 214, 228, 0.48);
+  color: #ffffff;
   font-weight: 600;
-  background: rgba(127, 228, 221, 0.18);
+  background: rgba(122, 155, 176, 0.18);
+}
+
+.room-info,
+.player-list-container,
+.ready-control,
+.admin-panel,
+.chat-container,
+.game-info,
+.game-board,
+.answers-review,
+.speed-stats-board,
+.scoreboard,
+.speed-stats-summary,
+.winner-display,
+.modal-content {
+  background: linear-gradient(180deg, rgba(9, 17, 24, 0.92) 0%, rgba(6, 12, 18, 0.96) 100%);
+  border: 1px solid rgba(153, 181, 197, 0.16);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24);
+  color: #e8f0f4;
+}
+
+.room-info p,
+.ready-control,
+.admin-panel,
+.chat-container,
+.game-info,
+.game-board,
+.answers-review,
+.scoreboard {
+  color: #c2d1db;
 }
 
 /* Sala de espera */
@@ -269,13 +334,13 @@ h3 {
   padding: 14px 16px;
   border: 1px solid var(--color-border);
   border-radius: 14px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbfb 100%);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
 }
 
 .player-card.is-disconnected {
   opacity: 0.75;
-  background: linear-gradient(180deg, #fbfbfb 0%, #f3f3f3 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
 }
 
 .player-main {
@@ -294,7 +359,7 @@ h3 {
 .player-name {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #1f2d2c;
+  color: #f5f8fb;
 }
 
 .player-badges,
@@ -424,7 +489,7 @@ h3 {
   border-radius: var(--border-radius);
   padding: 10px;
   margin-bottom: 10px;
-  background-color: var(--color-light);
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
 .chat-input-container {
@@ -437,6 +502,8 @@ h3 {
   padding: 8px;
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f1f6fa;
 }
 
 /* Pantalla de juego */
@@ -457,8 +524,8 @@ h3 {
   display: inline-block;
   position: relative;
   padding: 10px 15px;
-  background-color: var(--color-primary);
-  color: white;
+  background: linear-gradient(180deg, #edf3f8 0%, #cad8e2 100%);
+  color: #08111a;
   border-radius: var(--border-radius);
   font-weight: bold;
 }
@@ -539,13 +606,15 @@ table {
 table th {
   text-align: left;
   padding: 10px;
-  background-color: var(--color-light);
+  background-color: rgba(255, 255, 255, 0.05);
   border-bottom: 2px solid var(--color-border);
+  color: #f4f9fc;
 }
 
 table td {
   padding: 10px;
   border-bottom: 1px solid var(--color-border);
+  color: #d8e3ea;
 }
 
 .category-input {
@@ -553,17 +622,20 @@ table td {
   padding: 8px;
   border: 1px solid var(--color-border);
   border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f4f9fc;
 }
 
 .stop-btn {
   width: 100%;
-  font-size: 18px;
+  font-size: 0.98rem;
   padding: 15px;
-  background-color: var(--color-secondary);
+  background: linear-gradient(180deg, #ff8a7a 0%, #ff645f 100%);
+  color: #fff;
 }
 
 .stop-btn:hover {
-  background-color: #ff5252;
+  background: linear-gradient(180deg, #ff9a8d 0%, #ff6e68 100%);
 }
 
 /* Tabla de velocidades */
