@@ -55,24 +55,27 @@ body::after {
   background:
     radial-gradient(circle at 50% 0%, rgba(120, 170, 203, 0.16), transparent 30%),
     radial-gradient(circle at 10% 24%, rgba(255, 255, 255, 0.05), transparent 18%),
-    radial-gradient(circle, rgba(229, 245, 255, 0.70) 0 1px, transparent 1.6px),
-    radial-gradient(circle, rgba(138, 215, 233, 0.52) 0 1px, transparent 1.7px),
-    radial-gradient(circle, rgba(229, 245, 255, 0.34) 0 0.8px, transparent 1.4px);
+    radial-gradient(circle, rgba(237, 248, 255, 0.72) 0 0.95px, transparent 1.65px),
+    radial-gradient(circle, rgba(157, 226, 241, 0.54) 0 1.25px, transparent 1.95px),
+    radial-gradient(circle, rgba(236, 247, 255, 0.30) 0 0.7px, transparent 1.25px),
+    radial-gradient(circle, rgba(115, 191, 214, 0.20) 0 1.55px, transparent 2.3px);
   background-size:
     100% 100%,
     100% 100%,
-    25% 150%,
-    32% 165%,
-    19% 130%;
+    27% 165%,
+    34% 185%,
+    18% 142%,
+    41% 210%;
   background-position:
     0 0,
     0 0,
-    8% -140%,
-    72% -158%,
-    45% -128%;
+    7% -158%,
+    69% -178%,
+    41% -136%,
+    88% -196%;
   mix-blend-mode: screen;
-  opacity: 0.72;
-  animation: ambientParticleFall 22s linear infinite;
+  opacity: 0.78;
+  animation: ambientParticleFall 28s linear infinite;
 }
 
 .container {
@@ -2045,17 +2048,37 @@ table td {
     background-position:
       0 0,
       0 0,
-      8% -140%,
-      72% -158%,
-      45% -128%;
+      7% -158%,
+      69% -178%,
+      41% -136%,
+      88% -196%;
+  }
+  28% {
+    background-position:
+      0 0,
+      0 0,
+      12% -62%,
+      66% -74%,
+      44% -48%,
+      83% -96%;
+  }
+  57% {
+    background-position:
+      0 0,
+      0 0,
+      15% 24%,
+      62% 34%,
+      48% 28%,
+      77% 18%;
   }
   100% {
     background-position:
       0 0,
       0 0,
-      18% 160%,
-      62% 175%,
-      50% 150%;
+      19% 176%,
+      58% 196%,
+      53% 168%,
+      72% 186%;
   }
 }
 
