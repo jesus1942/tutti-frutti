@@ -1,110 +1,1108 @@
 """
-Diccionarios locales para validación semántica básica.
+Diccionarios locales para validacion semantica basica.
 
-No reemplazan un diccionario completo del español, pero permiten una
-validación mucho más útil que el chequeo puramente superficial.
+No reemplazan un diccionario completo del espanol, pero ofrecen una base
+local bastante mas amplia para validar respuestas por categoria.
 """
 
-NAMES = {
-    "aaron", "abel", "abigail", "adalberto", "adela", "adriana", "agustin",
-    "aida", "alba", "alejandra", "alejandro", "alfonso", "alicia", "alma",
-    "alonso", "amalia", "ana", "andrea", "andres", "angel", "angela",
-    "anibal", "antonella", "antonio", "ariadna", "armando", "arturo",
-    "aurelio", "axel", "belen", "benjamin", "bernardo", "bianca", "brenda", "bruno",
-    "camila", "camilo", "candela", "carla", "carlos", "carolina", "catalina",
-    "cecilia", "celeste", "cesar", "claudia", "cristian", "cristina",
-    "daniel", "daniela", "dario", "david", "debora", "diego", "dolores",
-    "eduardo", "elena", "elias", "elisa", "emanuel", "emilia", "emilio",
-    "enzo", "erica", "esteban", "eugenia", "eva", "fabian", "fatima",
-    "felipe", "fernanda", "fernando", "florencia", "franco", "gabriel",
-    "gabriela", "gaston", "gema", "genaro", "gisela", "gloria", "gonzalo",
-    "guadalupe", "guillermo", "hector", "helena", "hugo", "ian", "ines",
-    "irene", "isabel", "isabella", "ivan", "jacinta", "jaime", "javier",
-    "jazmin", "jesica", "jesus", "joaquin", "jose", "josefina", "juan",
-    "juana", "julia", "julian", "karina", "katia", "kevin", "lara", "laura",
-    "lautaro", "leandro", "leo", "leon", "leonardo", "leticia", "lucas",
-    "lucia", "luciano", "luisa", "manuel", "marcela", "marcelo", "marcos", "maria",
-    "mariana", "mariano", "marina", "marta", "martin", "mateo", "matias", "melina", "micaela",
-    "milagros", "mirta", "monica", "mora", "nadia", "nahuel", "natalia",
-    "nico", "nicolas", "noelia", "norberto", "olga", "olivia", "oscar",
-    "pamela", "paola", "patricia", "paulina", "pedro", "rafael", "raquel",
-    "ricardo", "roberto", "rocio", "rodolfo", "romina", "rosa", "samanta",
-    "santiago", "sebastian", "selena", "sergio", "silvia", "sofia", "susana", "tamara",
-    "teo", "teresa", "thiago", "tobias", "tomas", "ulises", "valentina", "valeria",
-    "vanesa", "veronica", "victor", "victoria", "vincenzo", "violeta",
-    "viviana", "walter", "ximena", "yanina", "yasmin", "zoe"
-}
 
-ANIMALS = {
-    "abeja", "aguila", "alce", "alpaca", "anaconda", "antilope", "ardilla",
-    "avestruz", "ballena", "basilisco", "bisonte", "boa", "buho", "burro", "bufalo",
-    "caballo", "cabra", "camaleon", "camello", "canario", "caracol",
-    "castor", "cebra", "cerdo", "chita", "ciervo", "cobra", "codorniz",
-    "conejo", "condor", "coral", "cordero", "cotorra", "coyote", "cuervo",
-    "delfin", "elefante", "escarabajo", "escarpin", "escorpion", "faisan",
-    "flamenco", "foca", "gacela", "gallo", "ganso", "gato", "gavilan",
-    "gepardo", "gerbo", "golondrina", "gorila", "grillo", "guanaco",
-    "hamster", "halcon", "hiena", "hipopotamo", "hormiga", "huron", "iguana",
-    "jaguar", "jirafa", "koala", "lagarto", "langosta", "lechuza", "leon",
-    "leopardo", "liebre", "llama", "lobo", "loro", "lucioperca", "mantis",
-    "mariposa", "medusa", "mono", "morsa", "mosca", "mula", "murcielago", "nutria",
-    "oveja", "oso", "paloma", "panda", "pantera", "pato", "pavo", "pelicano",
-    "perro", "pinguino", "pulpo", "puma", "quetzal", "rana", "raton",
-    "rinoceronte", "salamandra", "salmon", "serpiente", "suricata", "tapir",
-    "tigre", "tortuga", "vaca", "venado", "vibora", "vizcacha", "zorro"
-}
+def _words(block: str) -> set[str]:
+    return {
+        line.strip()
+        for line in block.splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    }
 
-FRUITS_VEGETABLES = {
-    "acelga", "ajo", "alcaucil", "anana", "ananas", "apio", "arandano", "arveja",
-    "avellana", "banana", "batata", "berenjena", "bergamota", "brocoli",
-    "cacahuate", "calabaza", "calabacin", "castaña", "cebolla", "cereza",
-    "champiñon", "chaucha", "choclo", "ciruela", "coco", "coliflor",
-    "damasco", "durazno", "esparrago", "espinaca", "frambuesa", "frutilla",
-    "granada", "guayaba", "haba", "higo", "jalapeño", "kiwi", "lechuga",
-    "lima", "limon", "mandarina", "mango", "manzana", "melon", "membrillo",
-    "mora", "nabo", "naranja", "nuez", "palta", "papaya", "papa", "pepino",
-    "pera", "perejil", "pimiento", "pomelo", "poroto", "puerro", "rabano",
-    "remolacha", "repollo", "sandia", "tomate", "toronja", "uva", "vainilla",
-    "zanahoria", "zapallo"
-}
 
-COUNTRIES = {
-    "alemania", "argelia", "argentina", "australia", "austria", "belgica",
-    "bolivia", "brasil", "canada", "chile", "china", "colombia", "corea",
-    "costa rica", "croacia", "cuba", "dinamarca", "ecuador", "egipto",
-    "el salvador", "eslovaquia", "eslovenia", "españa", "estados unidos",
-    "finlandia", "francia", "grecia", "guatemala", "haiti", "honduras",
-    "hungria", "india", "indonesia", "irlanda", "islandia", "israel", "italia",
-    "jamaica", "japon", "luxemburgo", "malasia", "marruecos", "mexico",
-    "nicaragua", "noruega", "nueva zelanda", "panama", "paraguay", "peru",
-    "polonia", "portugal", "reino unido", "republica dominicana", "rumania",
-    "rusia", "serbia", "singapur", "suecia", "suiza", "tailandia", "turquia",
-    "ucrania", "uruguay", "venezuela", "vietnam"
-}
+NAMES = _words(
+    """
+    aaron
+    abel
+    abigail
+    ada
+    adalberto
+    adela
+    adolfo
+    adrian
+    adriana
+    agustin
+    agustina
+    aida
+    ainara
+    alba
+    alejandra
+    alejandro
+    alejandrina
+    alex
+    alexa
+    alexis
+    alfonsina
+    alfonso
+    alicia
+    alma
+    alonso
+    altair
+    amaia
+    amalia
+    amanda
+    amparo
+    ana
+    ana clara
+    ana laura
+    ana paula
+    ana sofia
+    anabel
+    andrea
+    andres
+    angel
+    angela
+    anibal
+    antonella
+    antonia
+    antonio
+    ariadna
+    ariel
+    armando
+    arturo
+    asuncion
+    athina
+    aureliano
+    aurelio
+    aurora
+    axel
+    azucena
+    bautista
+    belen
+    benicio
+    benjamin
+    bernarda
+    bernardo
+    bianca
+    blanca
+    boris
+    brenda
+    brisa
+    bruno
+    camila
+    camilo
+    candela
+    carina
+    carla
+    carlos
+    carmen
+    carolina
+    catalina
+    cecilia
+    celeste
+    cesar
+    chiara
+    ciro
+    clara
+    claudia
+    constanza
+    cristian
+    cristina
+    cruz
+    daina
+    dalma
+    damian
+    daniel
+    daniela
+    dante
+    dario
+    delfina
+    delia
+    desiree
+    diana
+    diego
+    dolores
+    dylan
+    edgardo
+    edith
+    eduardo
+    efrain
+    elena
+    elias
+    elisa
+    elizabeth
+    ella
+    eloy
+    emanuel
+    emilia
+    emilio
+    emma
+    enrique
+    enzo
+    erica
+    ernesto
+    esteban
+    estefania
+    ester
+    eugenia
+    eva
+    evelin
+    ezequiel
+    fabian
+    fatima
+    felipe
+    felix
+    fernanda
+    fernando
+    fidel
+    fiorella
+    florencia
+    francisca
+    francisco
+    franco
+    gabriel
+    gabriela
+    gael
+    gaston
+    gema
+    genaro
+    genesis
+    georgina
+    gerardo
+    german
+    gilda
+    gisela
+    gladys
+    gloria
+    gonzalo
+    graciela
+    guadalupe
+    guido
+    guillermina
+    guillermo
+    helena
+    hector
+    hilda
+    hugo
+    ian
+    ignacio
+    iliana
+    ines
+    irene
+    iris
+    isaac
+    isabel
+    isabella
+    isidro
+    ismael
+    ivan
+    jacinta
+    jaime
+    jairo
+    javier
+    jazmin
+    jenifer
+    jeremias
+    jeronimo
+    jesica
+    jesus
+    joaquin
+    joel
+    jorge
+    jose
+    jose maria
+    josefina
+    juan
+    juan cruz
+    juan ignacio
+    juan manuel
+    juana
+    judith
+    julia
+    julian
+    julio
+    julieta
+    karen
+    karina
+    katia
+    keila
+    kevin
+    kiara
+    lara
+    laura
+    lautaro
+    leandro
+    leila
+    leo
+    leon
+    leona
+    leonardo
+    leticia
+    lian
+    lidia
+    lila
+    lisandro
+    lola
+    lorena
+    lorenzo
+    luca
+    lucas
+    lucia
+    luciana
+    luciano
+    lucrecia
+    luis
+    luisa
+    luna
+    luz
+    maia
+    malena
+    manuel
+    mara
+    marcela
+    marcelo
+    marcos
+    margarita
+    maria
+    maria clara
+    maria eugenia
+    maria jose
+    mariana
+    mariano
+    marina
+    mario
+    marisol
+    marta
+    martin
+    mateo
+    matias
+    maximiliano
+    mayra
+    melani
+    melina
+    melisa
+    mercedes
+    micaela
+    milagros
+    miranda
+    mirta
+    monica
+    mora
+    morena
+    nadia
+    nahuel
+    naira
+    natalia
+    nazareno
+    nehuen
+    nelson
+    nerea
+    nico
+    nicolas
+    noah
+    noelia
+    norberto
+    norma
+    olga
+    oliver
+    olivia
+    omar
+    oriana
+    oscar
+    pamela
+    paola
+    patricia
+    paul
+    paula
+    paulina
+    pedro
+    pilar
+    priscila
+    ramiro
+    raquel
+    raul
+    renata
+    renato
+    renzo
+    ricardo
+    rita
+    roberta
+    roberto
+    rocio
+    rodolfo
+    roman
+    romeo
+    romina
+    rosa
+    rosario
+    ruben
+    rufina
+    sabrina
+    samanta
+    samuel
+    santino
+    santiago
+    sara
+    sebastian
+    selena
+    sergio
+    sheila
+    silvana
+    silvia
+    simon
+    sofia
+    soledad
+    susana
+    tamara
+    tatiana
+    teo
+    teresa
+    thiago
+    tiago
+    tobias
+    tomas
+    triana
+    ulises
+    ursula
+    valen
+    valentina
+    valeria
+    vanesa
+    vera
+    veronica
+    vicente
+    victor
+    victoria
+    violeta
+    viviana
+    walter
+    wanda
+    ximena
+    yanina
+    yasmin
+    yolanda
+    zoe
+    """
+)
 
-CITIES = {
-    "amsterdam", "asuncion", "atenas", "barcelona", "berlin", "bogota",
-    "brasilia", "buenos aires", "caracas", "cartagena", "cordoba", "dublin",
-    "florencia", "guadalajara", "helsinki", "lima", "lisboa", "londres",
-    "madrid", "malaga", "mendoza", "mexico", "miami", "montevideo", "moscu",
-    "neuquen", "new york", "oslo", "paris", "porto alegre", "quito", "roma",
-    "rosario", "salta", "san juan", "san luis", "san pablo", "san rafael",
-    "santa cruz", "santiago", "santo domingo", "sevilla", "tokio", "toronto",
-    "tucuman", "valencia", "vancouver", "venecia", "viena", "villa carlos paz",
-    "villa maria", "viedma"
-}
 
-OBJECTS = {
-    "abanico", "agenda", "aguja", "alarma", "alfiler", "almohada", "anillo",
-    "antena", "armario", "balde", "banco", "bandera", "barco", "baston", "bateria",
-    "bicicleta", "boligrafo", "botella", "brujula", "cable", "cadena",
-    "calculadora", "campana", "candado", "carpeta", "celular", "cierre",
-    "cinta", "clavo", "computadora", "cuaderno", "cuchara", "cuchillo",
-    "destornillador", "escalera", "escoba", "espejo", "estufa", "foco",
-    "frasco", "gafas", "grapadora", "hamaca", "heladera", "impresora",
-    "jarra", "juguete", "lampara", "lapiz", "libro", "linterna", "llave",
-    "manta", "martillo", "mesa", "mochila", "monitor", "papel", "paraguas",
-    "peine", "pelota", "pincel", "plato", "puerta", "radio", "reloj",
-    "sarten", "silla", "sofa", "taza", "teclado", "televisor", "tenedor",
-    "tijera", "toalla", "trompeta", "vaso", "vela", "ventana", "xilofon", "xilofono"
-}
+ANIMALS = _words(
+    """
+    abeja
+    abubilla
+    aguila
+    alacran
+    alce
+    alpaca
+    anaconda
+    anguila
+    antilope
+    arana
+    ardilla
+    armadillo
+    armino
+    asno
+    atun
+    avestruz
+    avispa
+    axolote
+    babuino
+    bacalao
+    ballena
+    basilisco
+    beluga
+    bisonte
+    boa
+    buho
+    burro
+    bufalo
+    buitre
+    caballo
+    cabra
+    cacatua
+    cangrejo
+    canguro
+    canario
+    capibara
+    caracol
+    carpincho
+    castor
+    cebra
+    cerdo
+    ciempies
+    ciervo
+    cisne
+    coati
+    cobra
+    codorniz
+    colibri
+    conejo
+    condor
+    corvina
+    cotorra
+    coyote
+    cuervo
+    delfin
+    dingo
+    elefante
+    emu
+    escarabajo
+    escorpion
+    estornino
+    faisan
+    flamenco
+    foca
+    gacela
+    gallina
+    gallo
+    ganso
+    gato
+    gavilan
+    gecko
+    gerbo
+    golondrina
+    gorila
+    gorrion
+    grillo
+    guacamayo
+    guanaco
+    guepardo
+    hamster
+    halcon
+    hiena
+    hipopotamo
+    hormiga
+    huron
+    iguana
+    jabali
+    jaguar
+    jurel
+    jirafa
+    koala
+    krill
+    labrador
+    lagarto
+    langosta
+    lechuza
+    leon
+    leopardo
+    liebre
+    llama
+    lobo
+    loro
+    luciernaga
+    lince
+    manati
+    mantis
+    mapache
+    mariposa
+    marmota
+    medusa
+    mero
+    mirlo
+    mofeta
+    mono
+    morena
+    morsa
+    mosquito
+    mosca
+    mula
+    murcielago
+    nutria
+    nandu
+    oca
+    orangutan
+    orca
+    oruga
+    oso
+    oveja
+    paloma
+    panda
+    pantera
+    pato
+    pavo
+    pelicano
+    perro
+    pez espada
+    pez globo
+    pinguino
+    piojo
+    pirana
+    piton
+    pollo
+    poni
+    puercoespin
+    pulga
+    pulpo
+    puma
+    quetzal
+    rana
+    raton
+    reno
+    rinoceronte
+    ruisenor
+    salamandra
+    salmon
+    sapo
+    sardina
+    serpiente
+    suricata
+    tapir
+    tarantula
+    tejon
+    tiburon
+    tigre
+    topo
+    tortuga
+    trucha
+    tucan
+    urraca
+    vaca
+    venado
+    vibora
+    vicuna
+    vizcacha
+    yak
+    yegua
+    zorro
+    """
+)
+
+
+FRUITS_VEGETABLES = _words(
+    """
+    acelga
+    achicoria
+    ajo
+    alcachofa
+    alcaucil
+    anana
+    ananas
+    apio
+    arandano
+    arveja
+    avena
+    avellana
+    banana
+    batata
+    berenjena
+    bergamota
+    berro
+    brocoli
+    cacao
+    cacahuate
+    caqui
+    carambola
+    castana
+    cebolla
+    cebollin
+    cereza
+    champinon
+    chaucha
+    chirimoya
+    choclo
+    ciruela
+    coco
+    coliflor
+    damasco
+    datil
+    durazno
+    endivia
+    escarola
+    esparrago
+    espinaca
+    frambuesa
+    frijol
+    frutilla
+    garbanzo
+    granada
+    grelo
+    guayaba
+    guisante
+    haba
+    higo
+    hinojo
+    jalapeno
+    jengibre
+    judia verde
+    kale
+    kiwi
+    lechuga
+    lima
+    limon
+    litchi
+    mandarina
+    mango
+    manzana
+    maracuya
+    melon
+    membrillo
+    menta
+    mora
+    nabo
+    naranja
+    nectarina
+    nispero
+    nuez
+    oregano
+    palmito
+    palta
+    papa
+    papaya
+    paraguayo
+    pepino
+    pera
+    perejil
+    pimiento
+    pina
+    pomelo
+    poroto
+    puerro
+    quinoto
+    quinoa
+    rabano
+    remolacha
+    repollo
+    romero
+    rucula
+    sandia
+    tomate
+    toronja
+    tomillo
+    uva
+    vainilla
+    yuca
+    zanahoria
+    zapallito
+    zapallo
+    zucchini
+    """
+)
+
+
+COUNTRIES = _words(
+    """
+    afganistan
+    albania
+    alemania
+    andorra
+    angola
+    arabia saudita
+    argelia
+    argentina
+    armenia
+    australia
+    austria
+    azerbaiyan
+    bahamas
+    bangladesh
+    belgica
+    belice
+    bolivia
+    bosnia
+    botsuana
+    brasil
+    bulgaria
+    camboya
+    cameron
+    canada
+    catar
+    chad
+    chile
+    china
+    chipre
+    colombia
+    corea del norte
+    corea del sur
+    costa rica
+    croacia
+    cuba
+    dinamarca
+    ecuador
+    egipto
+    el salvador
+    emiratos arabes unidos
+    eslovaquia
+    eslovenia
+    espana
+    estados unidos
+    estonia
+    etiopia
+    filipinas
+    finlandia
+    francia
+    georgia
+    ghana
+    grecia
+    guatemala
+    guinea
+    haiti
+    honduras
+    hungria
+    india
+    indonesia
+    iran
+    iraq
+    irlanda
+    islandia
+    israel
+    italia
+    jamaica
+    japon
+    jordania
+    kazajistan
+    kenia
+    kosovo
+    laos
+    letonia
+    libano
+    libia
+    lituania
+    luxemburgo
+    malasia
+    malta
+    marruecos
+    mexico
+    moldavia
+    monaco
+    mongolia
+    montenegro
+    mozambique
+    namibia
+    nepal
+    nicaragua
+    nigeria
+    noruega
+    nueva zelanda
+    oman
+    paises bajos
+    panama
+    paraguay
+    peru
+    polonia
+    portugal
+    puerto rico
+    reino unido
+    republica checa
+    republica dominicana
+    rumania
+    rusia
+    senegal
+    serbia
+    singapur
+    siria
+    sudafrica
+    suecia
+    suiza
+    tailandia
+    taiwan
+    tunez
+    turquia
+    ucrania
+    uruguay
+    venezuela
+    vietnam
+    yemen
+    """
+)
+
+
+CITIES = _words(
+    """
+    amsterdam
+    ankara
+    asuncion
+    atenas
+    atlanta
+    barcelona
+    bariloche
+    beijing
+    belen
+    berlin
+    bogota
+    boston
+    brasilia
+    bruselas
+    buenos aires
+    cairo
+    cali
+    cannes
+    caracas
+    cartagena
+    casablanca
+    catania
+    chicago
+    copenhague
+    cordoba
+    curitiba
+    dakar
+    dallas
+    damasco
+    delhi
+    dubai
+    dublin
+    edimburgo
+    florencia
+    frankfurt
+    ginebra
+    guadalajara
+    guayaquil
+    hamburgo
+    helsinki
+    houston
+    istanbul
+    jakarta
+    jerusalen
+    johannesburgo
+    kyoto
+    la paz
+    la plata
+    lima
+    lisboa
+    londres
+    los angeles
+    lyon
+    madrid
+    malaga
+    managua
+    manchester
+    manizales
+    marsella
+    medellin
+    mendoza
+    mexico
+    miami
+    milan
+    montevideo
+    montreal
+    moscu
+    munich
+    napoles
+    neuquen
+    new york
+    niza
+    oslo
+    paris
+    perth
+    porto alegre
+    praga
+    quito
+    rabat
+    resistencia
+    rio de janeiro
+    roma
+    rosario
+    salta
+    san carlos de bariloche
+    san juan
+    san luis
+    san miguel de tucuman
+    san pablo
+    san rafael
+    santa cruz
+    santa fe
+    santiago
+    santo domingo
+    sao paulo
+    sevilla
+    sidney
+    singapur
+    sofia
+    estocolmo
+    sydney
+    tel aviv
+    tokio
+    toronto
+    tucuman
+    valencia
+    valparaiso
+    vancouver
+    venecia
+    viena
+    villa carlos paz
+    villa maria
+    viedma
+    varsovia
+    washington
+    yerevan
+    zurich
+    """
+)
+
+
+OBJECTS = _words(
+    """
+    abanico
+    abrochadora
+    acordeon
+    agenda
+    aguja
+    alambre
+    alfiler
+    almohada
+    anillo
+    antena
+    armario
+    aro
+    auricular
+    balanza
+    balde
+    banco
+    bandera
+    banqueta
+    barco
+    baston
+    bateria
+    batidora
+    bicicleta
+    billetera
+    boligrafo
+    bolso
+    botella
+    brujula
+    bufanda
+    butaca
+    cable
+    caja
+    calculadora
+    calendario
+    campana
+    candado
+    cana
+    carpeta
+    carro
+    casco
+    celular
+    cenicero
+    cepillo
+    cerradura
+    cierre
+    cesto
+    chaqueta
+    chimenea
+    cinta
+    clavo
+    clip
+    cochecito
+    colador
+    colchon
+    cometa
+    compas
+    computadora
+    consola
+    cortina
+    cuaderno
+    cuadro
+    cuchara
+    cuchillo
+    cuenco
+    destornillador
+    despertador
+    diccionario
+    dron
+    ducha
+    edredon
+    enchufe
+    escalera
+    escoba
+    escudo
+    escritorio
+    espatula
+    espejo
+    estante
+    estufa
+    farol
+    felpudo
+    figura
+    foco
+    folder
+    foto
+    frasco
+    fregona
+    gafas
+    gancho
+    garrafa
+    guitarra
+    gorra
+    grapadora
+    hamaca
+    heladera
+    horno
+    impresora
+    jarra
+    jarron
+    joystick
+    juguete
+    lampara
+    lapicera
+    lapiz
+    lavadora
+    libro
+    libreta
+    linterna
+    llave
+    maleta
+    manta
+    mapa
+    martillo
+    mascarilla
+    mate
+    mesa
+    microfono
+    microondas
+    mochila
+    monitor
+    mopa
+    moto
+    mueble
+    muneca
+    nevera
+    notebook
+    ordenador
+    pala
+    paleta
+    papel
+    paraguas
+    parlante
+    peine
+    pelota
+    perchero
+    persiana
+    pincel
+    pinza
+    pizarron
+    plato
+    portarretrato
+    puerta
+    radio
+    raqueta
+    raton
+    regla
+    reloj
+    repisa
+    router
+    sabana
+    sacacorchos
+    sarten
+    secador
+    serrucho
+    silla
+    sillon
+    sofa
+    sombrero
+    tablet
+    taza
+    teclado
+    televisor
+    tenedor
+    termo
+    tijera
+    timbre
+    toalla
+    tornillo
+    trompeta
+    vaso
+    vela
+    ventana
+    ventilador
+    vitrina
+    xilofon
+    xilofono
+    zapatero
+    zapato
+    """
+)

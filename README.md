@@ -84,6 +84,22 @@ El backend ya incluye:
 - arranque por `uvicorn simple_app:app`
 - healthcheck en `/`
 
+## Cache Lexico Desde La RAE
+
+El juego puede cargar un cache adicional en `game/lexicon_generated.json`.
+Ese archivo se integra automaticamente con el lexico base local.
+
+Para generarlo offline con consultas a la RAE:
+
+```bash
+python3 scripts/scrape_rae_lexicon.py
+```
+
+Notas:
+- no conviene consultar la RAE en vivo durante cada partida
+- el flujo correcto es generar cache y luego usarlo localmente
+- si quieres probar rapido, puedes limitar consultas con `--limit 20`
+
 Pasos:
 
 1. Entra a Railway y crea un proyecto nuevo desde GitHub.

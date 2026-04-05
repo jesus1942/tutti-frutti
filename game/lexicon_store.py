@@ -23,10 +23,17 @@ BASE_DATASETS = {
 class LexiconStore:
     """Índice léxico local con metadatos y texto de uso."""
 
-    def __init__(self, catalog_path: str | None = None):
+    def __init__(self, catalog_path: str | None = None, generated_path: str | None = None):
         path = Path(catalog_path) if catalog_path else Path(__file__).with_name("lexicon_catalog.json")
         with path.open("r", encoding="utf-8") as catalog_file:
             self.catalog = json.load(catalog_file)
+
+        generated = Path(generated_path) if generated_path else Path(__file__).with_name("lexicon_generated.json")
+        if generated.exists():
+            with generated.open("r", encoding="utf-8") as generated_file:
+                self.generated_catalog = json.load(generated_file)
+        else:
+            self.generated_catalog = {}
 
         self.category_metadata = self.catalog.get("category_metadata", {})
         self.entry_overrides = self.catalog.get("entry_overrides", {})
@@ -70,6 +77,21 @@ class LexiconStore:
                 }
 
             entries_by_category[category] = category_entries
+
+        generated_entries = self.generated_catalog.get("entries_by_category", {})
+        for category, entries in generated_entries.items():
+            normalized_category = self.category_aliases(category)
+            category_bucket = entries_by_category.setdefault(normalized_category, {})
+
+            for term, entry in entries.items():
+                normalized_term = self.normalize_text(term)
+                category_bucket[normalized_term] = {
+                    "term": normalized_term,
+                    "display": entry.get("display", " ".join(chunk.capitalize() for chunk in normalized_term.split())),
+                    "usage": entry.get("usage", ""),
+                    "category": normalized_category,
+                    "source": entry.get("source", "generated"),
+                }
 
         return entries_by_category
 
