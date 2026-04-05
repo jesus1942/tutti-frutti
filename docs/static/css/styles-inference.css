@@ -54,28 +54,38 @@ body::before {
 body::after {
   background:
     radial-gradient(circle at 50% 0%, rgba(120, 170, 203, 0.16), transparent 30%),
-    radial-gradient(circle at 10% 24%, rgba(255, 255, 255, 0.05), transparent 18%),
-    radial-gradient(circle, rgba(237, 248, 255, 0.72) 0 0.95px, transparent 1.65px),
-    radial-gradient(circle, rgba(157, 226, 241, 0.54) 0 1.25px, transparent 1.95px),
-    radial-gradient(circle, rgba(236, 247, 255, 0.30) 0 0.7px, transparent 1.25px),
-    radial-gradient(circle, rgba(115, 191, 214, 0.20) 0 1.55px, transparent 2.3px);
-  background-size:
-    100% 100%,
-    100% 100%,
-    27% 165%,
-    34% 185%,
-    18% 142%,
-    41% 210%;
-  background-position:
-    0 0,
-    0 0,
-    7% -158%,
-    69% -178%,
-    41% -136%,
-    88% -196%;
+    radial-gradient(circle at 10% 24%, rgba(255, 255, 255, 0.05), transparent 18%);
   mix-blend-mode: screen;
-  opacity: 0.78;
-  animation: ambientParticleFall 28s linear infinite;
+  opacity: 0.58;
+}
+
+.ambient-particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-particle {
+  position: absolute;
+  left: var(--left);
+  top: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, var(--particle-color) 0%, rgba(255, 255, 255, 0.72) 38%, rgba(126, 211, 226, 0.16) 72%, transparent 100%);
+  opacity: var(--opacity);
+  filter: blur(var(--blur));
+  box-shadow:
+    0 0 calc(var(--size) * 2.6) rgba(216, 242, 255, 0.18),
+    0 0 calc(var(--size) * 5.4) rgba(127, 228, 221, 0.08);
+  transform: translate3d(var(--drift-start), var(--start-y), 0);
+  will-change: transform, opacity;
+  animation:
+    ambientParticleOrbit var(--duration) linear infinite,
+    ambientParticleTwinkle var(--twinkle-duration) ease-in-out infinite alternate;
+  animation-delay: var(--delay), calc(var(--delay) * 0.35);
 }
 
 .container {
@@ -2043,42 +2053,30 @@ table td {
   }
 }
 
-@keyframes ambientParticleFall {
+@keyframes ambientParticleOrbit {
   0% {
-    background-position:
-      0 0,
-      0 0,
-      7% -158%,
-      69% -178%,
-      41% -136%,
-      88% -196%;
+    transform: translate3d(var(--drift-start), var(--start-y), 0) scale(0.82);
   }
-  28% {
-    background-position:
-      0 0,
-      0 0,
-      12% -62%,
-      66% -74%,
-      44% -48%,
-      83% -96%;
+  23% {
+    transform: translate3d(calc(var(--drift-start) + var(--drift-a)), calc(var(--start-y) + 28vh), 0) scale(1);
   }
-  57% {
-    background-position:
-      0 0,
-      0 0,
-      15% 24%,
-      62% 34%,
-      48% 28%,
-      77% 18%;
+  51% {
+    transform: translate3d(calc(var(--drift-start) + var(--drift-b)), calc(var(--start-y) + 61vh), 0) scale(1.08);
+  }
+  78% {
+    transform: translate3d(calc(var(--drift-start) + var(--drift-c)), calc(var(--start-y) + 92vh), 0) scale(0.94);
   }
   100% {
-    background-position:
-      0 0,
-      0 0,
-      19% 176%,
-      58% 196%,
-      53% 168%,
-      72% 186%;
+    transform: translate3d(calc(var(--drift-start) + (var(--drift-c) * 0.45)), calc(var(--start-y) + 132vh), 0) scale(0.78);
+  }
+}
+
+@keyframes ambientParticleTwinkle {
+  0% {
+    opacity: calc(var(--opacity) * 0.58);
+  }
+  100% {
+    opacity: var(--opacity);
   }
 }
 
