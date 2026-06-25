@@ -240,7 +240,7 @@ class ConnectionManager:
                 "categories": game_data["categories"],
                 "timer": game_data["timer"],
                 "active_timer": active_timer,
-                "time_left": max(0, active_timer - (int(time.time()) - game_data["round_start_time"])) if game_data["round_start_time"] > 0 else active_timer,
+                "time_left": max(0, int(active_timer - (time.time() - game_data["round_start_time"]))) if game_data["round_start_time"] > 0 else active_timer,
                 "scores": game_data["scores"],
                 "round_scores": game_data.get("round_scores", {}),
                 "transitioning_to_round": game_data.get("transitioning_to_round", False),
