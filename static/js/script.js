@@ -1051,7 +1051,7 @@ function renderRooms(rooms) {
                         <span class="room-id">${escapeHtml(room.id)}</span>
                         <span class="room-status status-${escapeHtml(room.status)}">${escapeHtml(room.status_label || room.status)}${extra}</span>
                     </div>
-                    <div class="room-players"><span class="room-count">&#128100; ${room.player_count}</span> ${names}${bot}</div>
+                    <div class="room-players"><span class="room-count">${room.player_count} ${room.player_count === 1 ? 'jugador' : 'jugadores'}:</span> ${names}${bot}</div>
                 </div>
                 <button class="btn mini-btn room-join" type="button" data-room="${escapeHtml(room.id)}">Entrar</button>
             </li>`;
@@ -1109,7 +1109,6 @@ function renderDashboard(data) {
 
     const top = data.top || [];
     const totals = data.totals || {};
-    const medals = ['🥇', '🥈', '🥉'];
 
     const totalsHtml = `
         <div class="dash-totals">
@@ -1125,11 +1124,10 @@ function renderDashboard(data) {
 
     const maxGames = Math.max(...top.map((x) => x.games_played || 0), 1);
     const rows = top.map((p, i) => {
-        const rank = medals[i] || (i + 1);
         const activity = Math.round(100 * (p.games_played || 0) / maxGames);
         return `
             <tr class="dash-row rank-${i + 1}">
-                <td class="dash-rank">${rank}</td>
+                <td class="dash-rank">${i + 1}&ordm;</td>
                 <td class="dash-name">${escapeHtml(p.name)}</td>
                 <td class="dash-points">${p.points}</td>
                 <td class="dash-ok">${p.aciertos}</td>
@@ -1145,18 +1143,18 @@ function renderDashboard(data) {
             <table class="dash-table">
                 <thead>
                     <tr>
-                        <th>#</th><th>Jugador</th><th>Puntos</th>
-                        <th title="Respuestas válidas">✅</th>
-                        <th title="Errores / inválidas">❌</th>
-                        <th title="Duplicadas">♻️</th>
-                        <th title="Precisión">🎯</th>
-                        <th title="Actividad (partidas jugadas)">Actividad</th>
+                        <th>Puesto</th><th>Jugador</th><th>Puntos</th>
+                        <th>Aciertos</th>
+                        <th>Errores</th>
+                        <th>Duplicadas</th>
+                        <th>Precisión</th>
+                        <th>Actividad</th>
                     </tr>
                 </thead>
                 <tbody>${rows}</tbody>
             </table>
         </div>
-        <p class="dash-foot">Ranking por puntos. ✅ aciertos · ❌ errores · ♻️ duplicaciones · 🎯 precisión · Actividad = partidas jugadas.</p>`;
+        <p class="dash-foot">Ranking por puntos. Aciertos: respuestas válidas. Errores: vacías o inválidas. Duplicadas: repetidas con otro jugador. Precisión: porcentaje de aciertos. Actividad: partidas jugadas.</p>`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
