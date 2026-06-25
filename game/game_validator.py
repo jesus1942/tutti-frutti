@@ -143,13 +143,27 @@ class GameValidator:
             reason = f"no reconocida como {category}"
             return 0, reason, self.build_validation_detail(category, raw_answer, 0, reason)
 
-        if not have_lexicon and not self.is_plausible_name(raw_answer):
-            # Categoria sin diccionario local: al menos exigir que parezca una palabra.
+        if not have_lexicon:
+            # Categoria sin diccionario local (p. ej. Pelicula, Serie, Personaje):
+            # no se puede verificar offline, asi que ya no se acepta sola. Si parece
+            # una palabra, queda "a revisar" para que el anfitrion/sala decida; si ni
+            # siquiera parece una palabra, se rechaza.
+            if self.is_plausible_name(raw_answer):
+                canonical = self.format_display_text(raw_answer)
+                reason = "a revisar: sin diccionario para esta categoría"
+                return 0, reason, self.build_validation_detail(
+                    category,
+                    raw_answer,
+                    0,
+                    reason,
+                    canonical=canonical,
+                    needs_review=True,
+                )
             reason = f"no reconocida como {category}"
             return 0, reason, self.build_validation_detail(category, raw_answer, 0, reason)
 
-        # Aceptada: la palabra esta en el lexico, o la categoria no tiene
-        # diccionario local y la respuesta es plausible. Resta ver duplicados.
+        # Aceptada: la palabra esta en el lexico (categoria con diccionario).
+        # Resta verificar duplicados.
         is_duplicate = False
         for other_player, other_answers in game_data["answers"].items():
             if other_player == player or category not in other_answers:
@@ -161,8 +175,6 @@ class GameValidator:
 
         canonical = lexicon.get_display(category, clean_answer) or self.format_display_text(raw_answer)
         usage = lexicon.get_usage(category, clean_answer)
-        if not usage and not in_lexicon:
-            usage = f'"{canonical}" se acepto sin diccionario local para {category}.'
 
         if is_duplicate:
             reason = "respuesta duplicada"

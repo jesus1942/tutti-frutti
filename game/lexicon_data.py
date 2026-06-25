@@ -1334,3 +1334,60 @@ FOODS = _words(
     zucchini
     """
 )
+
+
+MATERIAS = _words(
+    """
+    matematica
+    matematicas
+    lengua
+    literatura
+    historia
+    geografia
+    biologia
+    quimica
+    fisica
+    musica
+    plastica
+    arte
+    educacion fisica
+    ingles
+    frances
+    italiano
+    portugues
+    aleman
+    latin
+    tecnologia
+    informatica
+    computacion
+    programacion
+    robotica
+    ciencias naturales
+    ciencias sociales
+    naturales
+    sociales
+    economia
+    contabilidad
+    filosofia
+    psicologia
+    sociologia
+    religion
+    catequesis
+    civica
+    ciudadania
+    etica
+    dibujo
+    teatro
+    danza
+    gimnasia
+    deportes
+    biblioteca
+    astronomia
+    geometria
+    algebra
+    aritmetica
+    anatomia
+    botanica
+    geologia
+    """
+)
