@@ -1034,7 +1034,7 @@ function joinRoomById(roomId) {
     const playerNameInput = document.getElementById('player-name');
     const playerName = playerNameInput ? playerNameInput.value.trim() : '';
     if (!playerName) {
-        window.auth.showToast('Primero escribí tu nombre para entrar a la sala.', 'error');
+        window.auth.showToast(t('enter-name-first'), 'error');
         if (playerNameInput) playerNameInput.focus();
         return;
     }
@@ -1049,7 +1049,7 @@ function renderRooms(rooms) {
     if (!list) return;
 
     if (!rooms || rooms.length === 0) {
-        list.innerHTML = '<li class="rooms-empty">No hay salas activas todavía. ¡Creá la primera dejando el ID vacío!</li>';
+        list.innerHTML = `<li class="rooms-empty">${escapeHtml(t('rooms-empty'))}</li>`;
         return;
     }
 
@@ -1058,19 +1058,20 @@ function renderRooms(rooms) {
         let extra = '';
         if (room.status === 'playing' || room.status === 'reviewing') {
             extra = ` &middot; R${room.round || 0}/${room.max_rounds || 0}`;
-            if (room.current_letter) extra += ` &middot; letra ${escapeHtml(room.current_letter)}`;
+            if (room.current_letter) extra += ` &middot; ${escapeHtml(t('letter-word'))} ${escapeHtml(room.current_letter)}`;
         }
         const bot = room.bot_enabled ? ' <span class="room-bot">+ CPU</span>' : '';
+        const playersWord = room.player_count === 1 ? t('player-one') : t('player-many');
         return `
             <li class="room-card">
                 <div class="room-card-main">
                     <div class="room-card-head">
                         <span class="room-id">${escapeHtml(room.id)}</span>
-                        <span class="room-status status-${escapeHtml(room.status)}">${escapeHtml(room.status_label || room.status)}${extra}</span>
+                        <span class="room-status status-${escapeHtml(room.status)}">${escapeHtml(t('status-' + room.status))}${extra}</span>
                     </div>
-                    <div class="room-players"><span class="room-count">${room.player_count} ${room.player_count === 1 ? 'jugador' : 'jugadores'}:</span> ${names}${bot}</div>
+                    <div class="room-players"><span class="room-count">${room.player_count} ${escapeHtml(playersWord)}:</span> ${names}${bot}</div>
                 </div>
-                <button class="btn mini-btn room-join" type="button" data-room="${escapeHtml(room.id)}">Entrar</button>
+                <button class="btn mini-btn room-join" type="button" data-room="${escapeHtml(room.id)}">${escapeHtml(t('enter'))}</button>
             </li>`;
     }).join('');
 }
@@ -1087,7 +1088,7 @@ async function refreshLobby() {
         const data = await res.json();
         renderRooms(data.rooms || []);
     } catch (e) {
-        list.innerHTML = '<li class="rooms-empty">No se pudo cargar la lista (el servidor puede estar despertando). Tocá “Actualizar”.</li>';
+        list.innerHTML = `<li class="rooms-empty">${escapeHtml(t('rooms-error'))}</li>`;
     } finally {
         lobbyRefreshing = false;
     }
@@ -1109,14 +1110,14 @@ function startLobbyPolling() {
 async function openDashboard() {
     window.showScreen('dashboard');
     const body = document.getElementById('dashboard-body');
-    if (body) body.innerHTML = '<p class="dash-loading">Cargando tablero…</p>';
+    if (body) body.innerHTML = `<p class="dash-loading">${escapeHtml(t('dash-loading'))}</p>`;
     try {
         const base = window.tuttiConfig?.backendUrl || '';
         const res = await fetch(`${base}/dashboard`, { cache: 'no-store' });
         if (!res.ok) throw new Error(`status ${res.status}`);
         renderDashboard(await res.json());
     } catch (e) {
-        if (body) body.innerHTML = '<p class="dash-loading">No se pudo cargar el tablero (el servidor puede estar despertando). Probá de nuevo en unos segundos.</p>';
+        if (body) body.innerHTML = `<p class="dash-loading">${escapeHtml(t('dash-error'))}</p>`;
     }
 }
 
@@ -1129,13 +1130,13 @@ function renderDashboard(data) {
 
     const totalsHtml = `
         <div class="dash-totals">
-            <span><strong>${totals.total_players || 0}</strong> jugadores</span>
-            <span><strong>${totals.total_games || 0}</strong> partidas</span>
-            <span><strong>${totals.active_rooms || 0}</strong> salas activas</span>
+            <span><strong>${totals.total_players || 0}</strong> ${escapeHtml(t('totals-players'))}</span>
+            <span><strong>${totals.total_games || 0}</strong> ${escapeHtml(t('totals-games'))}</span>
+            <span><strong>${totals.active_rooms || 0}</strong> ${escapeHtml(t('totals-rooms'))}</span>
         </div>`;
 
     if (top.length === 0) {
-        body.innerHTML = totalsHtml + '<p class="dash-loading">Todavía no hay puntajes. ¡Jueguen una partida para estrenar el tablero!</p>';
+        body.innerHTML = totalsHtml + `<p class="dash-loading">${escapeHtml(t('dash-empty'))}</p>`;
         return;
     }
 
@@ -1160,19 +1161,27 @@ function renderDashboard(data) {
             <table class="dash-table">
                 <thead>
                     <tr>
-                        <th>Puesto</th><th>Jugador</th><th>Puntos</th>
-                        <th>Aciertos</th>
-                        <th>Errores</th>
-                        <th>Duplicadas</th>
-                        <th>Precisión</th>
-                        <th>Actividad</th>
+                        <th>${escapeHtml(t('th-rank'))}</th><th>${escapeHtml(t('th-player'))}</th><th>${escapeHtml(t('th-points'))}</th>
+                        <th>${escapeHtml(t('th-ok'))}</th>
+                        <th>${escapeHtml(t('th-err'))}</th>
+                        <th>${escapeHtml(t('th-dup'))}</th>
+                        <th>${escapeHtml(t('th-acc'))}</th>
+                        <th>${escapeHtml(t('th-act'))}</th>
                     </tr>
                 </thead>
                 <tbody>${rows}</tbody>
             </table>
         </div>
-        <p class="dash-foot">Ranking por puntos. Aciertos: respuestas válidas. Errores: vacías o inválidas. Duplicadas: repetidas con otro jugador. Precisión: porcentaje de aciertos. Actividad: partidas jugadas.</p>`;
+        <p class="dash-foot">${escapeHtml(t('dash-foot'))}</p>`;
 }
+
+// Redibuja el contenido dinámico de inicio cuando se cambia el idioma.
+window.onLanguageChange = function () {
+    const welcome = document.getElementById('welcome-screen');
+    if (welcome && welcome.classList.contains('active')) refreshLobby();
+    const dash = document.getElementById('dashboard-screen');
+    if (dash && dash.classList.contains('active')) openDashboard();
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     const joinForm = document.getElementById('join-form');
