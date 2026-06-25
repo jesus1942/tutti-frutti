@@ -54,7 +54,8 @@ const screens = {
     spin: document.getElementById('spin-screen'),
     game: document.getElementById('game-screen'),
     review: document.getElementById('review-screen'),
-    scores: document.getElementById('scores-screen')
+    scores: document.getElementById('scores-screen'),
+    dashboard: document.getElementById('dashboard-screen')
 };
 
 // Clave para animar la rueda una sola vez por tirada.
@@ -1086,6 +1087,78 @@ function startLobbyPolling() {
     }, 6000);
 }
 
+// --- Tablero de posiciones --------------------------------------------------
+
+async function openDashboard() {
+    window.showScreen('dashboard');
+    const body = document.getElementById('dashboard-body');
+    if (body) body.innerHTML = '<p class="dash-loading">Cargando tablero…</p>';
+    try {
+        const base = window.tuttiConfig?.backendUrl || '';
+        const res = await fetch(`${base}/dashboard`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`status ${res.status}`);
+        renderDashboard(await res.json());
+    } catch (e) {
+        if (body) body.innerHTML = '<p class="dash-loading">No se pudo cargar el tablero (el servidor puede estar despertando). Probá de nuevo en unos segundos.</p>';
+    }
+}
+
+function renderDashboard(data) {
+    const body = document.getElementById('dashboard-body');
+    if (!body) return;
+
+    const top = data.top || [];
+    const totals = data.totals || {};
+    const medals = ['🥇', '🥈', '🥉'];
+
+    const totalsHtml = `
+        <div class="dash-totals">
+            <span><strong>${totals.total_players || 0}</strong> jugadores</span>
+            <span><strong>${totals.total_games || 0}</strong> partidas</span>
+            <span><strong>${totals.active_rooms || 0}</strong> salas activas</span>
+        </div>`;
+
+    if (top.length === 0) {
+        body.innerHTML = totalsHtml + '<p class="dash-loading">Todavía no hay puntajes. ¡Jueguen una partida para estrenar el tablero!</p>';
+        return;
+    }
+
+    const maxGames = Math.max(...top.map((x) => x.games_played || 0), 1);
+    const rows = top.map((p, i) => {
+        const rank = medals[i] || (i + 1);
+        const activity = Math.round(100 * (p.games_played || 0) / maxGames);
+        return `
+            <tr class="dash-row rank-${i + 1}">
+                <td class="dash-rank">${rank}</td>
+                <td class="dash-name">${escapeHtml(p.name)}</td>
+                <td class="dash-points">${p.points}</td>
+                <td class="dash-ok">${p.aciertos}</td>
+                <td class="dash-err">${p.errores}</td>
+                <td class="dash-dup">${p.duplicaciones}</td>
+                <td class="dash-acc">${p.accuracy}%</td>
+                <td class="dash-act"><span class="act-bar"><span style="width:${activity}%"></span></span><small>${p.games_played}</small></td>
+            </tr>`;
+    }).join('');
+
+    body.innerHTML = totalsHtml + `
+        <div class="dash-table-wrap">
+            <table class="dash-table">
+                <thead>
+                    <tr>
+                        <th>#</th><th>Jugador</th><th>Puntos</th>
+                        <th title="Respuestas válidas">✅</th>
+                        <th title="Errores / inválidas">❌</th>
+                        <th title="Duplicadas">♻️</th>
+                        <th title="Precisión">🎯</th>
+                        <th title="Actividad (partidas jugadas)">Actividad</th>
+                    </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+            </table>
+        </div>
+        <p class="dash-foot">Ranking por puntos. ✅ aciertos · ❌ errores · ♻️ duplicaciones · 🎯 precisión · Actividad = partidas jugadas.</p>`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const joinForm = document.getElementById('join-form');
     const answersForm = document.getElementById('answers-form');
@@ -1116,6 +1189,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const refreshRoomsBtn = document.getElementById('refresh-rooms');
     const roomsList = document.getElementById('rooms-list');
+    const openDashboardBtn = document.getElementById('open-dashboard');
+    const dashboardBackBtn = document.getElementById('dashboard-back');
+    const dashboardRefreshBtn = document.getElementById('dashboard-refresh');
+    if (openDashboardBtn) openDashboardBtn.addEventListener('click', openDashboard);
+    if (dashboardRefreshBtn) dashboardRefreshBtn.addEventListener('click', openDashboard);
+    if (dashboardBackBtn) dashboardBackBtn.addEventListener('click', () => window.showScreen('welcome'));
     if (refreshRoomsBtn) refreshRoomsBtn.addEventListener('click', refreshLobby);
     if (roomsList) {
         roomsList.addEventListener('click', (event) => {

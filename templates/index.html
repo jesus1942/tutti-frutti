@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="/static/css/styles-inference.css">
     <link rel="stylesheet" href="/static/css/styles-dark.css">
     <link rel="stylesheet" href="/static/css/toast.css">
-    <link rel="stylesheet" href="/static/css/styles-handmade.css?v=3">
+    <link rel="stylesheet" href="/static/css/styles-handmade.css?v=4">
 </head>
 <body>
     <!-- Contenedor para notificaciones toast -->
@@ -88,11 +88,25 @@
                 <ul id="rooms-list" class="rooms-list"></ul>
             </div>
 
+            <button id="open-dashboard" class="btn sketch-btn dash-open-btn" type="button">&#127942; Tabla de posiciones</button>
+
             <!-- Selector de idioma -->
             <div class="language-selector">
                 <button class="lang-btn" data-lang="es">ES</button>
                 <button class="lang-btn" data-lang="en">EN</button>
             </div>
+        </div>
+
+        <!-- Tablero de posiciones -->
+        <div id="dashboard-screen" class="screen">
+            <div class="dash-head">
+                <h2>&#127942; Tabla de posiciones</h2>
+                <div class="dash-head-actions">
+                    <button id="dashboard-refresh" class="btn mini-btn" type="button">&#8635; Actualizar</button>
+                    <button id="dashboard-back" class="btn mini-btn" type="button">&#8592; Volver</button>
+                </div>
+            </div>
+            <div id="dashboard-body" class="dash-body"></div>
         </div>
 
         <!-- Sala de espera -->
@@ -284,6 +298,6 @@
     <script src="/static/js/i18n.js?v=11"></script>
     <script src="/static/js/config.js?v=9"></script>
     <script src="/static/js/connect.js?v=13"></script>
-    <script src="/static/js/script.js?v=13"></script>
+    <script src="/static/js/script.js?v=14"></script>
 </body>
 </html>

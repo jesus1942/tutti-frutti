@@ -606,7 +606,22 @@ class MessageHandler:
         validated = game.get('validated_answers', {})
         current_round_number = game['rounds'] + 1
 
+        # Registrar el desempeño (aciertos/errores/duplicaciones) una sola vez
+        # por ronda, excluyendo a la CPU.
+        bot_name = game.get('bot_name', 'CPU Austral')
+        recorded_rounds = game.setdefault('outcomes_recorded', [])
+        record_outcomes = current_round_number not in recorded_rounds
+
         for player, category_scores in validated.items():
+            # Clasificar antes de aplicar modificadores: 10=acierto, 5=duplicada, 0=error.
+            if record_outcomes and player != bot_name:
+                hits = sum(1 for v in category_scores.values() if v >= 10)
+                dups = sum(1 for v in category_scores.values() if v == 5)
+                errs = sum(1 for v in category_scores.values() if v <= 0)
+                self.manager.stats.add_answer_outcomes(
+                    player, aciertos=hits, errores=errs, duplicaciones=dups
+                )
+
             # Modificador "precision": las repetidas (5) no suman.
             if twist_id == 'precision':
                 for category, value in list(category_scores.items()):
@@ -624,6 +639,9 @@ class MessageHandler:
             game['scores'][player] = game['scores'].get(player, 0) + points
             game.setdefault('round_scores', {}).setdefault(player, {})[str(current_round_number)] = points
             print(f"Jugador {player} obtiene {points} puntos en la ronda {current_round_number}")
+
+        if record_outcomes:
+            recorded_rounds.append(current_round_number)
 
         # Terminar la partida o avanzar a la pantalla de puntajes.
         if game['rounds'] >= game['max_rounds'] - 1:
