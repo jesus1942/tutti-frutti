@@ -3,6 +3,10 @@ function createInitialGameState() {
         gameId: '',
         playerName: '',
         websocket: null,
+        // Solo pasa a true cuando el jugador entra a una sala (WebSocket abierto).
+        // Evita que el refresco inicial de la interfaz salte a la sala de espera
+        // antes de que el jugador escriba su nombre y se una.
+        joined: false,
         status: 'waiting',
         players: {},
         currentLetter: '',
@@ -468,6 +472,14 @@ function updateActionButtons() {
 }
 
 function syncScreen() {
+    // Mientras el jugador no se haya unido a una sala, la navegacion de pantallas
+    // la maneja el flujo de bienvenida. Sin esta guarda, el primer refresco de la
+    // interfaz (por ejemplo al aplicar el idioma) mandaria a la sala de espera con
+    // el estado por defecto 'waiting' antes de que el jugador entre.
+    if (!gameState.joined) {
+        return;
+    }
+
     switch (gameState.status) {
         case 'waiting':
             window.showScreen('waiting');

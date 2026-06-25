@@ -58,6 +58,7 @@ function connectToGame(gameId, playerName, options = {}) {
             
             // Actualizar estado del juego
             window.gameState.websocket = socket;
+            window.gameState.joined = true;
             window.gameState.gameId = gameId;
             window.gameState.playerName = playerName;
             

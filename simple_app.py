@@ -112,8 +112,13 @@ async def get_admin_redirect():
     """Panel web simple para compartir acceso al juego en red local."""
     import socket
 
+    # En un despliegue publico (Render, Railway) se usa la URL externa para que
+    # el QR y el enlace para compartir funcionen por internet, no la IP interna.
+    render_external_url = os.environ.get("RENDER_EXTERNAL_URL", "").strip()
     railway_public_domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "").strip()
-    if railway_public_domain:
+    if render_external_url:
+        game_url = render_external_url.rstrip("/")
+    elif railway_public_domain:
         game_url = f"https://{railway_public_domain}"
     else:
         try:
