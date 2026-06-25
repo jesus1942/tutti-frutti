@@ -253,6 +253,48 @@ async def get_admin_redirect():
     </html>
     """)
 
+@app.get("/rooms")
+async def list_rooms():
+    """Lista las salas activas para el lobby: jugadores conectados y estado.
+
+    Lo consume la pantalla de inicio para que la gente nueva descubra las
+    salas existentes sin tener que conocer el ID de memoria.
+    """
+    _, runtime_connection_manager, _ = ensure_runtime()
+
+    status_labels = {
+        "waiting": "esperando",
+        "playing": "jugando",
+        "reviewing": "revisando",
+        "finished": "terminada",
+    }
+
+    rooms = []
+    for game_id, game in runtime_connection_manager.games.items():
+        players = game.get("players", {})
+        connected = [name for name, data in players.items() if data.get("connected")]
+        if not connected:
+            continue
+
+        status = game.get("status", "waiting")
+        rooms.append({
+            "id": game_id,
+            "status": status,
+            "status_label": status_labels.get(status, status),
+            "players": connected,
+            "player_count": len(connected),
+            "admin": game.get("admin"),
+            "round": game.get("rounds", 0),
+            "max_rounds": game.get("max_rounds", 5),
+            "current_letter": game.get("current_letter", ""),
+            "bot_enabled": bool(game.get("bot_enabled", False)),
+        })
+
+    # Primero las que están esperando jugadores, luego las más pobladas.
+    rooms.sort(key=lambda r: (r["status"] != "waiting", -r["player_count"]))
+    return {"rooms": rooms, "count": len(rooms)}
+
+
 @app.websocket("/ws/{game_id}/{player_name}")
 async def websocket_endpoint(websocket: WebSocket, game_id: str, player_name: str):
     """Endpoint WebSocket para la comunicación en tiempo real"""
