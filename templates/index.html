@@ -81,18 +81,20 @@
             <!-- Lobby de salas activas -->
             <div id="rooms-panel" class="rooms-panel sketch-card">
                 <div class="rooms-head">
-                    <h3>Salas activas</h3>
-                    <button id="refresh-rooms" class="btn mini-btn" type="button">&#8635; Actualizar</button>
+                    <h3 data-i18n="rooms-title">Salas activas</h3>
+                    <button id="refresh-rooms" class="btn mini-btn" type="button">&#8635; <span data-i18n="refresh">Actualizar</span></button>
                 </div>
-                <p class="rooms-hint">Tocá una sala para entrar (poné tu nombre primero). Si no hay ninguna, dejá el ID vacío y creá una nueva.</p>
+                <p class="rooms-hint" data-i18n="rooms-hint">Tocá una sala para entrar (poné tu nombre primero). Si no hay ninguna, dejá el ID vacío y creá una nueva.</p>
                 <ul id="rooms-list" class="rooms-list"></ul>
             </div>
 
-            <button id="open-dashboard" class="btn sketch-btn dash-open-btn" type="button">Tabla de posiciones</button>
+            <button id="open-dashboard" class="btn sketch-btn dash-open-btn" type="button" data-i18n="dashboard-title">Tabla de posiciones</button>
 
             <!-- Selector de idioma -->
             <div class="language-selector">
                 <button class="lang-btn" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="it">IT</button>
+                <button class="lang-btn" data-lang="pt">PT</button>
                 <button class="lang-btn" data-lang="en">EN</button>
             </div>
         </div>
@@ -100,10 +102,10 @@
         <!-- Tablero de posiciones -->
         <div id="dashboard-screen" class="screen">
             <div class="dash-head">
-                <h2>Tabla de posiciones</h2>
+                <h2 data-i18n="dashboard-title">Tabla de posiciones</h2>
                 <div class="dash-head-actions">
-                    <button id="dashboard-refresh" class="btn mini-btn" type="button">&#8635; Actualizar</button>
-                    <button id="dashboard-back" class="btn mini-btn" type="button">&#8592; Volver</button>
+                    <button id="dashboard-refresh" class="btn mini-btn" type="button">&#8635; <span data-i18n="refresh">Actualizar</span></button>
+                    <button id="dashboard-back" class="btn mini-btn" type="button">&#8592; <span data-i18n="back">Volver</span></button>
                 </div>
             </div>
             <div id="dashboard-body" class="dash-body"></div>
@@ -295,9 +297,9 @@
     <!-- Scripts -->
     <script src="/static/js/auth.js?v=8"></script>
     <script src="/static/js/ambient-particles.js?v=1"></script>
-    <script src="/static/js/i18n.js?v=12"></script>
+    <script src="/static/js/i18n.js?v=13"></script>
     <script src="/static/js/config.js?v=9"></script>
     <script src="/static/js/connect.js?v=13"></script>
-    <script src="/static/js/script.js?v=16"></script>
+    <script src="/static/js/script.js?v=17"></script>
 </body>
 </html>
