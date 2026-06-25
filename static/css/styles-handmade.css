@@ -230,6 +230,8 @@ input[type="text"]:focus { outline: none; border-bottom-color: var(--accent) !im
 .deck-chip-name { font-family: 'Caveat', cursive !important; font-size: 1.25rem; }
 .deck-chip-desc { font-size: 0.85rem; color: var(--ink-soft); }
 .deck-chip.is-active .deck-chip-desc { color: #eafaf6; }
+.twists-toggle { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 1.05rem; cursor: pointer; }
+.twists-toggle input { width: 18px; height: 18px; }
 
 /* ---------- Impugnaciones ---------- */
 .impugnar-hint { color: var(--ink-soft); font-style: italic; }

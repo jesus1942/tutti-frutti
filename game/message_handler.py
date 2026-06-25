@@ -83,6 +83,10 @@ class MessageHandler:
                 deck_id = str(message_data.get('deck', ''))
                 await self.handle_set_deck(game_id, player_name, deck_id)
 
+            elif message_type == 'toggle_twists':
+                enabled = bool(message_data.get('enabled', True))
+                await self.handle_toggle_twists(game_id, player_name, enabled)
+
             elif message_type == 'challenge_answer':
                 target = str(message_data.get('target', ''))
                 category = str(message_data.get('category', ''))
@@ -276,8 +280,12 @@ class MessageHandler:
         game['challenges'] = {}
         game['current_letter'] = ''
 
-        # Ronda con giro (la primera ronda siempre es normal).
-        twist_id = game_modes.pick_twist(game['rounds'])
+        # Ronda con giro (la primera ronda siempre es normal). El anfitrion
+        # puede desactivar las variantes desde la sala de espera.
+        if game.get('twists_enabled', True):
+            twist_id = game_modes.pick_twist(game['rounds'])
+        else:
+            twist_id = 'normal'
         game['twist'] = game_modes.twist_payload(twist_id)
         base_timer = game.get('timer', 60)
         twist_timer = game_modes.TWISTS.get(twist_id, {}).get('timer')
@@ -436,6 +444,16 @@ class MessageHandler:
             return
         game['deck'] = deck_id
         game['categories'] = game_modes.deck_categories(deck_id)
+        await self.manager.broadcast_game_state(game_id)
+
+    async def handle_toggle_twists(self, game_id: str, player_name: str, enabled: bool):
+        """El admin activa o desactiva las rondas con giro."""
+        if game_id not in self.manager.games:
+            return
+        game = self.manager.games[game_id]
+        if game['admin'] != player_name or game['status'] != 'waiting':
+            return
+        game['twists_enabled'] = enabled
         await self.manager.broadcast_game_state(game_id)
 
     # --- Impugnaciones (desafiar respuestas en la revision) -----------------

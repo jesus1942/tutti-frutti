@@ -33,6 +33,7 @@ function createInitialGameState() {
         twist: {},
         deck: 'clasico',
         decks: [],
+        twistsEnabled: true,
         challenges: {},
         activeTimer: 60
     };
@@ -98,6 +99,7 @@ window.updateGameState = function(data) {
     gameState.twist = data.twist ?? gameState.twist;
     gameState.deck = data.deck ?? gameState.deck;
     gameState.decks = data.decks ?? gameState.decks;
+    gameState.twistsEnabled = data.twists_enabled !== undefined ? data.twists_enabled : gameState.twistsEnabled;
     gameState.challenges = data.challenges ?? gameState.challenges;
     gameState.activeTimer = data.active_timer ?? gameState.activeTimer;
     gameState.isAdmin = gameState.playerName === gameState.admin;
@@ -307,25 +309,26 @@ function renderReview() {
                 const myVote = challenge.votes?.[gameState.playerName];
                 challengeMarkup = `
                     <div class="challenge-box">
-                        <span class="challenge-label">Impugnada por ${escapeHtml(challenge.opened_by || '')}</span>
+                        <span class="challenge-label">${escapeHtml(t('challenge-by', { name: challenge.opened_by || '' }))}</span>
                         <div class="challenge-vote">
-                            <button type="button" class="vote-btn ${myVote === 'valid' ? 'is-picked' : ''}" data-challenge-action="valid" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">Vale (${valid})</button>
-                            <button type="button" class="vote-btn ${myVote === 'invalid' ? 'is-picked' : ''}" data-challenge-action="invalid" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">No vale (${invalid})</button>
+                            <button type="button" class="vote-btn ${myVote === 'valid' ? 'is-picked' : ''}" data-challenge-action="valid" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">${escapeHtml(t('vote-valid', { n: valid }))}</button>
+                            <button type="button" class="vote-btn ${myVote === 'invalid' ? 'is-picked' : ''}" data-challenge-action="invalid" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">${escapeHtml(t('vote-invalid', { n: invalid }))}</button>
                         </div>
                     </div>`;
             } else if (answer && player !== gameState.playerName && player !== botName) {
-                challengeMarkup = `<button type="button" class="impugnar-btn" data-challenge-action="open" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">Impugnar</button>`;
+                challengeMarkup = `<button type="button" class="impugnar-btn" data-challenge-action="open" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">${escapeHtml(t('impugnar'))}</button>`;
             }
 
+            const answerText = answer ? escapeHtml(answer) : `<em>${escapeHtml(t('empty'))}</em>`;
             return `<li>
                 <div class="review-row">
-                    <span><strong>${escapeHtml(category)}:</strong> ${escapeHtml(answer) || '<em>vacio</em>'} <span class="review-score">(${scoreText}${escapeHtml(reasonText)})</span></span>
+                    <span><strong>${escapeHtml(category)}:</strong> ${answerText} <span class="review-score">(${scoreText}${escapeHtml(reasonText)})</span></span>
                     ${challengeMarkup}
                 </div>
             </li>`;
         }).join('');
 
-        const selfTag = player === gameState.playerName ? '<span class="review-self">Vos</span>' : '';
+        const selfTag = player === gameState.playerName ? `<span class="review-self">${escapeHtml(t('you'))}</span>` : '';
         block.innerHTML = `<h4>${escapeHtml(player)} ${selfTag}</h4><ul>${rows}</ul>`;
         container.appendChild(block);
     });
@@ -533,9 +536,20 @@ function renderDeckPanel() {
         btn.className = `deck-chip ${deck.id === gameState.deck ? 'is-active' : ''}`;
         btn.dataset.deck = deck.id;
         btn.disabled = !gameState.isAdmin;
-        btn.innerHTML = `<span class="deck-chip-name">${escapeHtml(deck.label)}</span><span class="deck-chip-desc">${escapeHtml(deck.description || '')}</span>`;
+        btn.innerHTML = `<span class="deck-chip-name">${escapeHtml(deckLabel(deck))}</span><span class="deck-chip-desc">${escapeHtml(deckDescription(deck))}</span>`;
         options.appendChild(btn);
     });
+
+    const twistsCheckbox = document.getElementById('twists-checkbox');
+    if (twistsCheckbox) {
+        twistsCheckbox.checked = Boolean(gameState.twistsEnabled);
+        twistsCheckbox.disabled = !gameState.isAdmin;
+    }
+}
+
+function handleTwistsToggle(event) {
+    if (!gameState.isAdmin || !socketReady()) return;
+    gameState.websocket.send(JSON.stringify({ type: 'toggle_twists', enabled: event.target.checked }));
 }
 
 function handleDeckClick(event) {
@@ -631,8 +645,8 @@ function renderSpin() {
         if (center) center.textContent = '?';
         if (subtitle) {
             subtitle.textContent = wheel.auto
-                ? 'La rueda gira sola: letra completamente aleatoria.'
-                : (isThrower ? 'Te toca tirar la rueda.' : `Tira la rueda: ${wheel.thrower || 'jugador'}.`);
+                ? t('spin-auto')
+                : (isThrower ? t('spin-your-turn') : t('spin-thrower', { name: wheel.thrower || '' }));
         }
         if (spinBtn) {
             spinBtn.style.display = isThrower ? 'inline-block' : 'none';
@@ -640,14 +654,14 @@ function renderSpin() {
         }
         if (spinWait) {
             spinWait.textContent = wheel.auto
-                ? 'Sorteo automatico en curso.'
-                : (isThrower ? '' : 'Esperando al tirador.');
+                ? t('spin-auto-running')
+                : (isThrower ? '' : t('spin-wait-thrower'));
         }
         lastWheelKey = wheelKey;
         wheelSpinStarted = false;
     } else if (wheel.status === 'revealed') {
         if (spinBtn) spinBtn.style.display = 'none';
-        if (subtitle) subtitle.textContent = 'Salio la letra.';
+        if (subtitle) subtitle.textContent = t('spin-revealed');
         if (spinWait) spinWait.textContent = '';
 
         if (lastWheelKey !== wheelKey || !wheelSpinStarted) {
@@ -672,8 +686,10 @@ function renderTwistBanner(elId) {
         banner.style.display = 'none';
         return;
     }
+    const label = twistText(twist.id) || twist.label || '';
+    const description = twistText(twist.id, '-desc') || twist.description || '';
     banner.style.display = 'block';
-    banner.innerHTML = `<span class="twist-tag">Ronda con giro</span> <strong>${escapeHtml(twist.label)}</strong> — ${escapeHtml(twist.description || '')}`;
+    banner.innerHTML = `<span class="twist-tag">${escapeHtml(t('twist-tag'))}</span> <strong>${escapeHtml(label)}</strong> — ${escapeHtml(description)}`;
 }
 
 async function sha256Hex(text) {
@@ -706,12 +722,10 @@ async function updateFairPanel(wheel, pool) {
         const index = parseInt(digest.slice(0, 8), 16) % pool.length;
         const expected = pool[index];
         const ok = commitCheck === wheel.commit && expected === wheel.letter;
-        verdictEl.textContent = ok
-            ? 'Verificado: el hash coincide y la letra se deriva sin trampa.'
-            : 'Atencion: la verificacion no coincide.';
+        verdictEl.textContent = ok ? t('fair-ok') : t('fair-bad');
         verdictEl.className = `fair-verdict ${ok ? 'ok' : 'bad'}`;
     } catch (error) {
-        verdictEl.textContent = 'No se pudo verificar en este navegador.';
+        verdictEl.textContent = t('fair-novalid');
     }
 }
 
@@ -912,6 +926,43 @@ function escapeHtml(value) {
         .replaceAll('"', '&quot;');
 }
 
+// --- Helpers de traducción --------------------------------------------------
+
+function t(key, params) {
+    let text = (window.i18n && window.i18n.translate) ? window.i18n.translate(key) : key;
+    if (params) {
+        Object.keys(params).forEach(name => {
+            text = text.replaceAll(`{${name}}`, params[name]);
+        });
+    }
+    return text;
+}
+
+function deckLabel(deck) {
+    const key = `deck-${deck.id}`;
+    const translated = t(key);
+    return translated === key ? deck.label : translated;
+}
+
+function deckDescription(deck) {
+    const key = `deck-${deck.id}-desc`;
+    const translated = t(key);
+    return translated === key ? (deck.description || '') : translated;
+}
+
+function twistText(id, suffix) {
+    const key = `twist-${id}${suffix || ''}`;
+    const translated = t(key);
+    return translated === key ? '' : translated;
+}
+
+// Permite que el cambio de idioma vuelva a dibujar el contenido dinámico.
+window.refreshGameUI = function refreshGameUI() {
+    if (typeof scheduleUIRefresh === 'function') {
+        scheduleUIRefresh();
+    }
+};
+
 function syncBackendLinks() {
     const adminLink = document.getElementById('admin-link');
     if (!adminLink) return;
@@ -959,12 +1010,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const spinBtn = document.getElementById('spin-btn');
     const deckOptions = document.getElementById('deck-options');
+    const twistsCheckbox = document.getElementById('twists-checkbox');
     const allAnswers = document.getElementById('all-answers-container');
 
     if (joinForm) joinForm.addEventListener('submit', handleJoinGame);
     if (answersForm) answersForm.addEventListener('submit', handleAnswersSubmit);
     if (spinBtn) spinBtn.addEventListener('click', handleSpinClick);
     if (deckOptions) deckOptions.addEventListener('click', handleDeckClick);
+    if (twistsCheckbox) twistsCheckbox.addEventListener('change', handleTwistsToggle);
     if (allAnswers) allAnswers.addEventListener('click', handleChallengeAction);
     if (readyCheckbox) readyCheckbox.addEventListener('change', handleReadyChange);
     if (validateBtn) validateBtn.addEventListener('click', handleValidateContinue);

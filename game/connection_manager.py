@@ -72,6 +72,7 @@ class ConnectionManager:
                 "current_thrower": None,
                 "wheel": {},
                 "twist": {},
+                "twists_enabled": True,
                 "challenges": {},
                 "server_seed": "",      # secreto: nunca se transmite
                 "wheel_pool": [],
@@ -251,6 +252,7 @@ class ConnectionManager:
                 "current_thrower": game_data.get("current_thrower"),
                 "wheel": game_data.get("wheel", {}),
                 "twist": game_data.get("twist", {}),
+                "twists_enabled": game_data.get("twists_enabled", True),
             }
             
             # Añadir datos del último ganador si existen en las estadísticas
