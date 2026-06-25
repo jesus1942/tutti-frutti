@@ -1,0 +1,17 @@
+{
+  "name": "Tutti Frutti - Juego Multijugador",
+  "short_name": "Tutti Frutti",
+  "description": "Tutti Frutti online: sale una letra, corre el reloj y el primero en completar las categorias grita BASTA. Un juego de la Escuela Nueva Austral.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fbf7ea",
+  "theme_color": "#fbf7ea",
+  "icons": [
+    { "src": "./static/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./static/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./static/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
