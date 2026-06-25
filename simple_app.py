@@ -295,6 +295,54 @@ async def list_rooms():
     return {"rooms": rooms, "count": len(rooms)}
 
 
+@app.get("/dashboard")
+async def dashboard():
+    """Tablero de posiciones y desempeño de los jugadores.
+
+    Devuelve el top 5 por puntos más métricas de actividad y precisión
+    (aciertos, errores, duplicaciones) para mostrar en la pantalla de inicio.
+    """
+    runtime_stats_manager, _, _ = ensure_runtime()
+    data = runtime_stats_manager.stats
+    players = data.get("players", {})
+    bots = {"CPU Austral"}
+
+    rows = []
+    for name, p in players.items():
+        if name in bots:
+            continue
+        answers_total = p.get("answers_total", 0)
+        aciertos = p.get("aciertos", 0)
+        accuracy = round(100 * aciertos / answers_total) if answers_total else 0
+        rows.append({
+            "name": name,
+            "points": p.get("points_total", 0),
+            "aciertos": aciertos,
+            "errores": p.get("errores", 0),
+            "duplicaciones": p.get("duplicaciones", 0),
+            "answers_total": answers_total,
+            "accuracy": accuracy,
+            "games_played": p.get("games_played", 0),
+            "rounds_played": p.get("rounds_played", 0),
+            "connections": p.get("connections", 0),
+            "last_seen": p.get("last_seen", ""),
+        })
+
+    # Ranking por puntos (desc); desempate por aciertos.
+    rows.sort(key=lambda r: (r["points"], r["aciertos"]), reverse=True)
+
+    return {
+        "top": rows[:5],
+        "all": rows,
+        "totals": {
+            "total_games": data.get("total_games", 0),
+            "total_players": len(rows),
+            "active_rooms": data.get("active_rooms", 0),
+        },
+        "last_winner": data.get("last_winner", {}),
+    }
+
+
 @app.websocket("/ws/{game_id}/{player_name}")
 async def websocket_endpoint(websocket: WebSocket, game_id: str, player_name: str):
     """Endpoint WebSocket para la comunicación en tiempo real"""

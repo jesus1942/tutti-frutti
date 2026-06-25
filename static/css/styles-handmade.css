@@ -359,3 +359,30 @@ header, .brand-shell {
 .room-count { font-weight: 700; margin-right: 4px; }
 .room-bot { color: var(--accent); font-weight: 700; }
 .room-join { flex: 0 0 auto; }
+/* --- Tablero de posiciones --- */
+.dash-open-btn { display: block; width: 100%; margin: 14px 0 0; font-size: 1.15rem; padding: 12px; }
+.dash-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.dash-head h2 { margin: 0; }
+.dash-head-actions { display: flex; gap: 8px; }
+.dash-body { margin-top: 14px; }
+.dash-loading { text-align: center; color: var(--ink-soft); padding: 18px 6px; }
+.dash-totals { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; margin-bottom: 14px; font-size: 1.05rem; color: var(--ink-soft); }
+.dash-totals strong { color: var(--ink); font-size: 1.2rem; }
+.dash-table-wrap { overflow-x: auto; }
+.dash-table { width: 100%; border-collapse: collapse; min-width: 460px; }
+.dash-table th, .dash-table td { padding: 8px 6px; text-align: center; border-bottom: 1.5px solid var(--rule-line); }
+.dash-table th { font-family: 'Caveat', cursive !important; font-size: 1.25rem; color: var(--ink); }
+.dash-table .dash-name { text-align: left; font-weight: 700; color: var(--ink) !important; }
+.dash-table .dash-rank { font-size: 1.2rem; color: var(--ink) !important; }
+.dash-table .dash-points { font-weight: 700; color: var(--accent) !important; font-size: 1.1rem; }
+.dash-table .dash-ok { color: var(--good) !important; font-weight: 700; }
+.dash-table .dash-err { color: var(--danger) !important; font-weight: 700; }
+.dash-table .dash-dup { color: var(--grape, #7d5ba6) !important; font-weight: 700; }
+.dash-table .dash-acc { font-weight: 700; color: var(--ink) !important; }
+.dash-row.rank-1 { background: rgba(227, 160, 8, 0.14); }
+.dash-row.rank-2 { background: rgba(120, 130, 140, 0.10); }
+.dash-row.rank-3 { background: rgba(205, 75, 58, 0.10); }
+.act-bar { display: inline-block; width: 54px; height: 9px; background: var(--paper-2); border: 1.5px solid var(--ink); border-radius: 999px; overflow: hidden; vertical-align: middle; margin-right: 5px; }
+.act-bar > span { display: block; height: 100%; background: var(--accent); }
+.dash-act small { color: var(--ink-soft); }
+.dash-foot { margin-top: 12px; font-size: 0.92rem; color: var(--ink-soft); text-align: center; }

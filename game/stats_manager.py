@@ -104,6 +104,10 @@ class StatsManager:
                     "games_played": 0,
                     "points_total": 0,
                     "rounds_played": 0,
+                    "aciertos": 0,
+                    "errores": 0,
+                    "duplicaciones": 0,
+                    "answers_total": 0,
                     "last_seen": datetime.now().isoformat()
                 }
                 self.stats["total_players"] += 1
@@ -126,6 +130,24 @@ class StatsManager:
                     if key not in ["first_seen", "last_seen"]:
                         player[key] = value
     
+    def add_answer_outcomes(self, player_name, aciertos=0, errores=0, duplicaciones=0):
+        """Acumula el desempeño de un jugador en una ronda.
+
+        aciertos: respuestas válidas únicas; errores: vacías/inválidas;
+        duplicaciones: respuestas repetidas con otro jugador.
+        """
+        with self.lock:
+            if player_name not in self.stats["players"]:
+                # Reutiliza la inicialización estándar del jugador.
+                self.update_player_stats(player_name, "noop")
+
+            player = self.stats["players"][player_name]
+            player["aciertos"] = player.get("aciertos", 0) + aciertos
+            player["errores"] = player.get("errores", 0) + errores
+            player["duplicaciones"] = player.get("duplicaciones", 0) + duplicaciones
+            player["answers_total"] = player.get("answers_total", 0) + aciertos + errores + duplicaciones
+            player["last_seen"] = datetime.now().isoformat()
+
     def add_game_record(self, game_data):
         """Añadir registro de una partida completada"""
         with self.lock:
