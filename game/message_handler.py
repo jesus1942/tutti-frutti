@@ -98,6 +98,11 @@ class MessageHandler:
                 vote = str(message_data.get('vote', ''))
                 await self.handle_vote_challenge(game_id, player_name, target, category, vote)
 
+            elif message_type == 'approve_answer':
+                target = str(message_data.get('target', ''))
+                category = str(message_data.get('category', ''))
+                await self.handle_approve_answer(game_id, player_name, target, category)
+
             elif message_type == 'end_game':
                 await self.finish_game(game_id)
                 await self.manager.broadcast_game_state(game_id)
@@ -495,6 +500,37 @@ class MessageHandler:
         if key not in challenges:
             return
         challenges[key]['votes'][player_name] = vote
+        await self.manager.broadcast_game_state(game_id)
+
+    async def handle_approve_answer(self, game_id: str, player_name: str, target: str, category: str):
+        """El anfitrión aprueba una respuesta que quedó 'a revisar'.
+
+        Sirve para validar palabras reales que no figuran en el diccionario
+        local, sin tener que dárselas por válidas a todas automáticamente.
+        """
+        if game_id not in self.manager.games:
+            return
+        game = self.manager.games[game_id]
+        if game['status'] != 'reviewing':
+            return
+        if game.get('admin') != player_name:
+            print(f"{player_name} intento aprobar una respuesta sin ser anfitrión")
+            return
+
+        validated = game.setdefault('validated_answers', {})
+        reasons = game.setdefault('validation_reasons', {})
+        if target not in validated or category not in validated[target]:
+            return
+
+        validated[target][category] = 10
+        reasons.setdefault(target, {})[category] = 'aprobada por el anfitrión'
+
+        details = game.get('validation_details', {})
+        if target in details and category in details[target]:
+            details[target][category]['score'] = 10
+            details[target][category]['needs_review'] = False
+            details[target][category]['reason'] = 'aprobada por el anfitrión'
+
         await self.manager.broadcast_game_state(game_id)
 
     def resolve_challenges(self, game_id: str):
