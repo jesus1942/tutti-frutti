@@ -25,7 +25,16 @@ function createInitialGameState() {
         chatMessages: [],
         validatedAnswers: {},
         validationReasons: {},
-        submittedThisRound: false
+        validationDetails: {},
+        submittedThisRound: false,
+        // Sorteo de la letra y modos de juego.
+        currentThrower: null,
+        wheel: {},
+        twist: {},
+        deck: 'clasico',
+        decks: [],
+        challenges: {},
+        activeTimer: 60
     };
 }
 
@@ -37,10 +46,15 @@ let uiFrame = null;
 const screens = {
     welcome: document.getElementById('welcome-screen'),
     waiting: document.getElementById('waiting-room'),
+    spin: document.getElementById('spin-screen'),
     game: document.getElementById('game-screen'),
     review: document.getElementById('review-screen'),
     scores: document.getElementById('scores-screen')
 };
+
+// Clave para animar la rueda una sola vez por tirada.
+let lastWheelKey = '';
+let wheelSpinStarted = false;
 
 window.showScreen = function(screenName) {
     Object.values(screens).forEach(screen => {
@@ -78,7 +92,19 @@ window.updateGameState = function(data) {
     gameState.chatMessages = data.chat_messages ?? gameState.chatMessages;
     gameState.validatedAnswers = data.validated_answers ?? gameState.validatedAnswers;
     gameState.validationReasons = data.validation_reasons ?? gameState.validationReasons;
+    gameState.validationDetails = data.validation_details ?? gameState.validationDetails;
+    gameState.currentThrower = data.current_thrower !== undefined ? data.current_thrower : gameState.currentThrower;
+    gameState.wheel = data.wheel ?? gameState.wheel;
+    gameState.twist = data.twist ?? gameState.twist;
+    gameState.deck = data.deck ?? gameState.deck;
+    gameState.decks = data.decks ?? gameState.decks;
+    gameState.challenges = data.challenges ?? gameState.challenges;
+    gameState.activeTimer = data.active_timer ?? gameState.activeTimer;
     gameState.isAdmin = gameState.playerName === gameState.admin;
+
+    if (gameState.status !== 'reviewing') {
+        gameState.challenges = data.challenges ?? {};
+    }
 
     if (previousStatus !== gameState.status && gameState.status === 'playing') {
         gameState.submittedThisRound = false;
@@ -103,6 +129,9 @@ function updateUI() {
     updatePlayerList();
     updateRoundInfo();
     updateAdminPanel();
+    renderDeckPanel();
+    renderSpin();
+    renderTwistBanner('twist-banner-game');
     syncCategoryInputs();
     renderReview();
     renderScores();
@@ -184,8 +213,10 @@ function updateAdminPanel() {
         ? `<p><strong>Último ganador:</strong> ${gameState.lastWinner.name} (${gameState.lastWinner.score} pts)</p>`
         : '';
 
+    const deckLabel = (gameState.decks.find(d => d.id === gameState.deck) || {}).label || gameState.deck;
     adminPanel.innerHTML = `
         <h3>Opciones de Administrador</h3>
+        <p><strong>Mazo:</strong> ${escapeHtml(deckLabel)}</p>
         <p><strong>Modo STOP:</strong> ${gameState.stopMode}</p>
         <p><strong>Validación:</strong> ${gameState.autoValidate ? 'Automática' : 'Manual'}</p>
         <p><strong>Tiempo por ronda:</strong> ${gameState.timer}s</p>
@@ -252,6 +283,8 @@ function renderReview() {
         return;
     }
 
+    const botName = gameState.botName;
+
     players.forEach(player => {
         const block = document.createElement('div');
         block.className = 'review-block';
@@ -262,10 +295,38 @@ function renderReview() {
             const reason = gameState.validationReasons[player]?.[category];
             const scoreText = typeof points === 'number' ? `${points} pts` : 'Pendiente';
             const reasonText = reason ? ` · ${reason}` : '';
-            return `<li><strong>${category}:</strong> ${escapeHtml(answer)} <span>(${scoreText}${reasonText})</span></li>`;
+
+            const key = `${player}|${category}`;
+            const challenge = gameState.challenges?.[key];
+            let challengeMarkup = '';
+
+            if (challenge) {
+                const votes = Object.values(challenge.votes || {});
+                const invalid = votes.filter(v => v === 'invalid').length;
+                const valid = votes.filter(v => v === 'valid').length;
+                const myVote = challenge.votes?.[gameState.playerName];
+                challengeMarkup = `
+                    <div class="challenge-box">
+                        <span class="challenge-label">Impugnada por ${escapeHtml(challenge.opened_by || '')}</span>
+                        <div class="challenge-vote">
+                            <button type="button" class="vote-btn ${myVote === 'valid' ? 'is-picked' : ''}" data-challenge-action="valid" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">Vale (${valid})</button>
+                            <button type="button" class="vote-btn ${myVote === 'invalid' ? 'is-picked' : ''}" data-challenge-action="invalid" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">No vale (${invalid})</button>
+                        </div>
+                    </div>`;
+            } else if (answer && player !== gameState.playerName && player !== botName) {
+                challengeMarkup = `<button type="button" class="impugnar-btn" data-challenge-action="open" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">Impugnar</button>`;
+            }
+
+            return `<li>
+                <div class="review-row">
+                    <span><strong>${escapeHtml(category)}:</strong> ${escapeHtml(answer) || '<em>vacio</em>'} <span class="review-score">(${scoreText}${escapeHtml(reasonText)})</span></span>
+                    ${challengeMarkup}
+                </div>
+            </li>`;
         }).join('');
 
-        block.innerHTML = `<h4>${player}</h4><ul>${rows}</ul>`;
+        const selfTag = player === gameState.playerName ? '<span class="review-self">Vos</span>' : '';
+        block.innerHTML = `<h4>${escapeHtml(player)} ${selfTag}</h4><ul>${rows}</ul>`;
         container.appendChild(block);
     });
 }
@@ -408,6 +469,9 @@ function syncScreen() {
         case 'waiting':
             window.showScreen('waiting');
             break;
+        case 'spinning':
+            window.showScreen('spin');
+            break;
         case 'playing':
             window.showScreen('game');
             break;
@@ -447,6 +511,232 @@ function syncTimer() {
             submitAnswers(false);
         }
     }, 1000);
+}
+
+// --- Mazos tematicos --------------------------------------------------------
+
+function renderDeckPanel() {
+    const panel = document.getElementById('deck-panel');
+    const options = document.getElementById('deck-options');
+    if (!panel || !options) return;
+
+    if (gameState.status !== 'waiting' || !Array.isArray(gameState.decks) || !gameState.decks.length) {
+        panel.style.display = 'none';
+        return;
+    }
+    panel.style.display = 'block';
+
+    options.innerHTML = '';
+    gameState.decks.forEach(deck => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `deck-chip ${deck.id === gameState.deck ? 'is-active' : ''}`;
+        btn.dataset.deck = deck.id;
+        btn.disabled = !gameState.isAdmin;
+        btn.innerHTML = `<span class="deck-chip-name">${escapeHtml(deck.label)}</span><span class="deck-chip-desc">${escapeHtml(deck.description || '')}</span>`;
+        options.appendChild(btn);
+    });
+}
+
+function handleDeckClick(event) {
+    const chip = event.target.closest('.deck-chip');
+    if (!chip || !gameState.isAdmin || !socketReady()) return;
+    gameState.websocket.send(JSON.stringify({ type: 'set_deck', deck: chip.dataset.deck }));
+}
+
+// --- Rueda de la letra (sorteo justo verificable) ---------------------------
+
+function polarPoint(cx, cy, radius, angleDeg) {
+    const theta = (angleDeg * Math.PI) / 180;
+    return { x: cx + radius * Math.sin(theta), y: cy - radius * Math.cos(theta) };
+}
+
+function buildWheel(pool) {
+    const rotor = document.getElementById('wheel-rotor');
+    if (!rotor) return;
+
+    const signature = pool.join('');
+    if (rotor.dataset.signature === signature) return;
+    rotor.dataset.signature = signature;
+    rotor.innerHTML = '';
+
+    const cx = 160;
+    const cy = 160;
+    const radius = 150;
+    const slice = 360 / pool.length;
+    const svgNs = 'http://www.w3.org/2000/svg';
+
+    pool.forEach((letter, index) => {
+        const start = index * slice;
+        const end = start + slice;
+        const p0 = polarPoint(cx, cy, radius, start);
+        const p1 = polarPoint(cx, cy, radius, end);
+        const path = document.createElementNS(svgNs, 'path');
+        path.setAttribute('d', `M ${cx} ${cy} L ${p0.x.toFixed(2)} ${p0.y.toFixed(2)} A ${radius} ${radius} 0 0 1 ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} Z`);
+        path.setAttribute('class', index % 2 === 0 ? 'wheel-slice slice-a' : 'wheel-slice slice-b');
+        rotor.appendChild(path);
+
+        const label = polarPoint(cx, cy, radius * 0.72, start + slice / 2);
+        const text = document.createElementNS(svgNs, 'text');
+        text.setAttribute('x', label.x.toFixed(2));
+        text.setAttribute('y', label.y.toFixed(2));
+        text.setAttribute('class', 'wheel-letter');
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('dominant-baseline', 'central');
+        text.textContent = letter;
+        rotor.appendChild(text);
+    });
+}
+
+function animateWheelTo(letter, pool) {
+    const rotor = document.getElementById('wheel-rotor');
+    if (!rotor) return;
+    const index = pool.indexOf(letter);
+    if (index < 0) return;
+    const slice = 360 / pool.length;
+    const center = index * slice + slice / 2;
+    const target = 360 * 6 - center;
+    // Forzar reflow para reiniciar la transicion desde 0.
+    rotor.style.transition = 'none';
+    rotor.style.transform = 'rotate(0deg)';
+    void rotor.getBoundingClientRect();
+    rotor.style.transition = 'transform 3s cubic-bezier(0.16, 1, 0.3, 1)';
+    rotor.style.transform = `rotate(${target}deg)`;
+}
+
+function renderSpin() {
+    if (gameState.status !== 'spinning') {
+        lastWheelKey = '';
+        wheelSpinStarted = false;
+        return;
+    }
+
+    const wheel = gameState.wheel || {};
+    const pool = Array.isArray(wheel.allowed_letters) && wheel.allowed_letters.length
+        ? wheel.allowed_letters
+        : 'ABCDEFGHIJLMNOPRSTUV'.split('');
+    buildWheel(pool);
+
+    renderTwistBanner('twist-banner');
+
+    const subtitle = document.getElementById('spin-subtitle');
+    const spinBtn = document.getElementById('spin-btn');
+    const spinWait = document.getElementById('spin-wait');
+    const center = document.getElementById('wheel-center');
+    const isThrower = !wheel.auto && gameState.playerName === wheel.thrower;
+
+    const wheelKey = `${wheel.commit || ''}:${wheel.status || ''}`;
+
+    if (wheel.status === 'committed') {
+        if (center) center.textContent = '?';
+        if (subtitle) {
+            subtitle.textContent = wheel.auto
+                ? 'La rueda gira sola: letra completamente aleatoria.'
+                : (isThrower ? 'Te toca tirar la rueda.' : `Tira la rueda: ${wheel.thrower || 'jugador'}.`);
+        }
+        if (spinBtn) {
+            spinBtn.style.display = isThrower ? 'inline-block' : 'none';
+            spinBtn.disabled = false;
+        }
+        if (spinWait) {
+            spinWait.textContent = wheel.auto
+                ? 'Sorteo automatico en curso.'
+                : (isThrower ? '' : 'Esperando al tirador.');
+        }
+        lastWheelKey = wheelKey;
+        wheelSpinStarted = false;
+    } else if (wheel.status === 'revealed') {
+        if (spinBtn) spinBtn.style.display = 'none';
+        if (subtitle) subtitle.textContent = 'Salio la letra.';
+        if (spinWait) spinWait.textContent = '';
+
+        if (lastWheelKey !== wheelKey || !wheelSpinStarted) {
+            wheelSpinStarted = true;
+            lastWheelKey = wheelKey;
+            animateWheelTo(wheel.letter, pool);
+            window.setTimeout(() => {
+                const centerNow = document.getElementById('wheel-center');
+                if (centerNow) centerNow.textContent = wheel.letter || '?';
+            }, 2600);
+        }
+        updateFairPanel(wheel, pool);
+    }
+}
+
+function renderTwistBanner(elId) {
+    const banner = document.getElementById(elId);
+    if (!banner) return;
+    const twist = gameState.twist || {};
+    if (!twist.label || twist.id === 'normal') {
+        banner.textContent = '';
+        banner.style.display = 'none';
+        return;
+    }
+    banner.style.display = 'block';
+    banner.innerHTML = `<span class="twist-tag">Ronda con giro</span> <strong>${escapeHtml(twist.label)}</strong> — ${escapeHtml(twist.description || '')}`;
+}
+
+async function sha256Hex(text) {
+    const data = new TextEncoder().encode(text);
+    const buffer = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function randomHex(bytes) {
+    const arr = new Uint8Array(bytes);
+    crypto.getRandomValues(arr);
+    return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function updateFairPanel(wheel, pool) {
+    const commitEl = document.getElementById('fair-commit');
+    const serverEl = document.getElementById('fair-server');
+    const clientEl = document.getElementById('fair-client');
+    const resultEl = document.getElementById('fair-result');
+    const verdictEl = document.getElementById('fair-verdict');
+    if (commitEl) commitEl.textContent = (wheel.commit || '-').slice(0, 24) + '...';
+    if (serverEl) serverEl.textContent = wheel.server_seed || '-';
+    if (clientEl) clientEl.textContent = wheel.client_seed || '-';
+    if (resultEl) resultEl.textContent = wheel.letter || '-';
+
+    if (!verdictEl || !wheel.server_seed || !wheel.client_seed) return;
+    try {
+        const commitCheck = await sha256Hex(wheel.server_seed);
+        const digest = await sha256Hex(`${wheel.server_seed}:${wheel.client_seed}`);
+        const index = parseInt(digest.slice(0, 8), 16) % pool.length;
+        const expected = pool[index];
+        const ok = commitCheck === wheel.commit && expected === wheel.letter;
+        verdictEl.textContent = ok
+            ? 'Verificado: el hash coincide y la letra se deriva sin trampa.'
+            : 'Atencion: la verificacion no coincide.';
+        verdictEl.className = `fair-verdict ${ok ? 'ok' : 'bad'}`;
+    } catch (error) {
+        verdictEl.textContent = 'No se pudo verificar en este navegador.';
+    }
+}
+
+function handleSpinClick() {
+    const wheel = gameState.wheel || {};
+    if (wheel.auto || gameState.playerName !== wheel.thrower || !socketReady()) return;
+    const spinBtn = document.getElementById('spin-btn');
+    if (spinBtn) spinBtn.disabled = true;
+    gameState.websocket.send(JSON.stringify({ type: 'spin_wheel', client_seed: randomHex(8) }));
+}
+
+// --- Impugnaciones ----------------------------------------------------------
+
+function handleChallengeAction(event) {
+    const button = event.target.closest('[data-challenge-action]');
+    if (!button || !socketReady()) return;
+    const action = button.dataset.challengeAction;
+    const target = button.dataset.target;
+    const category = button.dataset.category;
+
+    if (action === 'open') {
+        gameState.websocket.send(JSON.stringify({ type: 'challenge_answer', target, category }));
+    } else if (action === 'valid' || action === 'invalid') {
+        gameState.websocket.send(JSON.stringify({ type: 'vote_challenge', target, category, vote: action }));
+    }
 }
 
 function handleJoinGame(event) {
@@ -667,8 +957,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToHomeBtn = document.getElementById('back-to-home-btn');
     const copyRoomIdBtn = document.getElementById('copy-room-id');
 
+    const spinBtn = document.getElementById('spin-btn');
+    const deckOptions = document.getElementById('deck-options');
+    const allAnswers = document.getElementById('all-answers-container');
+
     if (joinForm) joinForm.addEventListener('submit', handleJoinGame);
     if (answersForm) answersForm.addEventListener('submit', handleAnswersSubmit);
+    if (spinBtn) spinBtn.addEventListener('click', handleSpinClick);
+    if (deckOptions) deckOptions.addEventListener('click', handleDeckClick);
+    if (allAnswers) allAnswers.addEventListener('click', handleChallengeAction);
     if (readyCheckbox) readyCheckbox.addEventListener('change', handleReadyChange);
     if (validateBtn) validateBtn.addEventListener('click', handleValidateContinue);
     if (nextRoundBtn) nextRoundBtn.addEventListener('click', handleValidateContinue);

@@ -1,0 +1,318 @@
+/*
+ * Tema "hecho a mano" para Tutti Frutti.
+ *
+ * Estetica de cuaderno: hoja rayada, tipografia manuscrita, trazos
+ * irregulares dibujados a lapiz. Esta hoja se carga al final para
+ * sobreescribir el tema oscuro/aeroespacial previo.
+ */
+
+:root {
+    --paper: #fbf7ea;
+    --paper-2: #f3edd8;
+    --ink: #243140;
+    --ink-soft: #4a5a68;
+    --pencil: #3b4a5a;
+    --margin-red: #e07a63;
+    --rule-line: rgba(60, 90, 150, 0.16);
+    --accent: #2f8f83;
+    --accent-warm: #e3a008;
+    --danger: #cf4b3a;
+    --good: #2f8f5b;
+    --hand-box: 255px 14px 225px 14px / 14px 225px 14px 255px;
+    --hand-box-2: 14px 225px 18px 220px / 220px 16px 220px 18px;
+}
+
+/* Hoja rayada con margen rojo a la izquierda. */
+body {
+    background-color: var(--paper) !important;
+    background-image:
+        linear-gradient(90deg, transparent 46px, var(--margin-red) 46px, var(--margin-red) 48px, transparent 48px),
+        repeating-linear-gradient(180deg, transparent 0, transparent 31px, var(--rule-line) 31px, var(--rule-line) 32px) !important;
+    color: var(--ink) !important;
+    font-family: 'Patrick Hand', 'Comic Sans MS', cursive, sans-serif !important;
+}
+
+/* Atenuar el fondo de particulas del tema espacial. */
+.ambient-particles { opacity: 0.18 !important; mix-blend-mode: multiply; }
+
+h1, h2, h3, h4,
+.scores-header h2 {
+    font-family: 'Caveat', 'Patrick Hand', cursive !important;
+    color: var(--ink) !important;
+    letter-spacing: 0.5px;
+}
+h2 { font-size: 2.4rem !important; }
+
+p, label, span, button, input, td, th, li, summary, details {
+    font-family: 'Patrick Hand', cursive !important;
+    color: var(--ink);
+}
+
+/* Tarjetas y pantallas con borde dibujado a mano. */
+.container { background: transparent !important; box-shadow: none !important; }
+
+.screen,
+.sketch-card,
+.admin-panel,
+.room-info,
+.player-list-container,
+.game-board,
+.answers-review,
+.review-block {
+    background: var(--paper) !important;
+    border: 2.5px solid var(--ink) !important;
+    border-radius: var(--hand-box) !important;
+    box-shadow: 3px 4px 0 rgba(36, 49, 64, 0.16) !important;
+}
+
+.review-block { border-radius: var(--hand-box-2) !important; margin-bottom: 14px; padding: 12px 16px; }
+
+/* Botones tipo boceto. */
+.btn,
+button.primary-btn,
+.sketch-btn,
+.lang-btn,
+.mini-btn,
+.deck-chip,
+.impugnar-btn,
+.vote-btn {
+    font-family: 'Patrick Hand', cursive !important;
+    background: var(--paper-2) !important;
+    color: var(--ink) !important;
+    border: 2.5px solid var(--ink) !important;
+    border-radius: var(--hand-box) !important;
+    box-shadow: 2px 3px 0 rgba(36, 49, 64, 0.25) !important;
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+    cursor: pointer;
+}
+.btn:hover, .sketch-btn:hover, .deck-chip:hover, .impugnar-btn:hover, .vote-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 4px 0 rgba(36, 49, 64, 0.3) !important;
+}
+.btn:active { transform: translate(1px, 2px); box-shadow: 1px 1px 0 rgba(36,49,64,0.3) !important; }
+
+.primary-btn, .stop-btn {
+    background: var(--accent-warm) !important;
+    color: #2a2310 !important;
+}
+.stop-btn { background: var(--danger) !important; color: #fff !important; font-size: 1.3rem; }
+
+.lang-btn.active, .deck-chip.is-active {
+    background: var(--accent) !important;
+    color: #fff !important;
+}
+
+/* Entradas de texto como renglones de cuaderno. */
+input[type="text"], .category-input {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2.5px dashed var(--ink-soft) !important;
+    border-radius: 0 !important;
+    color: var(--ink) !important;
+    font-family: 'Gloria Hallelujah', 'Patrick Hand', cursive !important;
+    font-size: 1.05rem !important;
+}
+input[type="text"]:focus { outline: none; border-bottom-color: var(--accent) !important; }
+
+/* Tabla de respuestas. */
+.game-board table { width: 100%; border-collapse: collapse; }
+.game-board th { font-family: 'Caveat', cursive !important; font-size: 1.4rem; text-align: left; }
+.game-board td { padding: 8px 6px; border-bottom: 1.5px solid var(--rule-line); }
+
+/* Placa de la letra. */
+.letter-display h3 { font-size: 1.4rem !important; }
+#current-letter, #review-letter {
+    display: inline-block;
+    font-family: 'Caveat', cursive !important;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--danger) !important;
+    border: 3px solid var(--ink);
+    border-radius: var(--hand-box-2);
+    padding: 0 14px;
+    background: #fff5d6;
+}
+
+/* ---------- Rueda de la letra ---------- */
+.spin-stage { max-width: 520px; margin: 0 auto; padding: 22px 20px 26px; text-align: center; }
+.spin-subtitle { font-size: 1.2rem; color: var(--ink-soft); }
+
+.wheel-wrap { position: relative; width: 320px; max-width: 86vw; margin: 14px auto 6px; }
+.wheel-svg { width: 100%; height: auto; overflow: visible; filter: drop-shadow(3px 5px 0 rgba(36,49,64,0.18)); }
+
+#wheel-rotor { transform-box: fill-box; transform-origin: center; }
+
+.wheel-slice { stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.slice-a { fill: #fde7c7; }
+.slice-b { fill: #d8efe9; }
+.wheel-letter {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    fill: var(--ink);
+}
+
+/* Aguja del puntero, dibujada arriba. */
+.wheel-pointer {
+    position: absolute;
+    top: -6px; left: 50%;
+    width: 0; height: 0;
+    transform: translateX(-50%);
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 26px solid var(--danger);
+    filter: drop-shadow(1px 2px 0 rgba(36,49,64,0.4));
+    z-index: 3;
+}
+.wheel-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 78px; height: 78px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    font-family: 'Caveat', cursive;
+    font-size: 2.6rem; font-weight: 700;
+    color: var(--danger);
+    z-index: 2;
+}
+
+.spin-actions { margin-top: 10px; }
+.spin-wait { color: var(--ink-soft); min-height: 1.2em; }
+
+/* Panel de sorteo verificable. */
+.fair-panel {
+    margin: 16px auto 0;
+    text-align: left;
+    border: 2px dashed var(--ink-soft);
+    border-radius: 12px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.4);
+}
+.fair-panel summary { cursor: pointer; font-family: 'Caveat', cursive !important; font-size: 1.3rem; }
+.fair-note { color: var(--ink-soft); font-size: 0.95rem; }
+.mono { font-family: ui-monospace, Menlo, monospace !important; font-size: 0.82rem; word-break: break-all; }
+.fair-verdict.ok { color: var(--good); font-weight: 700; }
+.fair-verdict.bad { color: var(--danger); font-weight: 700; }
+
+/* Banner de ronda con giro. */
+.twist-banner {
+    margin: 10px auto;
+    padding: 8px 14px;
+    border: 2.5px solid var(--ink);
+    border-radius: var(--hand-box-2);
+    background: #fff0c2;
+    font-size: 1.05rem;
+}
+.twist-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 1px 8px;
+    border-radius: 8px;
+    margin-right: 6px;
+    font-family: 'Caveat', cursive !important;
+}
+
+/* ---------- Mazos ---------- */
+.deck-panel { padding: 14px 16px; margin-bottom: 14px; }
+.deck-hint { color: var(--ink-soft); margin-top: 0; }
+.deck-options { display: flex; flex-wrap: wrap; gap: 10px; }
+.deck-chip {
+    flex: 1 1 140px;
+    text-align: left;
+    padding: 8px 12px;
+    display: flex; flex-direction: column;
+}
+.deck-chip:disabled { opacity: 0.85; cursor: default; }
+.deck-chip-name { font-family: 'Caveat', cursive !important; font-size: 1.25rem; }
+.deck-chip-desc { font-size: 0.85rem; color: var(--ink-soft); }
+.deck-chip.is-active .deck-chip-desc { color: #eafaf6; }
+
+/* ---------- Impugnaciones ---------- */
+.impugnar-hint { color: var(--ink-soft); font-style: italic; }
+.review-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.review-score { color: var(--ink-soft); font-size: 0.92rem; }
+.review-self { background: var(--accent-warm); color: #2a2310; padding: 0 8px; border-radius: 8px; font-size: 0.9rem; }
+.impugnar-btn { padding: 2px 10px; font-size: 0.9rem; }
+.challenge-box {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    background: #fde2dc;
+    border: 2px solid var(--danger);
+    border-radius: 10px;
+    padding: 4px 8px;
+}
+.challenge-label { font-size: 0.85rem; color: var(--danger); }
+.challenge-vote { display: flex; gap: 6px; }
+.vote-btn { padding: 2px 10px; font-size: 0.88rem; }
+.vote-btn.is-picked { background: var(--accent) !important; color: #fff !important; }
+
+/* ---------- Suavizar el tablero de puntajes espacial ---------- */
+.scores-moon, .score-orbit, .scores-particles { display: none !important; }
+.scores-stage, .scoreboard, .score-highlight-card, .podium-card, .score-row {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    border: 2.5px solid var(--ink) !important;
+    border-radius: var(--hand-box) !important;
+    box-shadow: 3px 4px 0 rgba(36,49,64,0.16) !important;
+}
+.scores-live-pill { background: var(--accent) !important; color: #fff !important; border-radius: 10px; }
+.score-highlight-points, .podium-points, .score-row-points { color: var(--danger) !important; font-family: 'Caveat', cursive !important; }
+
+/* Insignias de jugador. */
+.player-badge { border: 2px solid var(--ink) !important; border-radius: 8px !important; background: var(--paper-2) !important; color: var(--ink) !important; }
+.player-badge.state-ready { background: #d4f0dd !important; }
+.player-badge.role-admin { background: #ffe7a8 !important; }
+
+footer, .footer { color: var(--ink-soft) !important; }
+.footer a, .admin-link { color: var(--accent) !important; }
+
+/* ---------- Overrides fuertes sobre el tema previo ---------- */
+header, .brand-shell {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+.brand-divider { background: var(--ink) !important; }
+.brand-logos, .footer-brand, .scores-brand-mark {
+    background: var(--paper) !important;
+    border: 2.5px solid var(--ink) !important;
+    border-radius: var(--hand-box) !important;
+    box-shadow: 2px 3px 0 rgba(36, 49, 64, 0.18) !important;
+}
+.footer, footer { background: transparent !important; box-shadow: none !important; }
+
+.screen.active { background: var(--paper) !important; color: var(--ink) !important; }
+
+#welcome-screen form {
+    background: var(--paper) !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+#welcome-screen form::before { display: none !important; }
+#welcome-screen h2,
+#welcome-screen .form-group label,
+#welcome-screen .form-inline-toggle label { color: var(--ink) !important; text-shadow: none !important; }
+#welcome-screen .form-group input {
+    background: transparent !important;
+    color: var(--ink) !important;
+    border: none !important;
+    border-bottom: 2.5px dashed var(--ink-soft) !important;
+    border-radius: 0 !important;
+}
+
+.game-info, .letter-display, .timer,
+.chat-container, .chat-messages, .chat-message,
+.room-id-wrapper, .ready-control {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+}
+.timer { font-family: 'Caveat', cursive !important; font-size: 1.4rem; }
+#time-left { color: var(--danger) !important; font-weight: 700; }
+
+@media (max-width: 520px) {
+    body { background-image: repeating-linear-gradient(180deg, transparent 0, transparent 29px, var(--rule-line) 29px, var(--rule-line) 30px) !important; }
+    h2 { font-size: 2rem !important; }
+}

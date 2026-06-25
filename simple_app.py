@@ -252,16 +252,16 @@ async def get_admin_redirect():
 async def websocket_endpoint(websocket: WebSocket, game_id: str, player_name: str):
     """Endpoint WebSocket para la comunicación en tiempo real"""
     _, runtime_connection_manager, runtime_message_handler = ensure_runtime()
-    print(f"⚡ Nueva conexión WebSocket recibida para {player_name} en sala {game_id}")
+    print(f"Nueva conexión WebSocket recibida para {player_name} en sala {game_id}")
     try:
         # Decodificar parámetros URL
         game_id = urllib.parse.unquote(game_id)
         player_name = urllib.parse.unquote(player_name)
         
         # Conectar al jugador
-        print(f"⚡ Intentando conectar a {player_name} en sala {game_id}")
+        print(f"Intentando conectar a {player_name} en sala {game_id}")
         await runtime_connection_manager.connect(websocket, game_id, player_name)
-        print(f"✅ Conexión establecida para {player_name} en sala {game_id}")
+        print(f"Conexión establecida para {player_name} en sala {game_id}")
         
         try:
             # Mantener la conexión activa y procesar mensajes
@@ -292,7 +292,7 @@ async def cleanup():
     runtime_stats_manager, runtime_connection_manager, _ = ensure_runtime()
     
     # Guardar estadísticas
-    print("\n🛑 Realizando limpieza antes de cerrar el servidor...")
+    print("\nRealizando limpieza antes de cerrar el servidor...")
     runtime_stats_manager.save_stats()
     runtime_stats_manager.stop_auto_save()
     
@@ -302,7 +302,7 @@ async def cleanup():
     except Exception as e:
         print(f"Error al cerrar conexiones WebSocket: {e}")
     
-    print("✅ Servidor detenido correctamente.")
+    print("Servidor detenido correctamente.")
 
 def handle_exit(*args, **kwargs):
     """Manejador de señales para cierre limpio"""
@@ -310,7 +310,7 @@ def handle_exit(*args, **kwargs):
     
     if server:
         server.should_exit = True
-        print("\n🛑 Recibiendo señal de terminación. Cerrando servidor...")
+        print("\nRecibiendo señal de terminación. Cerrando servidor...")
 
 if __name__ == "__main__":
     # Registrar función de cierre solo cuando se ejecuta como script.
@@ -388,7 +388,7 @@ if __name__ == "__main__":
     try:
         server.run()
     except KeyboardInterrupt:
-        print("\n🛑 Interrupción recibida. Cerrando servidor...")
+        print("\nInterrupción recibida. Cerrando servidor...")
     finally:
         # Asegurar la limpieza, incluso si hay excepciones
         import asyncio

@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutti Frutti - Juego Multijugador</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Caveat:wght@400;600;700&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/styles-inference.css">
     <link rel="stylesheet" href="/static/css/styles-dark.css">
     <link rel="stylesheet" href="/static/css/toast.css">
+    <link rel="stylesheet" href="/static/css/styles-handmade.css?v=1">
 </head>
 <body>
     <!-- Contenedor para notificaciones toast -->
@@ -48,8 +51,8 @@
             
             <!-- Selector de idioma -->
             <div class="language-selector">
-                <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
-                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="en">EN</button>
             </div>
         </div>
 
@@ -64,6 +67,13 @@
                 <p>Compartir este ID con tus amigos para que se unan.</p>
             </div>
             
+            <!-- Selector de mazo tematico -->
+            <div id="deck-panel" class="deck-panel sketch-card">
+                <h3>Mazo de categorias</h3>
+                <p class="deck-hint">El admin elige que categorias se juegan.</p>
+                <div id="deck-options" class="deck-options"></div>
+            </div>
+
             <!-- Opciones de administrador -->
             <div id="admin-controls" class="admin-panel">
                 <h3>Opciones de Administrador</h3>
@@ -81,6 +91,41 @@
             </div>
         </div>
 
+        <!-- Pantalla de sorteo de la letra (rueda) -->
+        <div id="spin-screen" class="screen">
+            <div class="spin-stage sketch-card">
+                <div id="twist-banner" class="twist-banner"></div>
+                <h2 id="spin-title">Sorteo de la letra</h2>
+                <p id="spin-subtitle" class="spin-subtitle">Preparando la rueda...</p>
+
+                <div class="wheel-wrap">
+                    <div class="wheel-pointer" aria-hidden="true"></div>
+                    <svg id="wheel-svg" class="wheel-svg" viewBox="0 0 320 320" role="img" aria-label="Rueda de letras">
+                        <g id="wheel-rotor"></g>
+                    </svg>
+                    <div id="wheel-center" class="wheel-center">?</div>
+                </div>
+
+                <div class="spin-actions">
+                    <button id="spin-btn" class="btn primary-btn sketch-btn" style="display:none;">Tirar la rueda</button>
+                    <p id="spin-wait" class="spin-wait"></p>
+                </div>
+
+                <!-- Panel de juego limpio: sorteo verificable -->
+                <details id="fair-panel" class="fair-panel">
+                    <summary>Sorteo verificable (a prueba de trampa)</summary>
+                    <div class="fair-body">
+                        <p class="fair-note">El servidor fija un hash antes de que se gire. El tirador aporta su giro sin conocer la semilla. Nadie puede forzar la letra.</p>
+                        <p><strong>Compromiso (hash):</strong> <span id="fair-commit" class="mono">-</span></p>
+                        <p><strong>Semilla del servidor:</strong> <span id="fair-server" class="mono">oculta hasta el revelado</span></p>
+                        <p><strong>Aporte del tirador:</strong> <span id="fair-client" class="mono">-</span></p>
+                        <p><strong>Resultado:</strong> <span id="fair-result" class="mono">-</span></p>
+                        <p id="fair-verdict" class="fair-verdict"></p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
         <!-- Pantalla de juego -->
         <div id="game-screen" class="screen">
             <div class="game-info">
@@ -91,6 +136,7 @@
                 <div class="timer">
                     <span id="time-left">60</span> segundos
                 </div>
+                <div id="twist-banner-game" class="twist-banner"></div>
             </div>
             
             <div class="game-board">
@@ -118,11 +164,12 @@
                 <h3>Letra: <span id="review-letter">A</span></h3>
             </div>
             
+            <p class="impugnar-hint">Si una respuesta te parece invalida, tocala para impugnarla. La sala vota y la mayoria decide.</p>
             <div class="answers-review">
                 <div id="all-answers-container">
                     <!-- Se llenará con JavaScript -->
                 </div>
-                
+
                 <button id="validate-btn" class="btn primary-btn" data-i18n="validate-continue">Validar y Continuar</button>
             </div>
         </div>
@@ -193,7 +240,7 @@
     <script src="/static/js/ambient-particles.js?v=1"></script>
     <script src="/static/js/i18n.js?v=8"></script>
     <script src="/static/js/config.js?v=8"></script>
-    <script src="/static/js/connect.js?v=9"></script>
-    <script src="/static/js/script.js?v=9"></script>
+    <script src="/static/js/connect.js?v=10"></script>
+    <script src="/static/js/script.js?v=10"></script>
 </body>
 </html>

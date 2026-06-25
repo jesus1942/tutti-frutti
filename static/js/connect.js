@@ -52,7 +52,7 @@ function connectToGame(gameId, playerName, options = {}) {
         
         // Evento: conexión establecida
         socket.onopen = () => {
-            console.log('✅ Conexión establecida correctamente');
+            console.log('Conexion establecida correctamente');
             clearTimeout(connectionTimeout);
             window.auth.showToast(`¡Conexión establecida! Bienvenido a la sala ${gameId}`, 'success');
             

@@ -150,11 +150,11 @@ def main():
         time.sleep(1)
 
         if admin_process and admin_process.poll() is not None:
-            print(f"⚠️ El panel de administración terminó con código {admin_process.returncode}")
+            print(f"El panel de administración terminó con código {admin_process.returncode}")
             admin_process = None
 
         if game_process and game_process.poll() is not None:
-            print(f"⚠️ El servidor del juego terminó con código {game_process.returncode}")
+            print(f"El servidor del juego terminó con código {game_process.returncode}")
             game_process = None
 
         if admin_process is None and game_process is None:

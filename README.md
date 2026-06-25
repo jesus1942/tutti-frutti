@@ -11,14 +11,35 @@ Esta implementación digital del juego utiliza:
 
 ## Características
 
-- Creación y unión a salas de juego
-- Generación de letras aleatorias
+- Creación y unión a salas de juego (jugable desde cualquier parte del mundo)
+- Rueda de la letra con turno de tirador y sorteo justo verificable
+- Mazos de categorías temáticos (clásico, exprés, mundo, cine, escuela)
+- Rondas con giro (relámpago, precisión, doble o nada)
+- Impugnaciones: la sala puede desafiar y votar respuestas dudosas
 - Sistema de puntuación
 - Validación automática o manual de respuestas
 - Chat en tiempo real
 - Panel de administración
 - Estadísticas de jugadores y partidas
 - Soporte para múltiples idiomas (ES/EN)
+- Estética hecha a mano (cuaderno, trazo a lápiz)
+
+## La rueda: sorteo justo verificable (anti-trampa)
+
+Cuando hay dos o más participantes humanos, cada ronda le toca tirar la
+rueda a un jugador distinto (turno rotativo). Para que el tirador no pueda
+hacer trampa se usa un esquema *commit-reveal*:
+
+1. El servidor genera una semilla secreta y publica solo su hash (compromiso)
+   antes de que nadie gire. Así no puede cambiar el resultado después.
+2. El tirador gira la rueda aportando su propia semilla, sin conocer la del
+   servidor. No puede predecir ni forzar la letra.
+3. Al revelar, el servidor combina ambas semillas con SHA-256 y deriva la
+   letra. Cualquiera puede verificar en el navegador que el hash coincide y
+   que la letra se deriva sin manipulación.
+
+Si se juega contra la máquina o en solitario, la tirada es automática y la
+letra es completamente aleatoria.
 
 ## Requisitos
 

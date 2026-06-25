@@ -16,6 +16,7 @@ import time
 import os
 from fastapi import WebSocket
 from game.stats_manager import StatsManager
+from game.game_modes import DEFAULT_DECK, deck_catalog, deck_categories
 
 class ConnectionManager:
     """Clase para gestionar conexiones WebSocket y salas de juego"""
@@ -52,8 +53,10 @@ class ConnectionManager:
                 "current_letter": "",
                 "rounds": 0,
                 "max_rounds": 5,
-                "categories": ["Nombre", "Animal", "Fruta/Verdura", "País/Ciudad", "Objeto"],
+                "deck": DEFAULT_DECK,
+                "categories": deck_categories(DEFAULT_DECK),
                 "timer": 60,
+                "active_timer": 60,
                 "round_start_time": 0,
                 "answers": {},
                 "scores": {},
@@ -64,13 +67,21 @@ class ConnectionManager:
                 "bot_enabled": False,
                 "bot_name": "CPU Austral",
                 "used_letters": [],
+                # Sorteo justo de la letra (commit-reveal) y turno de tirador.
+                "thrower_index": 0,
+                "current_thrower": None,
+                "wheel": {},
+                "twist": {},
+                "challenges": {},
+                "server_seed": "",      # secreto: nunca se transmite
+                "wheel_pool": [],
                 "game_start_time": time.time(),
                 "player_stats": {},
                 "chat_messages": [
                     # Mensaje inicial del sistema para el chat
                     {
                         "player": "Sistema",
-                        "message": "¡Bienvenido a la sala de chat! Escribe un mensaje para comenzar.",
+                        "message": "Bienvenido a la sala. Escribe un mensaje para comenzar.",
                         "timestamp": time.time()
                     }
                 ],
@@ -136,14 +147,14 @@ class ConnectionManager:
             # Verificar si era el último jugador activo y el juego estaba en marcha
             active_players = sum(1 for p, data in self.games[game_id]["players"].items() if data["connected"])
             if active_players < 1 and self.games[game_id]["status"] in ["playing", "reviewing"]:
-                print(f"⚠️ Menos de 2 jugadores activos. Pausando el juego en sala {game_id}")
+                print(f"Menos de 2 jugadores activos. Pausando el juego en sala {game_id}")
                 self.games[game_id]["status"] = "waiting"
                 # Agregar mensaje al chat
                 if 'chat_messages' not in self.games[game_id]:
                     self.games[game_id]['chat_messages'] = []
                 self.games[game_id]['chat_messages'].append({
                     'player': 'Sistema',
-                    'message': f'⚠️ {player_name} se ha desconectado. Se necesitan al menos 2 jugadores para continuar.',
+                    'message': f'{player_name} se ha desconectado. Se necesita al menos un jugador conectado para continuar.',
                     'timestamp': time.time()
                 })
             
@@ -216,15 +227,19 @@ class ConnectionManager:
             
             # Crear una versión limpia del estado para enviar a los clientes
             # (sin objetos que no se pueden serializar como websockets)
+            active_timer = game_data.get("active_timer", game_data["timer"])
             clean_data = {
                 "status": game_data["status"],
                 "players": {},
                 "current_letter": game_data["current_letter"],
                 "rounds": game_data["rounds"],
                 "max_rounds": game_data["max_rounds"],
+                "deck": game_data.get("deck", DEFAULT_DECK),
+                "decks": deck_catalog(),
                 "categories": game_data["categories"],
                 "timer": game_data["timer"],
-                "time_left": max(0, game_data["timer"] - (int(time.time()) - game_data["round_start_time"])) if game_data["round_start_time"] > 0 else game_data["timer"],
+                "active_timer": active_timer,
+                "time_left": max(0, active_timer - (int(time.time()) - game_data["round_start_time"])) if game_data["round_start_time"] > 0 else active_timer,
                 "scores": game_data["scores"],
                 "round_scores": game_data.get("round_scores", {}),
                 "transitioning_to_round": game_data.get("transitioning_to_round", False),
@@ -232,7 +247,10 @@ class ConnectionManager:
                 "bot_name": game_data.get("bot_name", "CPU Austral"),
                 "admin": game_data["admin"],
                 "stop_mode": game_data["stop_mode"],
-                "auto_validate": game_data["auto_validate"]
+                "auto_validate": game_data["auto_validate"],
+                "current_thrower": game_data.get("current_thrower"),
+                "wheel": game_data.get("wheel", {}),
+                "twist": game_data.get("twist", {}),
             }
             
             # Añadir datos del último ganador si existen en las estadísticas
@@ -265,6 +283,9 @@ class ConnectionManager:
                     clean_data["validated_answers"] = game_data["validated_answers"]
                 if "validation_reasons" in game_data:
                     clean_data["validation_reasons"] = game_data["validation_reasons"]
+                if "validation_details" in game_data:
+                    clean_data["validation_details"] = game_data["validation_details"]
+                clean_data["challenges"] = game_data.get("challenges", {})
                     
             # Enviar a todos los clientes conectados
             for connection in list(self.active_connections[game_id]):
