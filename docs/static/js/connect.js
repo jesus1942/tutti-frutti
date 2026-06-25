@@ -1,10 +1,18 @@
 // Configuración para WebSocket
 const SERVER_URL = window.tuttiConfig?.wsBase || '';
 
+// Render (plan free) duerme el servicio tras inactividad y puede tardar hasta
+// ~1 minuto en despertar. Por eso reintentamos la conexión durante ese lapso
+// en lugar de cortar a los pocos segundos.
+const CONNECT_BUDGET_MS = 70000;   // tiempo total que insistimos en conectar
+const PER_ATTEMPT_MS = 9000;       // espera máxima por intento individual
+const RETRY_GAP_MS = 2500;         // pausa entre reintentos
+
 console.log("Configuración del WebSocket:", SERVER_URL || 'sin backend configurado');
 
 /**
- * Función para conectar a una sala de juego mediante WebSocket
+ * Función para conectar a una sala de juego mediante WebSocket.
+ * Tolera el "cold start" de Render reintentando hasta CONNECT_BUDGET_MS.
  */
 function connectToGame(gameId, playerName, options = {}) {
     if (!SERVER_URL) {
@@ -31,38 +39,76 @@ function connectToGame(gameId, playerName, options = {}) {
     // Codificar parámetros para evitar problemas con caracteres especiales
     const encodedGameId = encodeURIComponent(gameId);
     const encodedPlayerName = encodeURIComponent(playerName);
-    
-    // Construir URL para el WebSocket
     const socketUrl = `${SERVER_URL}/ws/${encodedGameId}/${encodedPlayerName}`;
-    
-    console.log(`Intentando conectar a: ${socketUrl}`);
+    const httpBase = window.tuttiConfig?.backendUrl;
+
+    const deadline = Date.now() + CONNECT_BUDGET_MS;
+    let attempt = 0;
+    let wakingMsgShown = false;
+
+    // "Golpe" HTTP para empezar a despertar el servicio cuanto antes (best effort).
+    if (httpBase) {
+        try {
+            fetch(`${httpBase}/?wake=${Date.now()}`, { mode: 'no-cors', cache: 'no-store' }).catch(() => {});
+        } catch (e) { /* ignorar */ }
+    }
+
     window.auth.showToast(`Conectando a sala ${gameId}...`, 'info');
-    
-    try {
-        // Crear conexión WebSocket
-        const socket = new WebSocket(socketUrl);
-        
-        // Configurar timeout para detectar problemas de conexión
-        const connectionTimeout = setTimeout(() => {
-            if (socket.readyState !== WebSocket.OPEN) {
-                console.error('Timeout de conexión WebSocket después de 5 segundos');
-                window.auth.showToast('Error de conexión. Verifica que el servidor esté en ejecución.', 'error');
+
+    const scheduleRetry = () => {
+        if (Date.now() < deadline) {
+            if (!wakingMsgShown) {
+                wakingMsgShown = true;
+                window.auth.showToast(
+                    'Despertando el servidor (la primera vez puede tardar hasta 1 minuto)...',
+                    'info',
+                    9000
+                );
             }
-        }, 5000);
-        
+            setTimeout(attemptConnect, RETRY_GAP_MS);
+        } else {
+            window.auth.showToast(
+                'No se pudo conectar al servidor. Esperá unos segundos y volvé a intentar.',
+                'error',
+                8000
+            );
+        }
+    };
+
+    function attemptConnect() {
+        attempt += 1;
+        console.log(`Intentando conectar a: ${socketUrl} (intento ${attempt})`);
+
+        let settled = false;
+        let socket;
+        try {
+            socket = new WebSocket(socketUrl);
+        } catch (error) {
+            console.error('Error al crear el WebSocket:', error);
+            scheduleRetry();
+            return;
+        }
+
+        const perAttemptTimeout = setTimeout(() => {
+            if (!settled && socket.readyState !== WebSocket.OPEN) {
+                socket._intentionalClose = true;   // evitar que onclose dispare otro retry
+                try { socket.close(); } catch (e) { /* ignorar */ }
+                scheduleRetry();
+            }
+        }, PER_ATTEMPT_MS);
+
         // Evento: conexión establecida
         socket.onopen = () => {
+            settled = true;
+            clearTimeout(perAttemptTimeout);
             console.log('Conexion establecida correctamente');
-            clearTimeout(connectionTimeout);
             window.auth.showToast(`¡Conexión establecida! Bienvenido a la sala ${gameId}`, 'success');
-            
-            // Actualizar estado del juego
+
             window.gameState.websocket = socket;
             window.gameState.joined = true;
             window.gameState.gameId = gameId;
             window.gameState.playerName = playerName;
-            
-            // Mostrar sala de espera
+
             window.showScreen('waiting');
             const roomIdDisplay = document.getElementById('room-id-display');
             if (roomIdDisplay) {
@@ -76,7 +122,7 @@ function connectToGame(gameId, playerName, options = {}) {
                 }));
             }
         };
-        
+
         // Evento: recepción de mensajes
         socket.onmessage = (event) => {
             try {
@@ -87,7 +133,7 @@ function connectToGame(gameId, playerName, options = {}) {
                 console.error('Error al procesar mensaje:', error);
             }
         };
-        
+
         // Evento: cierre de conexión
         socket.onclose = (event) => {
             console.log(`Desconectado del servidor. Código: ${event.code}`);
@@ -99,21 +145,24 @@ function connectToGame(gameId, playerName, options = {}) {
                 return;
             }
 
-            window.auth.showToast(`La conexión con el servidor se ha cerrado.`, 'error');
+            // Cierre antes de abrir => el servidor seguramente sigue despertando: reintentar.
+            if (!settled) {
+                clearTimeout(perAttemptTimeout);
+                scheduleRetry();
+                return;
+            }
+
+            window.auth.showToast('La conexión con el servidor se ha cerrado.', 'error');
         };
-        
-        // Evento: error de conexión
+
+        // Evento: error de conexión (dejamos que onclose decida el reintento)
         socket.onerror = (error) => {
             console.error('Error en la conexión WebSocket:', error);
-            window.auth.showToast(`Error de conexión al servidor.`, 'error');
         };
-        
-        return socket;
-    } catch (error) {
-        console.error('Error al crear el WebSocket:', error);
-        window.auth.showToast(`No se pudo crear la conexión WebSocket: ${error.message}`, 'error');
-        return null;
     }
+
+    attemptConnect();
+    return null;
 }
 
 // Exponer la función globalmente
