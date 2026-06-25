@@ -33,7 +33,7 @@ class GameValidator:
         matches = get_close_matches(answer, list(dataset), n=1, cutoff=0.82)
         return matches[0] if matches else None
 
-    def build_validation_detail(self, category, raw_answer, score, reason, suggestion=None, usage="", canonical=""):
+    def build_validation_detail(self, category, raw_answer, score, reason, suggestion=None, usage="", canonical="", needs_review=False):
         return {
             "category": category,
             "answer": raw_answer,
@@ -43,6 +43,7 @@ class GameValidator:
             "suggestion": suggestion or "",
             "canonical": canonical or "",
             "usage": usage or "",
+            "needs_review": bool(needs_review),
         }
 
     def normalize_category(self, category):
@@ -105,38 +106,14 @@ class GameValidator:
             reason = "nombre demasiado corto para País/Ciudad (mínimo 4 caracteres)"
             return 0, reason, self.build_validation_detail(category, raw_answer, 0, reason)
 
-        if dataset is not None and clean_answer not in dataset:
-            suggestion = self.suggest_close_match(clean_answer, dataset)
-            if normalized_category in self.STRICT_DATASET_CATEGORIES:
-                if suggestion:
-                    canonical = lexicon.get_display(category, suggestion) or suggestion
-                    usage = lexicon.get_usage(category, suggestion)
-                    reason = f"no reconocida en {category}; posible corrección: {canonical}"
-                    return 0, reason, self.build_validation_detail(
-                        category,
-                        raw_answer,
-                        0,
-                        reason,
-                        suggestion=canonical,
-                        canonical=canonical,
-                        usage=usage,
-                    )
-                if normalized_category == "nombre" and self.is_plausible_name(raw_answer):
-                    canonical = self.format_display_text(raw_answer)
-                    usage = f'"{canonical}" fue aceptado como nombre propio plausible aunque todavia no figure en el lexico local.'
-                    reason = "valida como nombre plausible"
-                    return 10, reason, self.build_validation_detail(
-                        category,
-                        raw_answer,
-                        10,
-                        reason,
-                        canonical=canonical,
-                        usage=usage,
-                    )
-                reason = f"no reconocida como {category}"
-                return 0, reason, self.build_validation_detail(category, raw_answer, 0, reason)
+        have_lexicon = bool(dataset)
+        in_lexicon = have_lexicon and clean_answer in dataset
 
+        if have_lexicon and not in_lexicon:
+            # Hay diccionario para esta categoria y la palabra no figura en el.
+            suggestion = self.suggest_close_match(clean_answer, dataset)
             if suggestion:
+                # Parece un error de tipeo de una palabra conocida: no se acepta sola.
                 canonical = lexicon.get_display(category, suggestion) or suggestion
                 usage = lexicon.get_usage(category, suggestion)
                 reason = f"no reconocida en {category}; posible corrección: {canonical}"
@@ -149,10 +126,30 @@ class GameValidator:
                     canonical=canonical,
                     usage=usage,
                 )
-            else:
+            # Sin coincidencia cercana: ya no se da por valida automaticamente.
+            # Si parece una palabra, queda "a revisar" para que la sala/anfitrion
+            # decida; si ni siquiera parece una palabra, se rechaza.
+            if self.is_plausible_name(raw_answer):
                 canonical = self.format_display_text(raw_answer)
-                usage = f'"{canonical}" fue aceptada aunque no aparece todavía en el léxico local de {category}.'
+                reason = "a revisar: no figura en el diccionario"
+                return 0, reason, self.build_validation_detail(
+                    category,
+                    raw_answer,
+                    0,
+                    reason,
+                    canonical=canonical,
+                    needs_review=True,
+                )
+            reason = f"no reconocida como {category}"
+            return 0, reason, self.build_validation_detail(category, raw_answer, 0, reason)
 
+        if not have_lexicon and not self.is_plausible_name(raw_answer):
+            # Categoria sin diccionario local: al menos exigir que parezca una palabra.
+            reason = f"no reconocida como {category}"
+            return 0, reason, self.build_validation_detail(category, raw_answer, 0, reason)
+
+        # Aceptada: la palabra esta en el lexico, o la categoria no tiene
+        # diccionario local y la respuesta es plausible. Resta ver duplicados.
         is_duplicate = False
         for other_player, other_answers in game_data["answers"].items():
             if other_player == player or category not in other_answers:
@@ -164,8 +161,8 @@ class GameValidator:
 
         canonical = lexicon.get_display(category, clean_answer) or self.format_display_text(raw_answer)
         usage = lexicon.get_usage(category, clean_answer)
-        if not usage and dataset is not None and clean_answer not in dataset and normalized_category not in self.STRICT_DATASET_CATEGORIES:
-            usage = f'"{canonical}" fue aceptada aunque no aparece todavía en el léxico local de {category}.'
+        if not usage and not in_lexicon:
+            usage = f'"{canonical}" se acepto sin diccionario local para {category}.'
 
         if is_duplicate:
             reason = "respuesta duplicada"

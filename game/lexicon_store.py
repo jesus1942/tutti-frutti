@@ -8,7 +8,7 @@ import json
 from functools import lru_cache
 from pathlib import Path
 
-from game.lexicon_data import ANIMALS, CITIES, COUNTRIES, FRUITS_VEGETABLES, NAMES, OBJECTS
+from game.lexicon_data import ANIMALS, CITIES, COLORS, COUNTRIES, FOODS, FRUITS_VEGETABLES, NAMES, OBJECTS
 
 
 BASE_DATASETS = {
@@ -17,6 +17,8 @@ BASE_DATASETS = {
     "fruta/verdura": FRUITS_VEGETABLES,
     "pais/ciudad": COUNTRIES | CITIES,
     "objeto": OBJECTS,
+    "color": COLORS,
+    "comida": FOODS,
 }
 
 

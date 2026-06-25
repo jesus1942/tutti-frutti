@@ -324,10 +324,17 @@ function renderReview() {
                 challengeMarkup = `<button type="button" class="impugnar-btn" data-challenge-action="open" data-target="${escapeHtml(player)}" data-category="${escapeHtml(category)}">${escapeHtml(t('impugnar'))}</button>`;
             }
 
+            let approveMarkup = '';
+            if (gameState.isAdmin && answer && typeof reason === 'string'
+                && reason.indexOf('a revisar') === 0 && points === 0) {
+                approveMarkup = `<button type="button" class="approve-btn" data-approve-target="${escapeHtml(player)}" data-approve-category="${escapeHtml(category)}">${escapeHtml(t('approve'))}</button>`;
+            }
+
             const answerText = answer ? escapeHtml(answer) : `<em>${escapeHtml(t('empty'))}</em>`;
             return `<li>
                 <div class="review-row">
                     <span><strong>${escapeHtml(category)}:</strong> ${answerText} <span class="review-score">(${scoreText}${escapeHtml(reasonText)})</span></span>
+                    ${approveMarkup}
                     ${challengeMarkup}
                 </div>
             </li>`;
@@ -753,6 +760,16 @@ function handleSpinClick() {
 // --- Impugnaciones ----------------------------------------------------------
 
 function handleChallengeAction(event) {
+    const approveBtn = event.target.closest('.approve-btn');
+    if (approveBtn && socketReady()) {
+        gameState.websocket.send(JSON.stringify({
+            type: 'approve_answer',
+            target: approveBtn.dataset.approveTarget,
+            category: approveBtn.dataset.approveCategory
+        }));
+        return;
+    }
+
     const button = event.target.closest('[data-challenge-action]');
     if (!button || !socketReady()) return;
     const action = button.dataset.challengeAction;
