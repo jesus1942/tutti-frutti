@@ -1010,6 +1010,82 @@ function renderBackendStatus() {
     status.style.display = 'none';
 }
 
+// --- Lobby de salas activas -------------------------------------------------
+
+function joinRoomById(roomId) {
+    const playerNameInput = document.getElementById('player-name');
+    const playerName = playerNameInput ? playerNameInput.value.trim() : '';
+    if (!playerName) {
+        window.auth.showToast('Primero escribí tu nombre para entrar a la sala.', 'error');
+        if (playerNameInput) playerNameInput.focus();
+        return;
+    }
+    const gameIdInput = document.getElementById('game-id');
+    if (gameIdInput) gameIdInput.value = roomId;
+    const playVsBotInput = document.getElementById('play-vs-bot');
+    window.connectToGame(roomId, playerName, { botEnabled: Boolean(playVsBotInput?.checked) });
+}
+
+function renderRooms(rooms) {
+    const list = document.getElementById('rooms-list');
+    if (!list) return;
+
+    if (!rooms || rooms.length === 0) {
+        list.innerHTML = '<li class="rooms-empty">No hay salas activas todavía. ¡Creá la primera dejando el ID vacío!</li>';
+        return;
+    }
+
+    list.innerHTML = rooms.map((room) => {
+        const names = (room.players || []).map(escapeHtml).join(', ');
+        let extra = '';
+        if (room.status === 'playing' || room.status === 'reviewing') {
+            extra = ` &middot; R${room.round || 0}/${room.max_rounds || 0}`;
+            if (room.current_letter) extra += ` &middot; letra ${escapeHtml(room.current_letter)}`;
+        }
+        const bot = room.bot_enabled ? ' <span class="room-bot">+ CPU</span>' : '';
+        return `
+            <li class="room-card">
+                <div class="room-card-main">
+                    <div class="room-card-head">
+                        <span class="room-id">${escapeHtml(room.id)}</span>
+                        <span class="room-status status-${escapeHtml(room.status)}">${escapeHtml(room.status_label || room.status)}${extra}</span>
+                    </div>
+                    <div class="room-players"><span class="room-count">&#128100; ${room.player_count}</span> ${names}${bot}</div>
+                </div>
+                <button class="btn mini-btn room-join" type="button" data-room="${escapeHtml(room.id)}">Entrar</button>
+            </li>`;
+    }).join('');
+}
+
+let lobbyRefreshing = false;
+async function refreshLobby() {
+    const list = document.getElementById('rooms-list');
+    if (!list || lobbyRefreshing) return;
+    lobbyRefreshing = true;
+    try {
+        const base = window.tuttiConfig?.backendUrl || '';
+        const res = await fetch(`${base}/rooms`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`status ${res.status}`);
+        const data = await res.json();
+        renderRooms(data.rooms || []);
+    } catch (e) {
+        list.innerHTML = '<li class="rooms-empty">No se pudo cargar la lista (el servidor puede estar despertando). Tocá “Actualizar”.</li>';
+    } finally {
+        lobbyRefreshing = false;
+    }
+}
+
+function startLobbyPolling() {
+    refreshLobby();
+    if (window._lobbyTimer) clearInterval(window._lobbyTimer);
+    window._lobbyTimer = setInterval(() => {
+        const welcome = document.getElementById('welcome-screen');
+        if (welcome && welcome.classList.contains('active')) {
+            refreshLobby();
+        }
+    }, 6000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const joinForm = document.getElementById('join-form');
     const answersForm = document.getElementById('answers-form');
@@ -1038,7 +1114,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (backToHomeBtn) backToHomeBtn.addEventListener('click', handleBackToHome);
     if (copyRoomIdBtn) copyRoomIdBtn.addEventListener('click', handleCopyRoomId);
 
+    const refreshRoomsBtn = document.getElementById('refresh-rooms');
+    const roomsList = document.getElementById('rooms-list');
+    if (refreshRoomsBtn) refreshRoomsBtn.addEventListener('click', refreshLobby);
+    if (roomsList) {
+        roomsList.addEventListener('click', (event) => {
+            const joinBtn = event.target.closest('.room-join');
+            if (joinBtn && joinBtn.dataset.room) {
+                joinRoomById(joinBtn.dataset.room);
+            }
+        });
+    }
+
     syncBackendLinks();
     renderBackendStatus();
     window.showScreen('welcome');
+    startLobbyPolling();
 });
