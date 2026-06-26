@@ -400,3 +400,26 @@ header, .brand-shell {
     cursor: pointer;
 }
 .approve-btn:hover { transform: translate(-1px, -1px); }
+
+/* Pantalla de puntajes: el tema espacial dejaba estos textos casi blancos
+   (invisibles sobre la hoja crema). Se fuerzan a tinta legible. El badge de
+   posicion (.score-row-index) se deja claro porque va sobre fondo oscuro. */
+#scores-screen .scores-subtitle,
+#scores-screen .scoreboard-head,
+#scores-screen .scoreboard-head span,
+#scores-screen .score-highlight-card,
+#scores-screen .score-highlight-copy,
+#scores-screen .score-highlight-label,
+#scores-screen .score-highlight-main,
+#scores-screen .score-highlight-name,
+#scores-screen .score-highlight-meta,
+#scores-screen .score-highlight-meta span,
+#scores-screen .podium-topline,
+#scores-screen .podium-player,
+#scores-screen .score-row-name,
+#scores-screen .score-row-rounds,
+#scores-screen .score-row-unit,
+#scores-screen .round-chip,
+#scores-screen .round-chip strong {
+    color: var(--ink) !important;
+}
