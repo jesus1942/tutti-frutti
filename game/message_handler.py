@@ -687,9 +687,19 @@ class MessageHandler:
         for player, category_scores in validated.items():
             # Clasificar antes de aplicar modificadores: 10=acierto, 5=duplicada, 0=error.
             if record_outcomes and player != bot_name:
-                hits = sum(1 for v in category_scores.values() if v >= 10)
-                dups = sum(1 for v in category_scores.values() if v == 5)
-                errs = sum(1 for v in category_scores.values() if v <= 0)
+                player_details = game.get('validation_details', {}).get(player, {})
+                hits = dups = errs = 0
+                for cat, v in category_scores.items():
+                    if v >= 10:
+                        hits += 1
+                    elif v == 5:
+                        dups += 1
+                    elif player_details.get(cat, {}).get('needs_review'):
+                        # "A revisar": no figura en el diccionario y nadie la
+                        # aprobo. No es un error del jugador, no se cuenta.
+                        continue
+                    else:
+                        errs += 1
                 self.manager.stats.add_answer_outcomes(
                     player, aciertos=hits, errores=errs, duplicaciones=dups
                 )
