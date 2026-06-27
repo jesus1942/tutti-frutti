@@ -360,12 +360,13 @@ function renderScores() {
         .sort((a, b) => b[1] - a[1]);
 
     if (!orderedScores.length) {
-        highlight.innerHTML = '<div class="score-highlight-card">Todavía no hay puntajes cargados.</div>';
+        highlight.innerHTML = `<div class="score-highlight-card">${escapeHtml(t('no-scores-yet'))}</div>`;
         return;
     }
 
     const [leaderName, leaderPoints] = orderedScores[0];
     const distributedPoints = orderedScores.reduce((sum, [, points]) => sum + points, 0);
+    const playersWord = orderedScores.length === 1 ? t('player-one') : t('player-many');
     highlight.innerHTML = `
         <div class="score-highlight-card">
             <div class="score-orbit">
@@ -374,26 +375,26 @@ function renderScores() {
                 <span class="score-orbit-core"></span>
             </div>
             <div class="score-highlight-copy">
-                <div class="score-highlight-label">Comandando la órbita</div>
+                <div class="score-highlight-label">${escapeHtml(t('scores-leader'))}</div>
                 <div class="score-highlight-main">
                     <span class="score-highlight-name">${escapeHtml(leaderName)}</span>
                     <span class="score-highlight-points">${leaderPoints} pts</span>
                 </div>
                 <div class="score-highlight-meta">
-                    <span>${orderedScores.length} jugadores</span>
-                    <span>${distributedPoints} puntos distribuidos</span>
+                    <span>${orderedScores.length} ${escapeHtml(playersWord)}</span>
+                    <span>${distributedPoints} ${escapeHtml(t('points-distributed'))}</span>
                 </div>
             </div>
         </div>
     `;
 
     orderedScores.slice(0, 3).forEach(([player, points], index) => {
-        const medal = getMedalLabel(index);
+        const medalClass = getMedalLabel(index).toLowerCase();
         const card = document.createElement('div');
-        card.className = `podium-card podium-tier-${index + 1} medal-${medal.toLowerCase()} ${player === gameState.playerName ? 'is-self' : ''}`;
+        card.className = `podium-card podium-tier-${index + 1} medal-${medalClass} ${player === gameState.playerName ? 'is-self' : ''}`;
         card.innerHTML = `
-            <div class="podium-topline">Posición ${index + 1}</div>
-            <div class="podium-medal">${medal}</div>
+            <div class="podium-topline">${escapeHtml(t('position'))} ${index + 1}</div>
+            <div class="podium-medal">${escapeHtml(getMedalText(index))}</div>
             <div class="podium-player">${escapeHtml(player)}</div>
             <div class="podium-points">${points} pts</div>
             <div class="podium-ring"></div>
@@ -402,7 +403,8 @@ function renderScores() {
     });
 
     orderedScores.forEach(([player, points], index) => {
-        const medal = getMedalLabel(index);
+        const medalClass = getMedalLabel(index).toLowerCase();
+        const medalText = getMedalText(index);
         const rounds = [];
         for (let round = 1; round <= gameState.maxRounds; round += 1) {
             const roundValue = gameState.roundScores[player]?.[String(round)];
@@ -421,9 +423,9 @@ function renderScores() {
             <div class="score-row-body">
                 <div class="score-row-top">
                     <span class="score-row-name">${escapeHtml(player)}</span>
-                    <span class="score-row-medal medal-${medal.toLowerCase()}">${medal}</span>
+                    <span class="score-row-medal medal-${medalClass}">${escapeHtml(medalText)}</span>
                 </div>
-                <div class="score-row-rounds">${rounds.length ? rounds.join('') : '<span class="round-chip is-empty">Sin ronda cerrada</span>'}</div>
+                <div class="score-row-rounds">${rounds.length ? rounds.join('') : `<span class="round-chip is-empty">${escapeHtml(t('no-round'))}</span>`}</div>
             </div>
             <div class="score-row-total">
                 <span class="score-row-points">${points}</span>
@@ -438,6 +440,13 @@ function getMedalLabel(index) {
     if (index === 0) return 'Oro';
     if (index === 1) return 'Plata';
     if (index === 2) return 'Bronce';
+    return '-';
+}
+
+function getMedalText(index) {
+    if (index === 0) return t('medal-gold');
+    if (index === 1) return t('medal-silver');
+    if (index === 2) return t('medal-bronze');
     return '-';
 }
 

@@ -1,6 +1,17 @@
 // Configuración para WebSocket
 const SERVER_URL = window.tuttiConfig?.wsBase || '';
 
+// Traduce un texto con interpolación simple de {param}.
+function tr(key, params) {
+    let text = (window.i18n && window.i18n.translate) ? window.i18n.translate(key) : key;
+    if (params) {
+        Object.keys(params).forEach((name) => {
+            text = text.replace(new RegExp('\\{' + name + '\\}', 'g'), params[name]);
+        });
+    }
+    return text;
+}
+
 // Render (plan free) duerme el servicio tras inactividad y puede tardar hasta
 // ~1 minuto en despertar. Por eso reintentamos la conexión durante ese lapso
 // en lugar de cortar a los pocos segundos.
@@ -16,11 +27,7 @@ console.log("Configuración del WebSocket:", SERVER_URL || 'sin backend configur
  */
 function connectToGame(gameId, playerName, options = {}) {
     if (!SERVER_URL) {
-        window.auth.showToast(
-            'Falta configurar el backend del juego. Agrega ?backend=https://tu-backend o define window.TUTTI_CONFIG.backendUrl.',
-            'error',
-            6000
-        );
+        window.auth.showToast(tr('conn-missing-backend'), 'error', 6000);
         return null;
     }
 
@@ -53,25 +60,17 @@ function connectToGame(gameId, playerName, options = {}) {
         } catch (e) { /* ignorar */ }
     }
 
-    window.auth.showToast(`Conectando a sala ${gameId}...`, 'info');
+    window.auth.showToast(tr('conn-connecting', { room: gameId }), 'info');
 
     const scheduleRetry = () => {
         if (Date.now() < deadline) {
             if (!wakingMsgShown) {
                 wakingMsgShown = true;
-                window.auth.showToast(
-                    'Despertando el servidor (la primera vez puede tardar hasta 1 minuto)...',
-                    'info',
-                    9000
-                );
+                window.auth.showToast(tr('conn-waking'), 'info', 9000);
             }
             setTimeout(attemptConnect, RETRY_GAP_MS);
         } else {
-            window.auth.showToast(
-                'No se pudo conectar al servidor. Esperá unos segundos y volvé a intentar.',
-                'error',
-                8000
-            );
+            window.auth.showToast(tr('conn-failed'), 'error', 8000);
         }
     };
 
@@ -102,7 +101,7 @@ function connectToGame(gameId, playerName, options = {}) {
             settled = true;
             clearTimeout(perAttemptTimeout);
             console.log('Conexion establecida correctamente');
-            window.auth.showToast(`¡Conexión establecida! Bienvenido a la sala ${gameId}`, 'success');
+            window.auth.showToast(tr('conn-established', { room: gameId }), 'success');
 
             window.gameState.websocket = socket;
             window.gameState.joined = true;
@@ -152,7 +151,7 @@ function connectToGame(gameId, playerName, options = {}) {
                 return;
             }
 
-            window.auth.showToast('La conexión con el servidor se ha cerrado.', 'error');
+            window.auth.showToast(tr('conn-closed'), 'error');
         };
 
         // Evento: error de conexión (dejamos que onclose decida el reintento)

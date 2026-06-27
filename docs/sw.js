@@ -1,7 +1,7 @@
 /* Service worker minimo para Tutti Frutti (PWA instalable).
  * Estrategia: network-first solo para recursos del mismo origen.
  * Las llamadas al backend (otro origen) pasan de largo sin tocarse. */
-const CACHE = 'tutti-frutti-v8';
+const CACHE = 'tutti-frutti-v9';
 const CORE = [
   './',
   './index.html',
