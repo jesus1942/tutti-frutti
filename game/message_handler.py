@@ -438,6 +438,42 @@ class MessageHandler:
         await self.manager.broadcast_game_state(game_id)
         self.schedule_bot_turn(game_id)
 
+        # Red de seguridad: corta la ronda aunque algun cliente o el bot no
+        # envie sus respuestas, para que nunca quede colgada.
+        active_timer = game.get('active_timer', game.get('timer', 60))
+        asyncio.create_task(self._round_time_limit(game_id, game['rounds'], active_timer))
+
+    async def _round_time_limit(self, game_id: str, round_index: int, seconds: float):
+        """Fuerza el paso a revision cuando se agota el tiempo de la ronda.
+
+        Se da una pequena gracia para que lleguen los auto-envios de los
+        clientes; si la ronda sigue 'playing', se completa lo que falte.
+        """
+        await asyncio.sleep(max(1.0, seconds) + 3.0)
+
+        game = self.manager.games.get(game_id)
+        if not game:
+            return
+        # Si la ronda ya avanzo (otro jugador/el bot disparo la revision), salir.
+        if game.get('status') != 'playing' or game.get('rounds') != round_index:
+            return
+
+        print(f"Tiempo agotado en sala {game_id}: se fuerza la revision de la ronda {round_index + 1}")
+
+        # Asegurar una entrada de respuestas (aunque sea vacia) para cada
+        # jugador conectado, asi la validacion no se traba.
+        answers = game.setdefault('answers', {})
+        for p_name, p_data in game['players'].items():
+            if p_data.get('connected') and p_name not in answers:
+                answers[p_name] = {}
+
+        game['status'] = 'reviewing'
+        game['challenges'] = {}
+        if game.get('auto_validate'):
+            self.validator.auto_validate_answers(game)
+
+        await self.manager.broadcast_game_state(game_id)
+
     async def handle_set_deck(self, game_id: str, player_name: str, deck_id: str):
         """El admin elige el mazo tematico en la sala de espera."""
         if game_id not in self.manager.games:
